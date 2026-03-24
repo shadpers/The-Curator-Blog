@@ -1,0 +1,289 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██      
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-03-14 17:31:13
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Dead Space 2 [FitGirl Repack] (+Fix).zip
+Size: 6203266791 bytes
+MD5: FCC23B66A0B26F543BEC17002E7E7F8C
+SHA256: 745CA31A7BD4AFC94B23566B358DB7628D0F9044132653F2E3E43E5831AA9439
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.5.0.237
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 150.0.5500
+Coredllfileversion: 3.1.0.211
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.107994
+Detectiondatetime: 2026-03-14T20:31:02Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.8037)
+Objectsscanned: 1
+Scanendtime: 2026-03-14T20:31:11Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-03-14T20:31:02Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.24.8.522
+Last Database Update: 2026-03-14 17:00:07
+
+Scan Result:
+; --- Settings ---
+; Action on detect:		Disinfect automatically
+; Scan objects:			All objects
+; Use iChecker:			Yes
+; Use iSwift:				Yes
+; Try disinfect:			Yes
+; Try delete:				No
+; Try delete container:	No
+; Scan archives:			No
+; Exclude by mask:		No
+; Include by mask:		No
+; Objects to scan:	
+; 	"C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip"	Enable = Yes	Recursive = No
+2026-03-14 17:28:59	Scan_Objects$1856                          starting   1          
+2026-03-14 17:28:59	Scan_Objects$1856                          running    1          
+2026-03-14 17:28:59	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip:Zone.Identifier	ok
+2026-03-14 17:28:59 	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip	archive	ZIP
+2026-03-14 17:29:10	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-01.bin	ok
+2026-03-14 17:29:19	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-02.bin	ok
+2026-03-14 17:29:25	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-03.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-04.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-05.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-06.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-07.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-08.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-09.bin	ok
+2026-03-14 17:29:28	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-10.bin	ok
+2026-03-14 17:29:30	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-eng-rus.bin	ok
+2026-03-14 17:29:31	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-french.bin	ok
+2026-03-14 17:29:33	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-german.bin	ok
+2026-03-14 17:29:33	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-italian.bin	ok
+2026-03-14 17:29:37	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-russian-vo.bin	ok
+2026-03-14 17:29:38	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-spa-ger-fre-ita.bin	ok
+2026-03-14 17:29:41	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-spa-ita.bin	ok
+2026-03-14 17:29:41	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/fg-selective-spanish.bin	ok
+2026-03-14 17:29:41	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2026-03-14 17:29:41	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2026-03-14 17:29:41	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2026-03-14 17:29:42 	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe	archive	Inno
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//exe//data0035.res	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//exe//data0037.res	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//exe	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//script	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0000	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0001	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0002	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0003	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0004	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0005	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0006	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0007	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0008	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0009	ok
+2026-03-14 17:29:42	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0010	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0011	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0012	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0013	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0014	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0015	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0016	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0017	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0018	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0019	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0020	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0021	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0022	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0023	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0024	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0025	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0026	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0027	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0028	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0029	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0030	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0031	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0032	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0033	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0034	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0035	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0036	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0037	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0038	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0039	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0040	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0041	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0042	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0043	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0044	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0045	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0046	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0047	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0048	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0049	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0050	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0051	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0052	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0053	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0054	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0055	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0056	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0057	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0058	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0059	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0060	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0061	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0062	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0063	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0064	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0065	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0066	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0067	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0068	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0069	ok
+2026-03-14 17:29:43	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe//data0070	ok
+2026-03-14 17:29:44	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/setup.exe	ok
+2026-03-14 17:29:44	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2026-03-14 17:29:44 	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/^10 Core CPU ⁄ Win 11 Fix.zip	archive	ZIP
+2026-03-14 17:29:45	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/^10 Core CPU ⁄ Win 11 Fix.zip//d3d9.dll	ok
+2026-03-14 17:29:45	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/^10 Core CPU ⁄ Win 11 Fix.zip//dxwrapper.dll//#	ok
+2026-03-14 17:29:45	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/^10 Core CPU ⁄ Win 11 Fix.zip//dxwrapper.dll	ok
+2026-03-14 17:29:45	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/^10 Core CPU ⁄ Win 11 Fix.zip//readme.txt	ok
+2026-03-14 17:29:45	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip//Dead Space 2 [FitGirl Repack]/^10 Core CPU ⁄ Win 11 Fix.zip	ok
+2026-03-14 17:29:45	C:\Users\[USER]\Downloads\Dead Space 2 [FitGirl Repack] (+Fix).zip	ok
+2026-03-14 17:29:48	Scan_Objects$1856                          completed             
+;  --- Statistics ---
+; Time Start:	2026-03-14 17:28:59
+; Time Finish:	2026-03-14 17:29:48
+; Processed objects:		105
+; Total OK:					105
+; Total detected:			0
+; Suspicions:				0
+; Total skipped:			0
+; Password protected:	0
+; Corrupted:				0
+; Errors:					0
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$1849                          completed             
+ Scan_Objects$1852                          completed             
+ Scan_Objects$1854                          completed             
+ Scan_Qscan                                 paused     1          
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         completed             
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

@@ -1,0 +1,281 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-01-03 21:27:11
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Hollow Knight - Silksong [FitGirl Repack].zip
+Size: 1766466881 bytes
+MD5: 5585308BF949187A4604171697E82021
+SHA256: A9F46FF62ECD24D03C87361C9A58DB97B355E049CC3EF4A428CF0428D4B18B0A
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 01/03/2026 21:46:24
+Scanned File: C:\Users\VMWare 17\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip
+
+--- File Information ---
+Name: Hollow Knight - Silksong [FitGirl Repack].zip
+Size: 1725065.31 KB
+Last Modified: 01/03/2026 18:38:11
+SHA256: A9F46FF62ECD24D03C87361C9A58DB97B355E049CC3EF4A428CF0428D4B18B0A
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.491.0
+Antispyware DB Version: 1.443.491.0
+Last Update: 01/03/2026 11:48:40
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 13.94 seconds
+Threats Found: 0
+
+No threats detected.
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106115
+Detectiondatetime: 2026-01-04T00:27:01Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2026-01-04T00:27:08Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-01-04T00:27:01Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2026-01-03 19:22:53
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip"	Enable = Yes	Recursive = No
+; ------------------
+2026-01-03 21:25:54	Scan_Objects$5484                          starting   1          
+2026-01-03 21:25:54	Scan_Objects$5484                          running    1          
+2026-01-03 21:25:54 	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip	archive	ZIP
+2026-01-03 21:25:59	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/fg-01.bin	ok
+2026-01-03 21:26:02	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/fg-02.bin	ok
+2026-01-03 21:26:03	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/fg-03.bin	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/fg-04.bin	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2026-01-03 21:26:04 	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe	archive	Inno
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//exe//data0035.res	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//exe//data0037.res	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//exe	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//script	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0000	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0001	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0002	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0003	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0004	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0005	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0006	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0007	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0008	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0009	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0010	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0011	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0012	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0013	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0014	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0015	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0016	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0017	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0018	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0019	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0020	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0021	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0022	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0023	ok
+2026-01-03 21:26:04	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0024	ok
+2026-01-03 21:26:05 	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0025	packed	UPX
+2026-01-03 21:26:05	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0025//UPX	ok
+2026-01-03 21:26:05	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0025	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0026	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0027	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0028	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0029//#	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0029	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0030//#	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0030	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0031	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0032	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0033	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0034	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0035	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0036	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0037	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0038	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0039	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0040	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0041	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0042	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0043	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0044	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0045	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0046	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0047	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0048	ok
+2026-01-03 21:26:06	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe//data0049	ok
+2026-01-03 21:26:07	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/setup.exe	ok
+2026-01-03 21:26:07	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip//Hollow Knight - Silksong [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2026-01-03 21:26:07	C:\Users\horak\Downloads\Hollow Knight - Silksong [FitGirl Repack].zip	ok
+2026-01-03 21:26:14	Scan_Objects$5484                          completed             
+;  --- Statistics ---
+; Time Start:	2026-01-03 21:25:54
+; Time Finish:	2026-01-03 21:26:14
+; Processed objects:	66
+; Total OK:	66
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:	0
+; Errors:	0
+;  ------------------
+
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$5482                          completed             
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

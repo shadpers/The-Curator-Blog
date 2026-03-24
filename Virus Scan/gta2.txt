@@ -1,0 +1,233 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-01-07 20:44:34
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Grand Theft Auto 2 [ElAmigos].zip
+Size: 327573421 bytes
+MD5: AFE2227594D89B2C06EFE7A2C9DC8169
+SHA256: 5760B6030E6BB4B64F4706A1589A8464FB3684912E7937A3F595AF9F47E2CF3A
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 01/07/2026 20:55:19
+Scanned File: C:\Users\VMWare 17\Downloads\Grand Theft Auto 2 [ElAmigos].zip
+
+--- File Information ---
+Name: Grand Theft Auto 2 [ElAmigos].zip
+Size: 319895.92 KB
+Last Modified: 01/05/2026 20:11:07
+SHA256: 5760B6030E6BB4B64F4706A1589A8464FB3684912E7937A3F595AF9F47E2CF3A
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.545.0
+Antispyware DB Version: 1.443.545.0
+Last Update: 01/07/2026 05:05:57
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 11.14 seconds
+Threats Found: 0
+
+No threats detected.
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106213
+Detectiondatetime: 2026-01-07T23:44:24Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2026-01-07T23:44:32Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-01-07T23:44:24Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2026-01-07 20:18:25
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip"	Enable = Yes	Recursive = No
+; ------------------
+2026-01-07 20:43:55	Scan_Objects$5849                          starting   1          
+2026-01-07 20:43:55 	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip	archive	ZIP
+2026-01-07 20:43:55	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/autorun.inf	ok
+2026-01-07 20:43:55	Scan_Objects$5849                          running    1          
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/elamigos-1.bin	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/elamigos-brazilianportuguese.bin	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/elamigos-czech.bin	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/elamigos-polish.bin	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/elamigos.jpg	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/Grand2.ico	ok
+2026-01-07 20:43:57 	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe	archive	Inno
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//exe//data0034.res	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//exe//data0036.res	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//exe	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//script	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0000	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0001	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0002	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0003	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0004	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0005	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0006	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0007	ok
+2026-01-07 20:43:57	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe//data0008	ok
+2026-01-07 20:43:58	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip//Grand Theft Auto 2 [ElAmigos]/setup.exe	ok
+2026-01-07 20:43:58	C:\Users\horak\Downloads\Grand Theft Auto 2 [ElAmigos].zip	ok
+2026-01-07 20:44:01	Scan_Objects$5849                          completed             
+;  --- Statistics ---
+; Time Start:	2026-01-07 20:43:55
+; Time Finish:	2026-01-07 20:44:01
+; Processed objects:	22
+; Total OK:	22
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:	0
+; Errors:	0
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$5845                          completed             
+ Scan_Objects$5847                          completed             
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

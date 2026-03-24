@@ -1,0 +1,235 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██      
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-03-14 17:26:04
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip
+Size: 8752057349 bytes
+MD5: 4328FF816C82F8C31393E662D03B642E
+SHA256: 9DBD1A82EA48081CAF51626F9DA5DCAE1C67EE628352EF05DC17382B8326C811
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.5.0.237
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 150.0.5500
+Coredllfileversion: 3.1.0.211
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.107994
+Detectiondatetime: 2026-03-14T20:25:53Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.8037)
+Objectsscanned: 1
+Scanendtime: 2026-03-14T20:26:02Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-03-14T20:25:53Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.24.8.522
+Last Database Update: 2026-03-14 17:00:07
+
+Scan Result:
+; --- Settings ---
+; Action on detect:		Disinfect automatically
+; Scan objects:			All objects
+; Use iChecker:			Yes
+; Use iSwift:			Yes
+; Try disinfect:		Yes
+; Try delete:			No
+; Try delete container:		No
+; Scan archives:		No
+; Exclude by mask:		No
+; Include by mask:		No
+; Objects to scan:	
+; 	"C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip"	Enable = Yes	Recursive = No
+2026-03-14 17:24:31	Scan_Objects$1852                          starting   1          
+2026-03-14 17:24:31	Scan_Objects$1852                          running    1          
+2026-03-14 17:24:31	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip:Zone.Identifier	ok
+2026-03-14 17:24:31 	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip	archive	ZIP
+2026-03-14 17:24:31	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2026-03-14 17:24:31	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2026-03-14 17:24:31	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2026-03-14 17:24:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup-fitgirl-01.bin	ok
+2026-03-14 17:24:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup-fitgirl-02.bin	ok
+2026-03-14 17:24:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup-fitgirl-03.bin	ok
+2026-03-14 17:24:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup-fitgirl-04.bin	ok
+2026-03-14 17:24:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup-fitgirl-05.bin	ok
+2026-03-14 17:25:38	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup-fitgirl-selective-videos-recoded.bin	ok
+2026-03-14 17:25:39 	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe	archive	Inno
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//exe//data0035.res	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//exe//data0037.res	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//exe	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//script	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0000	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0001	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0002	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0003	ok
+2026-03-14 17:25:39	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0004	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0005	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0006	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0007	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0008	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0009	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0010	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0011	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0012	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0013	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0014	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0015	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0016	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0017	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0018	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0019	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0020	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0021	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0022	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0023	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0024	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0025	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0026	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0027	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0028	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0029	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0030	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0031	ok
+2026-03-14 17:25:40 	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0032	archive	7-Zip
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0032	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0033	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0034	ok
+2026-03-14 17:25:40	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe//data0035	ok
+2026-03-14 17:25:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/setup.exe	ok
+2026-03-14 17:25:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip//Metal Gear Rising - Revengeance [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2026-03-14 17:25:41	C:\Users\[USER]\Downloads\Metal Gear Rising - Revengeance [FitGirl Repack] (Vids-Recoded).zip	ok
+2026-03-14 17:25:45	Scan_Objects$1852                          completed             
+;  --- Statistics ---
+; Time Start:		2026-03-14 17:24:31
+; Time Finish:		2026-03-14 17:25:45
+; Processed objects:	53
+; Total OK:		53
+; Total detected:	0
+; Suspicions:		0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:		0
+; Errors:		0
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$1849                          completed             
+ Scan_Qscan                                 paused     1          
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         completed             
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

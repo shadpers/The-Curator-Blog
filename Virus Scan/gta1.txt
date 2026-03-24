@@ -1,0 +1,272 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-01-07 20:43:39
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Grand Theft Auto [ElAmigos].zip
+Size: 795176059 bytes
+MD5: 671143B8A68D3614A9F0D37A213A4E35
+SHA256: 4B39C11EBC1E1B0B116B0D6BC480F545391A098D696743BBA8E31ED7A81D2674
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 01/07/2026 20:54:41
+Scanned File: C:\Users\VMWare 17\Downloads\Grand Theft Auto [ElAmigos].zip
+
+--- File Information ---
+Name: Grand Theft Auto [ElAmigos].zip
+Size: 776539.12 KB
+Last Modified: 01/05/2026 20:10:52
+SHA256: 4B39C11EBC1E1B0B116B0D6BC480F545391A098D696743BBA8E31ED7A81D2674
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.545.0
+Antispyware DB Version: 1.443.545.0
+Last Update: 01/07/2026 05:05:57
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 11.36 seconds
+Threats Found: 0
+
+No threats detected.
+
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106213
+Detectiondatetime: 2026-01-07T23:43:29Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2026-01-07T23:43:37Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-01-07T23:43:29Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2026-01-07 20:18:25
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip"	Enable = Yes	Recursive = No
+; ------------------
+2026-01-07 20:42:17	Scan_Objects$5847                          starting   1          
+2026-01-07 20:42:17	Scan_Objects$5847                          running    1          
+2026-01-07 20:42:18 	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip	archive	ZIP
+2026-01-07 20:42:18	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/autorun.inf	ok
+2026-01-07 20:42:26	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/elamigos-1.bin	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/elamigos.jpg	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/Grand1.ico	ok
+2026-01-07 20:42:27 	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe	archive	Inno
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//exe//data0034.res	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//exe//data0036.res	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//exe	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//script	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0000	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0001	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0002	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0003	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0004	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0005	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0006	ok
+2026-01-07 20:42:27	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0007	ok
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0008	ok
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0009	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0010	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0011	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0012	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0013	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0014	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0015	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0016	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0017	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0018	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0019	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0020	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0021	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0022	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0023	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0024	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0025	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0026	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0027	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0028	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0029	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0030	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0031	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0032	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0033	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0034	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0035	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0036	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0037	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0038	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0039	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0040	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0041	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0042	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0043	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0044	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0045	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0046	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0047	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0048	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0049	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0050	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0051	password protected
+2026-01-07 20:42:28	C:\Users\horak\Downloads\Grand Theft Auto [ElAmigos].zip//Grand Theft Auto [ElAmigos]/setup.exe//data0052	password protected
+2026-01-07 20:42:31	Scan_Objects$5847                          completed             
+;  --- Statistics ---
+; Time Start:	2026-01-07 20:42:17
+; Time Finish:	2026-01-07 20:42:31
+; Processed objects:	19
+; Total OK:	19
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	44
+; Corrupted:	0
+; Errors:	0
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$5845                          completed             
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

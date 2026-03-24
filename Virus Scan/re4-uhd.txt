@@ -1,0 +1,247 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2025-12-31 16:06:01
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip
+Size: 7271808458 bytes
+MD5: 3B032F710BFA4BC6007731B5C2D0E44E
+SHA256: 93D6F222C1BE3E6851FF939258781008E85554D4AB3F2FB48BE46505D0508A8C
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 12/31/2025 16:34:41
+Scanned File: C:\Users\VMWare 17\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip
+
+--- File Information ---
+Name: Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip
+Size: 7101375.45 KB
+Last Modified: 12/31/2025 14:28:41
+SHA256: 93D6F222C1BE3E6851FF939258781008E85554D4AB3F2FB48BE46505D0508A8C
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.390.0
+Antispyware DB Version: 1.443.390.0
+Last Update: 12/29/2025 06:17:26
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 11.03 seconds
+Threats Found: 0
+
+No threats detected.
+
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106049
+Detectiondatetime: 2025-12-31T19:05:54Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2025-12-31T19:05:59Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2025-12-31T19:05:54Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2025-12-31 15:23:16
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip"	Enable = Yes	Recursive = No
+; ------------------
+2025-12-31 16:05:08	Scan_Objects$5074                          starting   1          
+2025-12-31 16:05:08	Scan_Objects$5074                          running    1          
+2025-12-31 16:05:09 	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip	archive	ZIP
+2025-12-31 16:05:09	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/autorun.inf	ok
+2025-12-31 16:05:09	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/bio4_0.ico	ok
+2025-12-31 16:05:25	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/elamigos-1.bin	ok
+2025-12-31 16:05:30	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/elamigos-2.bin	ok
+2025-12-31 16:05:39	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/elamigos-3.bin	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/elamigos-4.bin	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/elamigos.jpg	ok
+2025-12-31 16:05:40 	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe	archive	Inno
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//exe//data0034.res	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//exe//data0036.res	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//exe	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//script	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0000	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0001	password protected
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0002	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0003	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0004	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0005	ok
+2025-12-31 16:05:40	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0006	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0007	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0008	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0009	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0010	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0011	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0012	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0013	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0014	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0015	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0016	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0017	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0018	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0019	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0020	ok
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0021	password protected
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0022	password protected
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0023	password protected
+2025-12-31 16:05:41	C:\Users\horak\Downloads\Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos].zip//Resident Evil 4 Ultimate HD Edition (1.0.6) [ElAmigos]/setup.exe//data0024	password protected
+2025-12-31 16:05:44	Scan_Objects$5074                          completed             
+;  --- Statistics ---
+; Time Start:	2025-12-31 16:05:08
+; Time Finish:	2025-12-31 16:05:44
+; Processed objects:	33
+; Total OK:	33
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	5
+; Corrupted:	0
+; Errors:	0
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$5072                          completed             
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

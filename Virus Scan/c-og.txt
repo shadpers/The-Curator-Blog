@@ -1,0 +1,283 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2025-12-31 16:04:09
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Contra - Operation Galuga [FitGirl Repack].zip
+Size: 7041449267 bytes
+MD5: 586CB767FAFC80021D14329791F36A42
+SHA256: 444259926DFE9CF83353BC0465491A3C8795AC21A93534C38AEED1BF9216192F
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 12/31/2025 16:38:24
+Scanned File: C:\Users\VMWare 17\Downloads\Contra - Operation Galuga [FitGirl Repack].zip
+
+--- File Information ---
+Name: Contra - Operation Galuga [FitGirl Repack].zip
+Size: 6876415.3 KB
+Last Modified: 12/31/2025 11:29:11
+SHA256: 444259926DFE9CF83353BC0465491A3C8795AC21A93534C38AEED1BF9216192F
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.430.0
+Antispyware DB Version: 1.443.430.0
+Last Update: 12/31/2025 11:18:53
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 13.03 seconds
+Threats Found: 0
+
+No threats detected.
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106049
+Detectiondatetime: 2025-12-31T19:03:35Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2025-12-31T19:04:06Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2025-12-31T19:03:35Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2025-12-31 15:23:16
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip"	Enable = Yes	Recursive = No
+; ------------------
+2025-12-31 16:02:40	Scan_Objects$5072                          starting   1          
+2025-12-31 16:02:40	Scan_Objects$5072                          running    1          
+2025-12-31 16:02:41 	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip	archive	ZIP
+2025-12-31 16:02:51	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-01.bin	ok
+2025-12-31 16:02:53	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-02.bin	ok
+2025-12-31 16:02:54	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-03.bin	ok
+2025-12-31 16:02:54	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-04.bin	ok
+2025-12-31 16:02:54	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-05.bin	ok
+2025-12-31 16:02:56	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-brazilian.bin	ok
+2025-12-31 16:02:58	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-chinese.bin	ok
+2025-12-31 16:03:00	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-french.bin	ok
+2025-12-31 16:03:01	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-german.bin	ok
+2025-12-31 16:03:03	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-italian.bin	ok
+2025-12-31 16:03:04	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-japanese.bin	ok
+2025-12-31 16:03:06	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-korean.bin	ok
+2025-12-31 16:03:07	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-russian.bin	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/fg-optional-spanish.bin	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/MD5/QuickSFV.EXE//#	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2025-12-31 16:03:09 	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe	archive	Inno
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//exe//data0035.res	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//exe//data0037.res	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//exe	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//script	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0000	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0001	ok
+2025-12-31 16:03:09	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0002	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0003	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0004	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0005	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0006	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0007	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0008	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0009	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0010	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0011	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0012	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0013	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0014	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0015	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0016	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0017	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0018	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0019	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0020	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0021	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0022	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0023	ok
+2025-12-31 16:03:10	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0024	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0025	ok
+2025-12-31 16:03:11 	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0026	packed	UPX
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0026//UPX	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0026	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0027	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0028//#	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0028	ok
+2025-12-31 16:03:11 	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0029	packed	UPX
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0029//UPX	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0029	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0030	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0031	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0032	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0033	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0034//#	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0034	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0035	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0036	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0037	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0038	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0039	ok
+2025-12-31 16:03:11	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0040	ok
+2025-12-31 16:03:12	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0041	ok
+2025-12-31 16:03:12	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe//data0042	ok
+2025-12-31 16:03:12	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/setup.exe	ok
+2025-12-31 16:03:12	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip//Contra - Operation Galuga [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2025-12-31 16:03:12	C:\Users\horak\Downloads\Contra - Operation Galuga [FitGirl Repack].zip	ok
+2025-12-31 16:03:15	Scan_Objects$5072                          completed             
+;  --- Statistics ---
+; Time Start:	2025-12-31 16:02:40
+; Time Finish:	2025-12-31 16:03:15
+; Processed objects:	70
+; Total OK:	70
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:	0
+; Errors:	0
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

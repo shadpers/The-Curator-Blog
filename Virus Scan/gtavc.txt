@@ -1,0 +1,238 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-01-07 20:48:12
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Grand Theft Auto Vice City v1.1 [ElAmigos].zip
+Size: 1426252623 bytes
+MD5: 7F5C85948603C2943B6F259D38F57244
+SHA256: AE8CB1695A29F63571F6B1F8AD8518EB68C82753691F305A433B883F96C88DAC
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 01/07/2026 20:57:04
+Scanned File: C:\Users\VMWare 17\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip
+
+--- File Information ---
+Name: Grand Theft Auto Vice City v1.1 [ElAmigos].zip
+Size: 1392824.83 KB
+Last Modified: 01/05/2026 20:11:58
+SHA256: AE8CB1695A29F63571F6B1F8AD8518EB68C82753691F305A433B883F96C88DAC
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.545.0
+Antispyware DB Version: 1.443.545.0
+Last Update: 01/07/2026 05:05:57
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 10.83 seconds
+Threats Found: 0
+
+No threats detected.
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106213
+Detectiondatetime: 2026-01-07T23:48:02Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2026-01-07T23:48:10Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-01-07T23:48:02Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2026-01-07 20:18:25
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip"	Enable = Yes	Recursive = No
+; ------------------
+2026-01-07 20:47:42	Scan_Objects$5855                          starting   1          
+2026-01-07 20:47:42	Scan_Objects$5855                          running    1          
+2026-01-07 20:47:42 	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip	archive	ZIP
+2026-01-07 20:47:42	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/autorun.inf	ok
+2026-01-07 20:47:48	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos-1.bin	ok
+2026-01-07 20:47:49	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos-brazilianportuguese.bin	ok
+2026-01-07 20:47:49	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos-czech.bin	ok
+2026-01-07 20:47:49	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos-polish.bin	ok
+2026-01-07 20:47:49	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos-russian.bin	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos-slovak.bin	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/elamigos.jpg	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/GrandVice.ico	ok
+2026-01-07 20:47:50 	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe	archive	Inno
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//exe//data0034.res	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//exe//data0036.res	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//exe	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//script	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0000	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0001	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0002	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0003	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0004	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0005	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0006	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0007	ok
+2026-01-07 20:47:50	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe//data0008	ok
+2026-01-07 20:47:51	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip//Grand Theft Auto Vice City v1.1 [ElAmigos]/setup.exe	ok
+2026-01-07 20:47:51	C:\Users\horak\Downloads\Grand Theft Auto Vice City v1.1 [ElAmigos].zip	ok
+2026-01-07 20:47:54	Scan_Objects$5855                          completed             
+;  --- Statistics ---
+; Time Start:	2026-01-07 20:47:42
+; Time Finish:	2026-01-07 20:47:54
+; Processed objects:	24
+; Total OK:	24
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:	0
+; Errors:	0
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$5845                          completed             
+ Scan_Objects$5847                          completed             
+ Scan_Objects$5849                          completed             
+ Scan_Objects$5851                          completed             
+ Scan_Objects$5853                          completed             
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

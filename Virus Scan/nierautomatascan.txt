@@ -1,0 +1,268 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██      
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-03-14 17:21:54
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: NieR - Automata [FitGirl Repack] (Vids-Recoded).zip
+Size: 9914355851 bytes
+MD5: 71DB35982A68392B0E60FC20412A625E
+SHA256: 6BE95E81B905FB48F5442C55751C6970387E155AEB9E2D3CED27B5BD0BAB4D28
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.5.0.237
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 150.0.5500
+Coredllfileversion: 3.1.0.211
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.107994
+Detectiondatetime: 2026-03-14T20:21:42Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.8037)
+Objectsscanned: 1
+Scanendtime: 2026-03-14T20:21:52Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-03-14T20:21:42Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.24.8.522
+Last Database Update: 2026-03-14 17:00:07
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:		All objects
+; Use iChecker:		Yes
+; Use iSwift:		Yes
+; Try disinfect:	Yes
+; Try delete:		No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip"	Enable = Yes	Recursive = No
+2026-03-14 17:20:26	Scan_Objects$1849                          starting   1          
+2026-03-14 17:20:26	Scan_Objects$1849                          running    1          
+2026-03-14 17:20:26	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip:Zone.Identifier	ok
+2026-03-14 17:20:26 	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip	archive	ZIP
+2026-03-14 17:20:46	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-01.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-02.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-03.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-04.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-05.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-06.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-07.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-08.bin	ok
+2026-03-14 17:20:51	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-09.bin	ok
+2026-03-14 17:20:53	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-selective-english-speech.bin	ok
+2026-03-14 17:20:54	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-selective-japanese-speech.bin	ok
+2026-03-14 17:21:25	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/fg-selective-videos-recoded.bin	ok
+2026-03-14 17:21:26	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2026-03-14 17:21:26	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2026-03-14 17:21:26	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2026-03-14 17:21:26 	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe	archive	Inno
+2026-03-14 17:21:26	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//exe//data0035.res	ok
+2026-03-14 17:21:26	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//exe//data0037.res	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//exe	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//script	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0000	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0001	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0002	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0003	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0004	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0005	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0006	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0007	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0008	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0009	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0010	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0011	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0012	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0013	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0014	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0015	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0016	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0017	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0018	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0019	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0020	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0021	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0022	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0023	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0024	ok
+2026-03-14 17:21:27	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0025	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0026//#	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0026	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0027	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0028	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0029	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0030	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0031	ok
+2026-03-14 17:21:28	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0032	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0033	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0034	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0035	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0036	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0037	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0038	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0039	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0040	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0041	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0042	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0043	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0044	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0045	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0046	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0047	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0048	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0049	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0050	ok
+2026-03-14 17:21:29 	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0051	packed	UPX
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0051//UPX	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0051	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0052	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0053	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0054	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0055	ok
+2026-03-14 17:21:29	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0056	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0057	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0058	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0059	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe//data0060	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/setup.exe	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip//NieR - Automata [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2026-03-14 17:21:30	C:\Users\[USER]\Downloads\NieR - Automata [FitGirl Repack] (Vids-Recoded).zip	ok
+2026-03-14 17:21:32	Scan_Objects$1849                          completed             
+;  --- Statistics ---
+; Time Start:		2026-03-14 17:20:26
+; Time Finish:		2026-03-14 17:21:32
+; Processed objects:	85
+; Total OK:		85
+; Total detected:	0
+; Suspicions:		0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:		0
+; Errors:		0
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Objects$1847                          completed             
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         completed             
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

@@ -1,0 +1,232 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2025-12-29 17:55:13
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip
+Size: 625609568 bytes
+MD5: 52885E89523A37382EF21A6614CCC51D
+SHA256: B4DD0BF067141F7063306822D825D1935DE28F3C2C89A52B21E8ACE949B3640E
+------------------------------------------------------
+  1. ==== Microsoft Defender Scan Report ====
+------------------------------------------------------
+Date/Time: 12/29/2025 18:17:42
+Scanned File: C:\Users\VMWare 17\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip
+
+--- File Information ---
+Name: Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip
+Size: 610946.84 KB
+Last Modified: 12/29/2025 16:57:38
+SHA256: B4DD0BF067141F7063306822D825D1935DE28F3C2C89A52B21E8ACE949B3640E
+
+--- Engine & Definitions ---
+Engine Version: 1.1.25110.1
+Antivirus DB Version: 1.443.390.0
+Antispyware DB Version: 1.443.390.0
+Last Update: 12/29/2025 06:17:26
+
+--- Real-time Protection ---
+Enabled: True
+Tamper Protection: True
+Cloud Protection: 
+Automatic Sample Submission: 
+
+--- Scan Results ---
+Duration: 12.19 seconds
+Threats Found: 0
+
+No threats detected.
+------------------------------------------------------
+  2. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.4.5.226
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 146.0.5441
+Coredllfileversion: 3.1.0.185
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.106013
+Detectiondatetime: 2025-12-29T20:54:44Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.7462)
+Objectsscanned: 1
+Scanendtime: 2025-12-29T20:55:11Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2025-12-29T20:54:44Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  3. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.23.6.614
+Last Database Update: 2025-12-29 17:13:33
+
+Scan Result:
+; --- Settings ---
+; Action on detect:	Disinfect automatically
+; Scan objects:	All objects
+; Use iChecker:	Yes
+; Use iSwift:	Yes
+; Try disinfect:	Yes
+; Try delete:	No
+; Try delete container:	No
+; Scan archives:	No
+; Exclude by mask:	No
+; Include by mask:	No
+; Objects to scan:	
+; 	"C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip"	Enable = Yes	Recursive = No
+; ------------------
+2025-12-29 17:52:03	Scan_Objects$4754                          starting   1          
+2025-12-29 17:52:03	Scan_Objects$4754                          running    1          
+2025-12-29 17:52:03	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip:Zone.Identifier	ok
+2025-12-29 17:52:03 	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip	archive	ZIP
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Data/Files1.bin	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Data/Files2.bin	ok
+2025-12-29 17:52:09 	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe	archive	Inno
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//exe//data0033.res	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//exe//data0034.res	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//exe	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//script	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0000	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0001	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0002	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0003	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0004	ok
+2025-12-29 17:52:09	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0005	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0006	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0007	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0008	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe//data0009	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.exe	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip//Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive)/Mighty Morphin Power Rangers Rita's Rewind.sha3-512	ok
+2025-12-29 17:52:10	C:\Users\horak\Downloads\Mighty Morphin Power Rangers Rita's Rewind [MULTi-ENG] [R] [TN] (Videogame Archive).zip	ok
+2025-12-29 17:52:13	Scan_Objects$4754                          completed             
+;  --- Statistics ---
+; Time Start:	2025-12-29 17:52:03
+; Time Finish:	2025-12-29 17:52:13
+; Processed objects:	20
+; Total OK:	20
+; Total detected:	0
+; Suspicions:	0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:	0
+; Errors:	0
+;  ------------------
+
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Qscan                                 paused     1          
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░
