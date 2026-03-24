@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probe Info Analyzer - Melhorado</title>
+<style>
+    * { box-sizing: border-box; }
+    body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 0; 
+        padding: 20px; 
+        color: #222; 
+        min-height: 100vh;
+    }
+    .container { 
+        max-width: 960px; 
+        margin: 0 auto; 
+        background: #fff; 
+        padding: 30px; 
+        border-radius: 12px; 
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+    }
+    h2 { 
+        margin: 0 0 10px 0; 
+        font-weight: 700; 
+        color: #667eea;
+        font-size: 28px;
+    }
+    .subtitle {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    textarea { 
+        width: 100%; 
+        height: 260px; 
+        padding: 14px; 
+        border: 2px solid #e0e0e0; 
+        border-radius: 8px; 
+        font-family: 'Consolas', 'Monaco', monospace; 
+        font-size: 13px; 
+        background: #fafafa; 
+        resize: vertical;
+        transition: border-color 0.3s;
+    }
+    textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        background: #fff;
+    }
+    .btn-row { 
+        margin-top: 16px; 
+        display: flex;
+        gap: 10px;
+    }
+    button { 
+        padding: 10px 20px; 
+        border-radius: 8px; 
+        border: none; 
+        background: #667eea; 
+        color: white;
+        cursor: pointer; 
+        font-weight: 600;
+        transition: all 0.3s;
+        font-size: 14px;
+    }
+    button:hover { 
+        background: #5568d3; 
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    button:active {
+        transform: translateY(0);
+    }
+    button.secondary {
+        background: #e0e0e0;
+        color: #333;
+    }
+    button.secondary:hover {
+        background: #d0d0d0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .export-row { 
+        margin-top: 18px; 
+        font-size: 24px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+    .export-row span {
+        color: #666;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .export-icon { 
+        cursor: pointer; 
+        transition: transform 0.2s;
+        filter: grayscale(0.3);
+    }
+    .export-icon:hover {
+        transform: scale(1.2);
+        filter: grayscale(0);
+    }
+    #output { 
+        white-space: pre-wrap; 
+        background: #f8f9fa; 
+        padding: 20px; 
+        border: 2px solid #e9ecef; 
+        border-radius: 8px; 
+        margin-top: 20px; 
+        opacity: 0; 
+        transform: translateY(10px); 
+        transition: all 0.3s ease; 
+        font-family: 'Consolas', 'Monaco', monospace;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    #output.visible { 
+        opacity: 1; 
+        transform: none; 
+    }
+    .note { 
+        font-size: 12px; 
+        color: #888; 
+        margin-top: 12px; 
+        padding: 12px;
+        background: #f0f0f0;
+        border-radius: 6px;
+        border-left: 3px solid #667eea;
+    }
+    .note strong {
+        color: #667eea;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>🎬 Probe Info Analyzer</h2>
+  <div class="subtitle">Versão melhorada com suporte expandido a idiomas</div>
+
+  <textarea id="input" placeholder="Cole aqui a saída completa do ffprobe...
+
+Exemplo: copie todo o conteúdo do arquivo .txt gerado pelo seu script .bat"></textarea>
+
+  <div class="btn-row">
+    <button id="processBtn">🚀 Processar</button>
+    <button id="clearBtn" class="secondary">🗑️ Limpar</button>
+  </div>
+
+  <div class="export-row">
+    <span>Exportar:</span>
+    <span class="export-icon" id="exportTxt" title="Exportar como TXT">📄</span>
+    <span class="export-icon" id="exportMd" title="Exportar como Markdown">📝</span>
+  </div>
+
+  <div id="output"></div>
+
+  <div class="note">
+    <strong>📌 Notas:</strong><br>
+    • S&S detectado por título contendo "sign", "song" ou "s&s" (case-insensitive)<br>
+    • Variantes de idioma (EN-US, PT-BR, ES-LA, etc.) aparecem quando há múltiplas versões<br>
+    • Suporte a 50+ idiomas com bandeiras correspondentes
+  </div>
+</div>
+
+<script>
+/* ============== Helpers ============== */
+function roundToHalf(n) { return Math.round(n * 2) / 2; }
+function extractFirst(input, regex) { 
+    const m = input.match(regex); 
+    return m ? m[1].trim() : null; 
+}
+function download(name, content) { 
+    const blob = new Blob([content], {type: 'text/plain;charset=utf-8'}); 
+    const url = URL.createObjectURL(blob); 
+    const a = document.createElement('a'); 
+    a.href = url; 
+    a.download = name; 
+    a.click(); 
+    URL.revokeObjectURL(url); 
+}
+
+/* Mapa completo de bandeiras (50+ idiomas) */
+const FLAGS = {
+    // Idiomas principais
+    'jpn': '🇯🇵', 'eng': '🇺🇸', 'por': '🇧🇷', 'spa': '🇪🇸', 
+    'fre': '🇫🇷', 'ger': '🇩🇪', 'ita': '🇮🇹', 'rus': '🇷🇺', 
+    'ara': '🇸🇦', 'chi': '🇨🇳',
+    
+    // Idiomas europeus
+    'cze': '🇨🇿', 'pol': '🇵🇱', 'bul': '🇧🇬', 'hrv': '🇭🇷',
+    'dan': '🇩🇰', 'dut': '🇳🇱', 'est': '🇪🇪', 'fin': '🇫🇮',
+    'gre': '🇬🇷', 'heb': '🇮🇱', 'hun': '🇭🇺', 'ice': '🇮🇸',
+    'lav': '🇱🇻', 'lit': '🇱🇹', 'nor': '🇳🇴', 'rum': '🇷🇴',
+    'srp': '🇷🇸', 'slo': '🇸🇰', 'slv': '🇸🇮', 'swe': '🇸🇪',
+    'tur': '🇹🇷', 'ukr': '🇺🇦',
+    
+    // Idiomas asiáticos
+    'kor': '🇰🇷', 'tha': '🇹🇭', 'ind': '🇮🇩', 'vie': '🇻🇳',
+    'may': '🇲🇾', 'fil': '🇵🇭',
+    
+    // Variantes específicas
+    'en-us': '🇺🇸', 'en-gb': '🇬🇧',
+    'pt-br': '🇧🇷', 'pt-pt': '🇵🇹',
+    'es-es': '🇪🇸', 'es-la': '🇲🇽',
+    'fr-ca': '🇨🇦', 'fr-fr': '🇫🇷',
+    'zh-cn': '🇨🇳', 'zh-tw': '🇹🇼', 'zh-hk': '🇭🇰'
+};
+
+/* Mapa de codecs de vídeo */
+const VIDEO_CODECS = { 
+    'hevc': 'HEVC/H.265', 
+    'h265': 'HEVC/H.265', 
+    'h264': 'AVC/H.264', 
+    'avc': 'AVC/H.264', 
+    'vp9': 'VP9', 
+    'av1': 'AV1',
+    'vc1': 'VC-1',
+    'mpeg2': 'MPEG-2'
+};
+
+/* Padrões para detectar S&S */
+const SS_PATTERNS = [/sign/i, /song/i, /s&s/i, /\bs[-&]s\b/i];
+
+/* Detectar variante de idioma a partir do título */
+function detectVariant(base, title) {
+    if (!title) return null;
+    const t = title.toLowerCase();
+    
+    if (base === 'eng') {
+        if (/\b(uk|gb|brit|british)\b/.test(t)) return 'EN-GB';
+        if (/\b(us|usa|american)\b/.test(t)) return 'EN-US';
+    }
+    if (base === 'spa') {
+        if (/\b(cast|castell|es[-\s]?es|spain|españa)\b/.test(t)) return 'ES-ES';
+        if (/\b(lat|latino|latam|latinoam[eé]rica|latin america)\b/.test(t)) return 'ES-LA';
+    }
+    if (base === 'por') {
+        if (/\b(pt[-\s]?pt|portugal)\b/.test(t)) return 'PT-PT';
+        if (/\b(br|bra|brazil|brasil|pt[-\s]?br)\b/.test(t)) return 'PT-BR';
+    }
+    if (base === 'fre') {
+        if (/\b(can|canada|qu[eé]bec|fr[-\s]?ca)\b/.test(t)) return 'FR-CA';
+        if (/\b(france|fr[-\s]?fr)\b/.test(t)) return 'FR-FR';
+    }
+    if (base === 'chi') {
+        if (/\b(traditional|taiwan|tw|zh[-\s]?tw)\b/.test(t)) return 'ZH-TW';
+        if (/\b(simplified|china|cn|zh[-\s]?cn)\b/.test(t)) return 'ZH-CN';
+        if (/\b(cantonese|hong kong|hk|zh[-\s]?hk)\b/.test(t)) return 'ZH-HK';
+    }
+    
+    return null;
+}
+
+/* Construir token de exibição para idioma */
+function displayLangToken(langCode, title, needVariant) {
+    if (!langCode) return '🏳️';
+    
+    const base = langCode.slice(0, 3).toLowerCase();
+    const flag = FLAGS[langCode.toLowerCase()] || FLAGS[base] || '🏳️';
+    
+    if (!needVariant) return flag;
+    
+    const variant = detectVariant(base, title);
+    if (variant) return `${flag} ${variant}`;
+    
+    return flag;
+}
+
+/* ============== Parser principal ============== */
+function parseProbe(input) {
+    const lines = input.split(/\r?\n/);
+    const blocks = [];
+    let cur = null;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const ln = lines[i];
+        const streamHeader = ln.match(/^\s*Stream\s+#0:(\d+)(?:\(([^)]+)\))?:\s*(Video|Audio|Subtitle):\s*(.+)/i);
+        
+        if (streamHeader) {
+            if (cur) blocks.push(cur);
+            cur = { 
+                index: streamHeader[1], 
+                lang: streamHeader[2] || '', 
+                type: streamHeader[3], 
+                header: streamHeader[4], 
+                raw: [ln], 
+                meta: {} 
+            };
+            
+            // Coletar linhas de metadados
+            let j = i + 1;
+            while (j < lines.length && !/^\s*Stream\s+#0:\d+/.test(lines[j])) {
+                cur.raw.push(lines[j]);
+                
+                const t = lines[j].match(/^\s*title\s*:\s*(.+)/i);
+                if (t) cur.meta.title = t[1].trim();
+                
+                const nb = lines[j].match(/^\s*NUMBER_OF_BYTES\s*:\s*(\d+)/i);
+                if (nb) cur.meta.number_of_bytes = Number(nb[1]);
+                
+                const bps = lines[j].match(/^\s*BPS\s*:\s*(\d+)/i);
+                if (bps) cur.meta.bps = Number(bps[1]);
+                
+                j++;
+            }
+            i = j - 1;
+        }
+    }
+    if (cur) blocks.push(cur);
+    
+    return blocks;
+}
+
+function generatePost(input) {
+    const blocks = parseProbe(input);
+    
+    // Extrair título do arquivo (da linha "Input #0")
+    let fileTitle = 'Untitled';
+    const inputMatch = input.match(/Input #0[^']*from '([^']+)'/i);
+    if (inputMatch) {
+        const fullPath = inputMatch[1];
+        const fileName = fullPath.split(/[/\\]/).pop().replace(/\.[^.]+$/, '');
+        // Limpar o nome do arquivo
+        fileTitle = fileName
+            .replace(/\.mkv$|\.mp4$|\.avi$/i, '')
+            .replace(/\./g, ' ')
+            .trim();
+    } else {
+        // Fallback: buscar no metadata
+        const metaTitle = extractFirst(input, /^\s*title\s*:\s*(.+)/im);
+        if (metaTitle) fileTitle = metaTitle;
+    }
+    
+    // Vídeo
+    const videoBlock = blocks.find(b => b.type && b.type.toLowerCase().startsWith('video'));
+    let codecPretty = 'Unknown';
+    let resolution = 'Unknown';
+    
+    if (videoBlock) {
+        const hdr = videoBlock.header;
+        const codecMatch = hdr.match(/^([^\s,()]+)/);
+        if (codecMatch) {
+            const codecRaw = codecMatch[1].toLowerCase();
+            codecPretty = VIDEO_CODECS[codecRaw] || codecRaw.toUpperCase();
+        }
+        
+        const resMatch = hdr.match(/(\d{3,5}x\d{3,5})/);
+        if (resMatch) resolution = resMatch[1];
+    }
+    
+    // Bitrate
+    const bitrateMatch = input.match(/bitrate:\s*(\d+)\s*kb\/s/i);
+    let bitrateText = 'Unknown';
+    if (bitrateMatch) {
+        let mb = Number(bitrateMatch[1]) / 1000;
+        mb = roundToHalf(mb);
+        bitrateText = (mb % 1 === 0) ? `~${mb} Mbps` : `~${mb.toFixed(1)} Mbps`;
+    }
+    
+    // Tamanho total
+    let totalBytes = 0;
+    blocks.forEach(b => {
+        if (b.meta && b.meta.number_of_bytes) totalBytes += b.meta.number_of_bytes;
+    });
+    
+    let sizeText = 'Unknown';
+    if (totalBytes > 0) {
+        let gb = totalBytes / (1024 ** 3);
+        gb = roundToHalf(gb);
+        sizeText = `${gb.toFixed(1)} GB/EP`;
+    }
+    
+    // Áudio
+    const audioBlocks = blocks.filter(b => b.type && b.type.toLowerCase().startsWith('audio'));
+    const audioMap = {};
+    const langCountBase = {};
+    
+    audioBlocks.forEach(b => {
+        const langCode = (b.lang || '').toLowerCase();
+        
+        // Parsear codec de áudio
+        let codecName = 'AUDIO';
+        const codecMatch = b.header.match(/^([^\s,()]+)/);
+        if (codecMatch) {
+            const rawCodec = codecMatch[1].toLowerCase();
+            
+            // DTS variants
+            if (rawCodec === 'dts') {
+                const title = (b.meta && b.meta.title) ? b.meta.title : '';
+                if (/dts[-:\s]*hd[-:\s]*ma/i.test(title) || /dts[-:\s]*hd[-:\s]*ma/i.test(b.header)) {
+                    if (/dts:x|dtsx/i.test(title) || /dts:x|dtsx/i.test(b.header)) {
+                        codecName = 'DTS-HD MA + DTS:X';
+                    } else {
+                        codecName = 'DTS-HD MA';
+                    }
+                } else if (/dts:x|dtsx/i.test(title) || /dts:x|dtsx/i.test(b.header)) {
+                    codecName = 'DTS:X';
+                } else {
+                    codecName = 'DTS';
+                }
+            }
+            // AAC
+            else if (rawCodec === 'aac') {
+                codecName = 'AAC';
+            }
+            // AC3 = Dolby Digital
+            else if (rawCodec === 'ac3') {
+                codecName = 'AC3';
+            }
+            // TrueHD
+            else if (rawCodec === 'truehd') {
+                const title = (b.meta && b.meta.title) ? b.meta.title : '';
+                if (/atmos/i.test(title)) {
+                    codecName = 'TrueHD Atmos';
+                } else {
+                    codecName = 'TrueHD';
+                }
+            }
+            // EAC3 = Dolby Digital Plus
+            else if (rawCodec === 'eac3') {
+                const title = (b.meta && b.meta.title) ? b.meta.title : '';
+                if (/atmos/i.test(title)) {
+                    codecName = 'DD+ Atmos';
+                } else {
+                    codecName = 'DD+';
+                }
+            }
+            // FLAC
+            else if (rawCodec === 'flac') {
+                codecName = 'FLAC';
+            }
+            // PCM
+            else if (rawCodec === 'pcm') {
+                codecName = 'PCM';
+            }
+            else {
+                codecName = rawCodec.toUpperCase();
+            }
+        }
+        
+        if (!audioMap[codecName]) audioMap[codecName] = [];
+        audioMap[codecName].push({ 
+            lang: langCode || '', 
+            title: (b.meta && b.meta.title) ? b.meta.title : '' 
+        });
+        
+        const base = langCode.slice(0, 3) || '';
+        if (base) langCountBase[base] = (langCountBase[base] || 0) + 1;
+    });
+    
+    // Construir linha de áudio
+    const codecOrder = Object.keys(audioMap);
+    const audioCompactParts = codecOrder.map(codec => {
+        const entries = audioMap[codec];
+        const tokens = entries.map(e => 
+            displayLangToken(e.lang, e.title, (langCountBase[(e.lang || '').slice(0, 3)] || 0) > 1)
+        );
+        
+        // Remover duplicatas mantendo ordem
+        const uniqueTokens = [...new Set(tokens)];
+        
+        return `${codec} • ${uniqueTokens.join(' ')}`;
+    });
+    
+    const audioLine = audioCompactParts.join(' | ');
+    
+    // Legendas
+    const subBlocks = blocks.filter(b => b.type && b.type.toLowerCase().startsWith('subtitle'));
+    
+    // Agrupar legendas por idioma base
+    const subsByLang = {};
+    subBlocks.forEach(b => {
+        const lang = (b.lang || '').toLowerCase();
+        const base = lang.slice(0, 3) || 'unknown';
+        const title = b.meta && b.meta.title ? b.meta.title : '';
+        
+        if (!subsByLang[base]) subsByLang[base] = [];
+        
+        const isSS = SS_PATTERNS.some(rx => rx.test(title));
+        const isForced = /forced/i.test(title);
+        const isSDH = /sdh/i.test(title);
+        const isFull = /full/i.test(title);
+        
+        subsByLang[base].push({
+            lang,
+            title,
+            isSS,
+            isForced,
+            isSDH,
+            isFull
+        });
+    });
+    
+    // Construir tokens de legendas
+    const subsTokens = [];
+    Object.keys(subsByLang).sort().forEach(base => {
+        const subs = subsByLang[base];
+        const flag = FLAGS[base] || '🏳️';
+        
+        // Se tem múltiplas versões do mesmo idioma, mostrar com variante
+        if (subs.length > 1) {
+            subs.forEach(s => {
+                const variant = detectVariant(base, s.title);
+                let token = variant ? `${flag} ${variant}` : flag;
+                
+                if (s.isSS) token += ' (ꜱ-ꜱ)';
+                else if (s.isSDH) token += ' (SDH)';
+                else if (s.isForced) token += ' (Forced)';
+                
+                subsTokens.push(token);
+            });
+        } else {
+            // Apenas uma versão
+            let token = flag;
+            const s = subs[0];
+            
+            if (s.isSS) token += ' (ꜱ-ꜱ)';
+            else if (s.isSDH) token += ' (SDH)';
+            else if (s.isForced) token += ' (Forced)';
+            
+            subsTokens.push(token);
+        }
+    });
+    
+    const subsLine = subsTokens.join(' ') || 'None';
+    
+    // Gerar output final
+    const final = `⭐ ${fileTitle}
+💿 Blu-ray • ${codecPretty}
+🎬 ${resolution} | ${bitrateText}
+
+🎧 Audio: ${audioLine}
+
+💬 Subs: ${subsLine}
+📦 ${sizeText}
+
+🔗 Sources:
+🛠️ Muxing & Upload: The Curator`;
+    
+    return final;
+}
+
+/* ============== UI Handlers ============== */
+const outEl = document.getElementById('output');
+
+function render() {
+    const input = document.getElementById('input').value.trim();
+    
+    if (!input) {
+        outEl.textContent = "⚠️ Cole a saída completa do ffprobe para processar.";
+        outEl.classList.add('visible');
+        return null;
+    }
+    
+    try {
+        const txt = generatePost(input);
+        outEl.textContent = txt;
+        outEl.classList.add('visible');
+        return txt;
+    } catch (err) {
+        outEl.textContent = `❌ Erro ao processar: ${err.message}`;
+        outEl.classList.add('visible');
+        return null;
+    }
+}
+
+document.getElementById('processBtn').onclick = () => { render(); };
+
+document.getElementById('clearBtn').onclick = () => { 
+    document.getElementById('input').value = ''; 
+    outEl.textContent = ''; 
+    outEl.classList.remove('visible'); 
+};
+
+document.getElementById('input').addEventListener('paste', () => { 
+    setTimeout(render, 100); 
+});
+
+document.getElementById('exportTxt').onclick = () => { 
+    const txt = render(); 
+    if (txt) download('mux_info.txt', txt); 
+};
+
+document.getElementById('exportMd').onclick = () => { 
+    const txt = render(); 
+    if (!txt) return;
+    
+    const md = txt
+        .replace(/^⭐/m, '## ⭐')
+        .replace(/💿/g, '### 💿')
+        .replace(/🎬/g, '### 🎬')
+        .replace(/🎧/g, '### 🎧')
+        .replace(/💬/g, '### 💬')
+        .replace(/📦/g, '### 📦')
+        .replace(/🔗/g, '### 🔗');
+    
+    download('mux_info.md', md); 
+};
+
+// Auto-processar se houver conteúdo ao carregar
+window.addEventListener('load', () => {
+    const input = document.getElementById('input').value.trim();
+    if (input) {
+        setTimeout(render, 500);
+    }
+});
+
+</script>
+</body>
+</html>

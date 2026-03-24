@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Probe Info Analyzer Rework</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 20px; color: #222; }
+    .container { max-width: 920px; margin: 0 auto; background: #fff; padding: 20px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,0.08); }
+    h2 { margin: 0 0 10px 0; font-weight:600; }
+    textarea { width:100%; height:220px; padding:10px; border:1px solid #ccc; border-radius:6px; font-family:monospace; font-size:13px; background:#fff; }
+    .btn-row { margin-top:12px; }
+    button { padding:8px 14px; border-radius:6px; border:none; background:#e7e7e7; cursor:pointer; margin-right:6px; }
+    button:hover{ background:#dcdcdc; }
+    .export-row { margin-top:14px; font-size:20px; }
+    .export-icon { cursor:pointer; margin-right:14px; }
+    #output { white-space:pre-wrap; background:#fafafa; padding:14px; border:1px solid #e6e6e6; border-radius:6px; margin-top:16px; opacity:0; transform:translateY(8px); transition:all .22s ease; }
+    #output.visible { opacity:1; transform:none; }
+    .cover { float:right; margin-left:12px; width:120px; height:auto; border-radius:6px; border:1px solid #eee; object-fit:cover; }
+    .note { font-size:13px; color:#666; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Probe Info Analyzer Rework</h2>
+
+  <!-- reference to uploaded file (local path) -->
+  <!-- File preview (if available in your environment): -->
+  <img class="cover" src="/mnt/data/a44e48ee-ea69-4b13-b58f-0e780538b3c9.webp" alt="cover preview" onerror="this.style.display='none'">
+
+  <textarea id="input" placeholder="Cole aqui o output completo do ffprobe (o .bat que você usa já gera o TXT com tudo)..."></textarea>
+
+  <div class="btn-row">
+    <button id="processBtn">Processar</button>
+    <button id="clearBtn">Limpar</button>
+  </div>
+
+  <div class="export-row">
+    <span class="export-icon" id="exportTxt" title="Exportar TXT">📄</span>
+    <span class="export-icon" id="exportMd" title="Exportar Markdown">📝</span>
+  </div>
+
+  <div id="output"></div>
+
+  <div class="note">Notas: S&S detectado por title contendo "sign" / "song" / "s&s" (case-insensitive). Siglas completas (EN-US, PT-BR, ES-LA, ES-ES...) só aparecem quando houver variantes do mesmo idioma.</div>
+</div>
+
+<script>
+/* ============== Helpers ============== */
+function roundToHalf(n){return Math.round(n*2)/2;}
+function extractFirst(input, regex){ const m=input.match(regex); return m?m[1].trim():null; }
+function download(name, content){ const blob=new Blob([content],{type:'text/plain'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; a.click(); URL.revokeObjectURL(url); }
+
+/* Flags map */
+const FLAGS = { jpn:'🇯🇵', eng:'🇺🇸', por:'🇧🇷', spa:'🇪🇸', fre:'🇫🇷', ger:'🇩🇪', ita:'🇮🇹', rus:'🇷🇺', ara:'🇸🇦', chi:'🇨🇳' };
+
+/* Video codec pretty map (format B) */
+const VIDEO_CODECS = { hevc:'HEVC/H.265', h265:'HEVC/H.265', h264:'AVC/H.264', avc:'AVC/H.264', vp9:'VP9', av1:'AV1' };
+
+/* keywords to detect S&S (option A) */
+const SS_PATTERNS = [/sign/i, /song/i, /s&s/i];
+
+/* Detect variant from title heuristics (simple, conservative) */
+function detectVariant(base, title){
+  if(!title) return null;
+  const t = title.toLowerCase();
+  if(base==='eng'){
+    if(/\b(uk|gb|brit|british)\b/.test(t)) return 'EN-GB';
+    if(/\b(us|usa|american|us-)\b/.test(t)) return 'EN-US';
+  }
+  if(base==='spa'){
+    if(/\b(cast|castell|es[- ]?es|spain)\b/.test(t)) return 'ES-ES';
+    if(/\b(lat|latino|latam|latinoamerica)\b/.test(t)) return 'ES-LA';
+  }
+  if(base==='por'){
+    if(/\b(pt|portugal|pt-pt)\b/.test(t)) return 'PT-PT';
+    if(/\b(br|brazil|brasil|pt-br)\b/.test(t)) return 'PT-BR';
+  }
+  if(base==='fre'){
+    // no variants commonly needed
+    return 'FR';
+  }
+  return null;
+}
+
+/* Build display token for a language code: either flag or flag + variant if needed */
+function displayLangToken(langCode, title, needVariant){
+  // langCode from ffprobe: often 'eng','por','spa', etc.
+  if(!langCode) return '';
+  const base = langCode.slice(0,3).toLowerCase(); // 'eng','por','spa'...
+  const flag = FLAGS[langCode.toLowerCase()] || FLAGS[base] || '🏳️';
+  if(!needVariant) return flag;
+  const variant = detectVariant(base, title) || base.slice(0,2).toUpperCase();
+  return `${flag} ${variant}`;
+}
+
+/* ============== Core parse ============== */
+function parseProbe(input){
+  // Split into stream blocks using "Stream #0:"
+  const lines = input.split(/\r?\n/);
+  const blocks = [];
+  let cur=null;
+  for(let i=0;i<lines.length;i++){
+    const ln = lines[i];
+    const streamHeader = ln.match(/^\s*Stream\s+#0:(\d+)(?:\(([^)]+)\))?:\s*(Video|Audio|Subtitle):\s*(.+)/i);
+    if(streamHeader){
+      if(cur) blocks.push(cur);
+      cur = { index: streamHeader[1], lang: streamHeader[2]||'', type: streamHeader[3], header: streamHeader[4], raw:[ln] , meta: {} };
+      // collect following metadata lines
+      let j=i+1;
+      while(j<lines.length && !/^\s*Stream\s+#0:\d+/.test(lines[j])){
+        cur.raw.push(lines[j]);
+        // try capture title and NUMBER_OF_BYTES and BPS
+        const t = lines[j].match(/^\s*title\s*:\s*(.+)/i);
+        if(t) cur.meta.title = t[1].trim();
+        const nb = lines[j].match(/^\s*NUMBER_OF_BYTES\s*:\s*(\d+)/i);
+        if(nb) cur.meta.number_of_bytes = Number(nb[1]);
+        const bps = lines[j].match(/^\s*BPS\s*:\s*(\d+)/i);
+        if(bps) cur.meta.bps = Number(bps[1]);
+        j++;
+      }
+      i = j-1;
+    }
+  }
+  if(cur) blocks.push(cur);
+
+  return blocks;
+}
+
+function generatePost(input){
+  const outputDiv = document.getElementById('output');
+  const blocks = parseProbe(input);
+
+  // Title: first occurrence of metadata title at top-level, else fallback to input title
+  let fileTitle = extractFirst(input, /title\s*:\s*(.+)/i) || 'Untitled';
+  fileTitle = fileTitle.trim();
+
+  // Video main
+  const videoBlock = blocks.find(b => b.type && b.type.toLowerCase().startsWith('video'));
+  let codecRaw = '';
+  let codecPretty = 'Unknown';
+  let resolution = 'Unknown';
+  if(videoBlock){
+    const hdr = videoBlock.header;
+    // header contains codec and resolution usually
+    const codecMatch = hdr.match(/^([^\s,]+)/);
+    if(codecMatch) codecRaw = codecMatch[1].toLowerCase();
+    codecPretty = VIDEO_CODECS[codecRaw] || codecRaw.toUpperCase();
+    const resMatch = hdr.match(/(\d{3,5}x\d{3,5})/);
+    if(resMatch) resolution = resMatch[1];
+  }
+
+  // bitrate: take the global "bitrate: N kb/s" line (not BPS)
+  const bitrateMatch = input.match(/bitrate:\s*(\d+)\s*kb\/s/i);
+  let bitrateText = 'Unknown';
+  if(bitrateMatch){
+    let mb = Number(bitrateMatch[1]) / 1000; // kbps -> Mbps
+    mb = roundToHalf(mb);
+    // format C: integer -> no decimal, decimal -> one decimal
+    bitrateText = (mb % 1 === 0) ? `~${mb} Mbps` : `~${mb.toFixed(1)} Mbps`;
+  }
+
+  // total bytes: sum of NUMBER_OF_BYTES across all blocks
+  let totalBytes = 0;
+  blocks.forEach(b => { if(b.meta && b.meta.number_of_bytes) totalBytes += b.meta.number_of_bytes; });
+  let sizeText = 'Unknown';
+  if(totalBytes>0){
+    let gb = totalBytes / (1024**3);
+    gb = roundToHalf(gb); // round to 0.5
+    // ensure format: 1 -> 1.0? user wanted e.g. 1.5 GB/EP; keep as 1.5 or 1.0
+    sizeText = (gb % 1 === 0) ? `${gb}.0 GB/EP` : `${gb} GB/EP`;
+    // If you prefer trimming .0, change above. User accepted "1.5 GB/EP" so keep as-is.
+  }
+
+  // Build audio groups: codec -> [{lang, title}]
+  const audioBlocks = blocks.filter(b => b.type && b.type.toLowerCase().startsWith('audio'));
+  const audioMap = {};
+  const langCountBase = {}; // count base occurrences across all streams (to decide if variant needed)
+  audioBlocks.forEach(b => {
+    // language code from header b.lang (may be 'eng', 'por' etc.)
+    const langCode = (b.lang || '').toLowerCase();
+    const codecMatch = b.header.match(/^([^\s,]+)/);
+    const codecName = codecMatch? codecMatch[1].toUpperCase() : 'AUDIO';
+    if(!audioMap[codecName]) audioMap[codecName]=[];
+    audioMap[codecName].push({ lang: langCode || '', title: (b.meta && b.meta.title) ? b.meta.title : '' });
+
+    const base = langCode.slice(0,3) || '';
+    if(base) langCountBase[base] = (langCountBase[base]||0)+1;
+  });
+
+  // Build audio compact line: "🎧 Audio: FLAC • 🇯🇵 | AAC (LC) • 🇺🇸 ..."
+  const codecOrder = Object.keys(audioMap);
+  const audioCompactParts = codecOrder.map(codec => {
+    const entries = audioMap[codec];
+    // for each entry decide token: flag or flag + variant
+    const tokens = entries.map(e => displayLangToken(e.lang, e.title, (langCountBase[(e.lang||'').slice(0,3)]||0) > 1));
+    return `${codec}${codec.toUpperCase().includes('AAC') ? ' (LC)' : ''} • ${tokens.join(' ')}`;
+  });
+
+  // If you want format exactly "FLAC • 🇯🇵 | AAC (LC) • 🇺🇸 ..." where codec names first:
+  const audioLine = audioCompactParts.join(' | ');
+
+  // Subtitles: we need to detect S&S by searching titles of subtitle blocks
+  const subBlocks = blocks.filter(b => b.type && b.type.toLowerCase().startsWith('subtitle'));
+  // Build subs tokens keeping duplicates; when S&S detected, append (ꜱ-ꜱ) right after that flag
+  const subsTokens = subBlocks.map(b => {
+    const lang = (b.lang||'').toLowerCase();
+    const flag = FLAGS[lang] || FLAGS[lang.slice(0,3)] || '🏳️';
+    const title = b.meta && b.meta.title ? b.meta.title : '';
+    // detect S&S by patterns (option A: sign/song/s&s only)
+    const isSS = SS_PATTERNS.some(rx => rx.test(title));
+    return isSS ? `${flag} (ꜱ-ꜱ)` : `${flag}`;
+  });
+
+  // If subsTokens empty, show empty placeholder
+  const subsLine = subsTokens.join(' ');
+
+  // Title line: use fileTitle directly (user wanted title auto)
+  const final =
+`⭐ ${fileTitle}
+💿 Blu-ray • ${codecPretty}
+🎬 ${resolution} | ${bitrateText}
+
+🎧 Audio: ${audioLine}
+
+💬 Subs: ${subsLine}
+📦 ${sizeText}
+
+🔗 Sources:
+🛠️ Muxing & Upload: The Curator`;
+
+  return final;
+}
+
+/* ============== UI Handlers ============== */
+const outEl = document.getElementById('output');
+function render(){
+  const input = document.getElementById('input').value;
+  const txt = generatePost(input);
+  if(!txt){ outEl.textContent = "⚠️ Cole a saída completa do ffprobe."; outEl.classList.add('visible'); return; }
+  outEl.textContent = txt;
+  outEl.classList.add('visible');
+  return txt;
+}
+
+document.getElementById('processBtn').onclick = () => { render(); };
+document.getElementById('clearBtn').onclick = () => { document.getElementById('input').value=''; outEl.textContent=''; outEl.classList.remove('visible'); };
+
+document.getElementById('input').addEventListener('paste', ()=>{ setTimeout(render,80); });
+
+document.getElementById('exportTxt').onclick = ()=>{ const txt = render(); if(txt) download('mux_info.txt', txt); };
+document.getElementById('exportMd').onclick = ()=>{ const txt = render(); if(!txt) return; const md = txt.replace(/^⭐/m,'## ⭐').replace(/💿/,'### 💿').replace(/🎬/,'### 🎬').replace(/🎧/,'### 🎧').replace(/💬/,'### 💬').replace(/📦/,'### 📦').replace(/🔗/,'### 🔗'); download('mux_info.md', md); };
+
+</script>
+</body>
+</html>

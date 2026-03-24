@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatador de Output do FFprobe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .input-section {
+            margin-bottom: 30px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .results {
+            margin-top: 30px;
+        }
+        
+        .formatted-output {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .copy-button {
+            background-color: #28a745;
+            margin-top: 10px;
+            font-size: 14px;
+            padding: 8px 20px;
+        }
+        
+        .copy-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Formatador de Output do FFprobe</h1>
+        
+        <div class="input-section">
+            <label for="ffprobeOutput">Cole aqui o output do ffprobe:</label>
+            <textarea id="ffprobeOutput" placeholder="Cole o output completo do ffprobe aqui..."></textarea>
+            <button onclick="formatOutput()">Formatar</button>
+        </div>
+        
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        // Mapeamento de códigos de idioma para formato de saída
+        const outputLanguageMap = {
+            'por': 'PT-BR',
+            'pt': 'PT-BR',
+            'pt-br': 'PT-BR',
+            'pt-pt': 'PT-PT',
+            'eng': 'EN',
+            'en': 'EN',
+            'en-us': 'EN-US',
+            'en-gb': 'EN-GB',
+            'jpn': 'JP',
+            'ja': 'JP',
+            'jp': 'JP',
+            'spa': 'ES',
+            'es': 'ES',
+            'es-es': 'ES-ES',
+            'es-lat': 'ES-LAT',
+            'es-mx': 'ES-MX',
+            'fre': 'FR',
+            'fr': 'FR',
+            'fra': 'FR',
+            'fr-fr': 'FR-FR',
+            'ger': 'DE',
+            'de': 'DE',
+            'deu': 'DE',
+            'de-de': 'DE-DE',
+            'ita': 'IT',
+            'it': 'IT',
+            'it-it': 'IT-IT',
+            'rus': 'RU',
+            'ru': 'RU',
+            'ru-ru': 'RU-RU',
+            'ara': 'AR',
+            'ar': 'AR',
+            'ar-sa': 'AR-SA',
+            'chi': 'ZH',
+            'zh': 'ZH',
+            'zh-cn': 'ZH-CN',
+            'zh-tw': 'ZH-TW',
+            'kor': 'KO',
+            'ko': 'KO',
+            'ko-kr': 'KO-KR',
+            'hin': 'HI',
+            'hi': 'HI',
+            'hi-in': 'HI-IN',
+            'tha': 'TH',
+            'th': 'TH',
+            'th-th': 'TH-TH',
+            'vie': 'VI',
+            'vi': 'VI',
+            'vi-vn': 'VI-VN',
+            'pol': 'PL',
+            'pl': 'PL',
+            'pl-pl': 'PL-PL',
+            'dut': 'NL',
+            'nl': 'NL',
+            'nl-nl': 'NL-NL',
+            'swe': 'SV',
+            'sv': 'SV',
+            'sv-se': 'SV-SE',
+            'nor': 'NO',
+            'no': 'NO',
+            'no-no': 'NO-NO',
+            'nob': 'NO', // Norwegian Bokmål
+            'dan': 'DA',
+            'da': 'DA',
+            'da-dk': 'DA-DK',
+            'fin': 'FI',
+            'fi': 'FI',
+            'fi-fi': 'FI-FI',
+            'hun': 'HU',
+            'hu': 'HU',
+            'hu-hu': 'HU-HU',
+            'cze': 'CS',
+            'cs': 'CS',
+            'cs-cz': 'CS-CZ',
+            'slo': 'SK',
+            'sk': 'SK',
+            'sk-sk': 'SK-SK',
+            'bul': 'BG',
+            'bg': 'BG',
+            'bg-bg': 'BG-BG',
+            'rom': 'RO',
+            'ro': 'RO',
+            'ro-ro': 'RO-RO',
+            'gre': 'EL',
+            'el': 'EL',
+            'el-gr': 'EL-GR',
+            'tur': 'TR',
+            'tr': 'TR',
+            'tr-tr': 'TR-TR',
+            'heb': 'HE',
+            'he': 'HE',
+            'he-il': 'HE-IL',
+            'cat': 'CA', // Catalão
+            'ca': 'CA',
+            'ca-es': 'CA-ES',
+            'und': 'UND'
+        };
+        
+        function extractFileName(output) {
+            // Procura pelo nome do arquivo na linha "Input #0"
+            const inputMatch = output.match(/Input #0[^,]*,\s*from\s*['"]([^'"]+)['"]/);
+            if (inputMatch) {
+                const fullPath = inputMatch[1];
+                // Extrai apenas o nome do arquivo sem extensão e sem o caminho
+                let fileName = fullPath.split(/[\\\/]/).pop().replace(/\.[^.]+$/, '');
+                
+                // Remove informações técnicas comuns do nome para deixar mais limpo
+                fileName = fileName.replace(/\s*\[.*?\]/g, ''); // Remove [BD 1080p], [Multi-Audio], etc.
+                fileName = fileName.replace(/\s*\(BD.*?\)/g, ''); // Remove (BD 1080p x264 10-bit)
+                fileName = fileName.replace(/\s*\(WEB.*?\)/g, ''); // Remove (WEB-DL)
+                fileName = fileName.replace(/\s*\(\d{4}\).*$/, ''); // Remove (1998) e tudo depois
+                fileName = fileName.replace(/\s*E\d+.*$/, ''); // Remove E01, E02, etc.
+                fileName = fileName.replace(/\s*-\s*\d+\s*$/, ''); // Remove número do episódio no final
+                fileName = fileName.replace(/\s*1080p.*$/, ''); // Remove 1080p e tudo depois
+                fileName = fileName.replace(/\s*BluRay.*$/, ''); // Remove BluRay e tudo depois
+                fileName = fileName.replace(/\s*x265.*$/, ''); // Remove x265 e tudo depois
+                fileName = fileName.replace(/\s*10bit.*$/, ''); // Remove 10bit e tudo depois
+                fileName = fileName.replace(/\s*Multi-Audio.*$/, ''); // Remove Multi-Audio e tudo depois
+                fileName = fileName.trim();
+                
+                return fileName;
+            }
+            return '';
+        }
+        
+        function detectSource(output) {
+            const inputMatch = output.match(/Input #0[^,]*,\s*from\s*['"]([^'"]+)['"]/);
+            if (inputMatch) {
+                const fullPath = inputMatch[1].toLowerCase();
+                if (fullPath.includes('bd') || fullPath.includes('blu') || fullPath.includes('bluray')) {
+                    return 'Blu-Ray';
+                } else if (fullPath.includes('web') || fullPath.includes('webdl') || fullPath.includes('web-dl')) {
+                    return 'WEB-DL';
+                }
+            }
+            return '';
+        }
+        
+        function countAudioTracks(audioStreams) {
+            const count = audioStreams.length;
+            if (count === 1) return 'Dublado';
+            if (count === 2) return 'Dual';
+            if (count === 3) return 'Tri-Audio';
+            if (count >= 4) return 'Multi';
+            return '';
+        }
+        
+        function calculateFileSize(output) {
+            // Procura pelo bitrate total e duração
+            const bitrateMatch = output.match(/bitrate:\s*(\d+)\s*kb\/s/);
+            const durationMatch = output.match(/Duration:\s*(\d{2}):(\d{2}):(\d{2}\.?\d*)/);
+            
+            if (bitrateMatch && durationMatch) {
+                const bitrate = parseInt(bitrateMatch[1]) * 1000; // Convert to bps
+                const hours = parseInt(durationMatch[1]);
+                const minutes = parseInt(durationMatch[2]);
+                const seconds = parseFloat(durationMatch[3]);
+                
+                const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+                const totalBytes = (bitrate * totalSeconds) / 8;
+                const totalGB = totalBytes / (1024 * 1024 * 1024);
+                
+                // Arredondar para blocos de 500MB (0.5GB)
+                const rounded = Math.round(totalGB * 2) / 2;
+                return `~${rounded}GB/EP`;
+            }
+            return '';
+        }
+        
+        function extractVideoInfo(videoStream) {
+            if (!videoStream) return '';
+            
+            // Extrair resolução
+            const resolutionMatch = videoStream.match(/(\d{3,4})x(\d{3,4})/);
+            const resolution = resolutionMatch ? `${resolutionMatch[1]}×${resolutionMatch[2]}` : '';
+            
+            // Extrair codec
+            const codecMatch = videoStream.match(/Video:\s*([^,\s(]+)/);
+            let codec = codecMatch ? codecMatch[1].toUpperCase() : '';
+            
+            // Extrair aspect ratio
+            const aspectMatch = videoStream.match(/DAR\s*(\d+:\d+)/);
+            const aspect = aspectMatch ? aspectMatch[1] : '';
+            
+            // Extrair FPS
+            const fpsMatch = videoStream.match(/(\d+\.?\d*)\s*fps/);
+            const fps = fpsMatch ? `${parseFloat(fpsMatch[1])} FPS` : '';
+            
+            // Extrair bitrate dos metadados BPS
+            let bitrate = '';
+            const bpsMatch = videoStream.match(/BPS\s*:\s*(\d+)/);
+            if (bpsMatch) {
+                const bps = parseInt(bpsMatch[1]);
+                const mbps = Math.round(bps / 1000000);
+                bitrate = `~${mbps}Mbps`;
+            }
+            
+            return `${resolution} – ${codec} / ${aspect} / ${fps} / ${bitrate}`.replace(/\s+/g, ' ').trim();
+        }
+        
+        function extractAudioInfo(audioStreams) {
+            const audioInfo = [];
+            
+            audioStreams.forEach((stream, index) => {
+                // Extrair idioma - suporta múltiplos formatos
+                let language = 'unk';
+                
+                // Formato 1: Stream #0:1(por): Audio
+                let langMatch = stream.match(/Stream #0:\d+\(([^)]+)\):/);
+                if (langMatch) {
+                    language = langMatch[1].toLowerCase();
+                } else {
+                    // Formato 2: Stream #0:1[0x2](por): Audio
+                    langMatch = stream.match(/Stream #0:\d+\[0x\w+\]\(([^)]+)\):/);
+                    if (langMatch) {
+                        language = langMatch[1].toLowerCase();
+                    }
+                }
+                
+                // Converter códigos de idioma para formato desejado usando o mapeamento expandido
+                language = outputLanguageMap[language] || language.toUpperCase();
+                
+                // Extrair codec
+                const codecMatch = stream.match(/Audio:\s*([^,\s(]+)/);
+                let codec = codecMatch ? codecMatch[1].toUpperCase() : '';
+                
+                // Extrair informações de canais
+                let channels = '';
+                if (stream.includes('5.1')) {
+                    channels = '5.1';
+                } else if (stream.includes('stereo')) {
+                    channels = '2.0';
+                } else if (stream.includes('mono')) {
+                    channels = '1.0';
+                }
+                
+                // Extrair bitrate dos metadados BPS
+                let bitrate = '';
+                const bpsMatch = stream.match(/BPS\s*:\s*(\d+)/);
+                if (bpsMatch) {
+                    const bps = parseInt(bpsMatch[1]);
+                    const kbps = Math.round(bps / 1000);
+                    bitrate = `${kbps}Kbps`;
+                }
+                
+                const audioFormat = `${codec}${channels ? ' ' + channels : ''}${bitrate ? ' ' + bitrate : ''}`;
+                audioInfo.push(`${language} (${audioFormat})`);
+            });
+            
+            return audioInfo;
+        }
+        
+        function extractSubtitleInfo(subtitleStreams) {
+            if (subtitleStreams.length === 0) return '';
+            
+            // Extrair tipo de legenda
+            const typeMatch = subtitleStreams[0].match(/Subtitle:\s*([^,\s(]+)/);
+            let type = typeMatch ? typeMatch[1].toUpperCase() : 'SUB';
+            
+            // Converter tipos conhecidos
+            if (type === 'SUBRIP') {
+                type = 'SRT';
+            } else if (type === 'MOV_TEXT') {
+                type = 'MOV_TEXT';
+            } else if (type === 'DVD_SUBTITLE') {
+                type = 'VOBSUB';
+            }
+            
+            // Extrair idiomas
+            const languages = new Set(); // Usar Set para evitar duplicatas
+            subtitleStreams.forEach(stream => {
+                // Suporta múltiplos formatos de idioma
+                let langMatch = stream.match(/Stream #0:\d+\(([^)]+)\):/);
+                if (!langMatch) {
+                    langMatch = stream.match(/Stream #0:\d+\[0x\w+\]\(([^)]+)\):/);
+                }
+                
+                if (langMatch) {
+                    let lang = langMatch[1].toLowerCase();
+                    
+                    // Usar o mapeamento expandido para converter códigos de idioma
+                    const mappedLang = outputLanguageMap[lang];
+                    if (mappedLang) {
+                        languages.add(mappedLang);
+                    } else {
+                        // Se não encontrar no mapeamento, tentar detectar variações especiais
+                        if (lang === 'spa' && (stream.includes('España') || stream.includes('Spain'))) {
+                            languages.add('ES-ES');
+                        } else if (lang === 'spa' && (stream.includes('Latin') || stream.includes('América'))) {
+                            languages.add('ES-LAT');
+                        } else if (lang === 'eng' && stream.includes('US')) {
+                            languages.add('EN-US');
+                        } else if (lang === 'eng' && stream.includes('GB')) {
+                            languages.add('EN-GB');
+                        } else if (lang === 'por' && stream.includes('Brasil')) {
+                            languages.add('PT-BR');
+                        } else if (lang === 'por' && stream.includes('Portugal')) {
+                            languages.add('PT-PT');
+                        } else {
+                            // Fallback para código padrão
+                            languages.add(lang.toUpperCase());
+                        }
+                    }
+                }
+            });
+            
+            return `${type} (${Array.from(languages).join(', ')})`;
+        }
+        
+        function formatOutput() {
+            const output = document.getElementById('ffprobeOutput').value;
+            const resultsDiv = document.getElementById('results');
+            
+            if (!output.trim()) {
+                resultsDiv.innerHTML = '<div class="error">Por favor, cole o output do ffprobe.</div>';
+                return;
+            }
+            
+            try {
+                const lines = output.split('\n');
+                
+                // Extrair informações básicas
+                const fileName = extractFileName(output);
+                const source = detectSource(output);
+                const fileSize = calculateFileSize(output);
+                
+                // Separar streams por tipo
+                let videoStream = null;
+                const audioStreams = [];
+                const subtitleStreams = [];
+                
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    
+                    if (line.startsWith('Stream #0:') && line.includes('Video:') && !line.includes('(attached pic)')) {
+                        // Coletar a stream de vídeo e seus metadados
+                        let videoData = line;
+                        for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('Stream #0:'); j++) {
+                            videoData += '\n' + lines[j];
+                        }
+                        videoStream = videoData;
+                    } else if (line.startsWith('Stream #0:') && line.includes('Audio:')) {
+                        // Coletar a stream de áudio e seus metadados
+                        let audioData = line;
+                        for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('Stream #0:'); j++) {
+                            audioData += '\n' + lines[j];
+                        }
+                        audioStreams.push(audioData);
+                    } else if (line.startsWith('Stream #0:') && line.includes('Subtitle:')) {
+                        // Coletar a stream de legenda
+                        let subtitleData = line;
+                        for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('Stream #0:'); j++) {
+                            subtitleData += '\n' + lines[j];
+                        }
+                        subtitleStreams.push(subtitleData);
+                    }
+                }
+                
+                // Gerar saída formatada
+                let formattedOutput = '';
+                
+                // Nome do arquivo (primeira linha)
+                if (fileName) {
+                    formattedOutput += fileName + '\n';
+                }
+                
+                // Segunda linha: Source + Audio Type + Subtitle Type
+                const secondLine = [];
+                if (source) secondLine.push(source);
+                
+                const audioType = countAudioTracks(audioStreams);
+                if (audioType) secondLine.push(audioType);
+                
+                if (subtitleStreams.length > 0) secondLine.push('Multi-Sub');
+                
+                if (secondLine.length > 0) {
+                    formattedOutput += secondLine.join(' ') + '\n';
+                }
+                
+                // Tamanho do arquivo
+                if (fileSize) {
+                    formattedOutput += fileSize + '\n';
+                }
+                
+                // Informações do vídeo
+                const videoInfo = extractVideoInfo(videoStream);
+                if (videoInfo) {
+                    formattedOutput += videoInfo + '\n';
+                }
+                
+                // Informações das faixas de áudio
+                const audioInfo = extractAudioInfo(audioStreams);
+                audioInfo.forEach(audio => {
+                    formattedOutput += audio + '\n';
+                });
+                
+                // Informações das legendas
+                const subtitleInfo = extractSubtitleInfo(subtitleStreams);
+                if (subtitleInfo) {
+                    formattedOutput += subtitleInfo;
+                }
+                
+                resultsDiv.innerHTML = `
+                    <div class="formatted-output" id="formattedText">${formattedOutput}</div>
+                    <button class="copy-button" onclick="copyToClipboard()">Copiar Resultado</button>
+                `;
+                
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="error">Erro ao processar o output: ${error.message}</div>`;
+            }
+        }
+        
+        function copyToClipboard() {
+            const text = document.getElementById('formattedText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Texto copiado para a área de transferência!');
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+                // Fallback para navegadores mais antigos
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Texto copiado para a área de transferência!');
+            });
+        }
+    </script>
+</body>
+</html>
+

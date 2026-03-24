@@ -1,0 +1,92 @@
+{
+    "https://1024terabox.com/s/1m4axG3QsmZ6zAJTpIk4NWw": {
+        "name": "TeraBox Folder UP",
+        "status": "ONLINE",
+        "count": 1,
+        "last_check": "2026-01-12 17:02:49",
+        "prev_status": "ONLINE",
+        "prev_count": 1,
+        "prev_date": "2026-01-12 16:29:38"
+    },
+    "https://1024terabox.com/s/1W23AWTymtCAZNaejV9pGPA": {
+        "name": "TeraBox Empty",
+        "status": "ONLINE",
+        "count": 1,
+        "last_check": "2026-01-12 17:02:51",
+        "prev_status": "ONLINE",
+        "prev_count": 1,
+        "prev_date": "2026-01-12 16:33:00"
+    },
+    "https://1024terabox.com/s/1MTSGKAT7hcj-M-rgRk4oKA": {
+        "name": "TeraBox Down",
+        "status": "OFFLINE",
+        "count": 0,
+        "last_check": "2026-01-12 17:02:54",
+        "prev_status": "OFFLINE",
+        "prev_count": 0,
+        "prev_date": "2026-01-12 16:29:43"
+    },
+    "https://pixeldrain.com/l/PqLGS1Wa": {
+        "name": "Pixeldrain Album UP",
+        "status": "ONLINE",
+        "count": 12,
+        "last_check": "2026-01-12 17:02:55",
+        "prev_status": "ONLINE",
+        "prev_count": 12,
+        "prev_date": "2026-01-12 16:29:44"
+    },
+    "https://pixeldrain.com/l/PqLGS1WB": {
+        "name": "Pixeldrain Down",
+        "status": "OFFLINE",
+        "count": 0,
+        "last_check": "2026-01-12 17:02:56",
+        "prev_status": "OFFLINE",
+        "prev_count": 0,
+        "prev_date": "2026-01-12 16:29:45"
+    },
+    "https://archive.org/details/full-metal-jacket-1987_202108": {
+        "name": "Archive UP",
+        "status": "ONLINE",
+        "count": 1,
+        "last_check": "2026-01-12 17:02:58",
+        "prev_status": "ONLINE",
+        "prev_count": 1,
+        "prev_date": "2026-01-12 16:29:46"
+    },
+    "https://www.mediafire.com/file/1kn7qfvsmnfb9t6/": {
+        "name": "MediaFire UP",
+        "status": "ONLINE",
+        "count": 1,
+        "last_check": "2026-01-12 17:02:58",
+        "prev_status": "ONLINE",
+        "prev_count": 1,
+        "prev_date": "2026-01-12 16:29:47"
+    },
+    "https://www.file-upload.org/9e9ctsgz5rks": {
+        "name": "FileUpload UP",
+        "status": "ONLINE",
+        "count": 1,
+        "last_check": "2026-01-12 17:03:00",
+        "prev_status": "ONLINE",
+        "prev_count": 1,
+        "prev_date": "2026-01-12 16:29:48"
+    },
+    "": {
+        "name": "SINGLE FILE DOWN",
+        "status": "UNKNOWN",
+        "count": 0,
+        "last_check": "2026-01-12 16:33:02",
+        "prev_status": "UNKNOWN",
+        "prev_count": 0,
+        "prev_date": "2026-01-12 16:33:02"
+    },
+    "https://1024terabox.com/s/1TIrL15xi1briUadR0kIyUw": {
+        "name": "DOWN SINGLE FILE",
+        "status": "OFFLINE",
+        "count": 0,
+        "last_check": "2026-01-12 16:33:02",
+        "prev_status": "N/A",
+        "prev_count": "N/A",
+        "prev_date": "Nunca"
+    }
+}

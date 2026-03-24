@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Output do Probe.exe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .input-section {
+            margin-bottom: 30px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .results {
+            margin-top: 30px;
+        }
+        
+        .video-info {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .stream-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .stream-item.audio {
+            border-left-color: #ffc107;
+        }
+        
+        .stream-item.subtitle {
+            border-left-color: #dc3545;
+        }
+        
+        .stream-item.attached-pic {
+            border-left-color: #6f42c1;
+        }
+        
+        .stream-header {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .stream-details {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .difference {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+        
+        .difference.positive {
+            color: #dc3545;
+        }
+        
+        .difference.negative {
+            color: #007bff;
+        }
+        
+        .difference.zero {
+            color: #28a745;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .summary {
+            background-color: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .debug-info {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Analisador de Output do Probe.exe</h1>
+        
+        <div class="input-section">
+            <label for="probeOutput">Cole aqui o output do probe.exe:</label>
+            <textarea id="probeOutput" placeholder="Cole o output completo do probe.exe aqui..."></textarea>
+            <button onclick="analyzeProbe()">Analisar</button>
+        </div>
+        
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        function parseTimeToMs(timeString) {
+            // Converte formato HH:MM:SS.ssssss para milissegundos
+            const parts = timeString.split(':');
+            const hours = parseInt(parts[0]);
+            const minutes = parseInt(parts[1]);
+            const seconds = parseFloat(parts[2]);
+            
+            return (hours * 3600 + minutes * 60 + seconds) * 1000;
+        }
+        
+        function formatTime(ms) {
+            const totalSeconds = ms / 1000;
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = (totalSeconds % 60).toFixed(3);
+            
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.padStart(6, '0')}`;
+        }
+        
+        function formatDifference(diffMs) {
+            const absMs = Math.abs(diffMs);
+            const sign = diffMs >= 0 ? '+' : '-';
+            return `${sign}${absMs.toFixed(0)} ms (${sign}${formatTime(absMs)})`;
+        }
+        
+        function analyzeProbe() {
+            const output = document.getElementById('probeOutput').value;
+            const resultsDiv = document.getElementById('results');
+            
+            if (!output.trim()) {
+                resultsDiv.innerHTML = '<div class="error">Por favor, cole o output do probe.exe.</div>';
+                return;
+            }
+            
+            try {
+                const lines = output.split('\n');
+                let videoStream = null;
+                const audioStreams = [];
+                const subtitleStreams = [];
+                const attachedPics = [];
+                
+                // Procurar por streams
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    
+                    // Regex melhorado para capturar streams
+                    if (line.startsWith('Stream #0:')) {
+                        // Padrões possíveis:
+                        // Stream #0:0: Video: h264 (High), yuv420p(progressive), 1440x1080 [SAR 1:1 DAR 4:3], 23.98 fps, 23.98 tbr, 1k tbn (default)
+                        // Stream #0:1(por): Audio: aac (LC), 48000 Hz, stereo, fltp
+                        // Stream #0:4: Video: mjpeg (Progressive), yuvj420p(pc, bt470bg/unknown/unknown), 570x833 [SAR 72:72 DAR 570:833], 90k tbr, 90k tbn (attached pic)
+                        
+                        const streamMatch = line.match(/Stream #0:(\d+)(?:\(([^)]+)\))?: (Video|Audio|Subtitle): (.+)/);
+                        if (streamMatch) {
+                            const streamId = streamMatch[1];
+                            const language = streamMatch[2] || 'N/A';
+                            const type = streamMatch[3];
+                            const codecInfo = streamMatch[4];
+                            
+                            // Verificar se é attached pic
+                            const isAttachedPic = line.includes('(attached pic)');
+                            
+                            // Procurar pelos metadados nas próximas linhas
+                            let duration = null;
+                            let title = null;
+                            let bps = null;
+                            let numberOfFrames = null;
+                            let numberOfBytes = null;
+                            
+                            // Procurar metadados nas próximas linhas até encontrar outro stream ou fim
+                            for (let j = i + 1; j < lines.length; j++) {
+                                const metaLine = lines[j].trim();
+                                
+                                // Se encontrou outro stream, parar
+                                if (metaLine.startsWith('Stream #0:') && j > i + 1) {
+                                    break;
+                                }
+                                
+                                // Procurar por metadados específicos
+                                if (metaLine.includes('DURATION')) {
+                                    const durationMatch = metaLine.match(/DURATION\s*:\s*([0-9:\.]+)/);
+                                    if (durationMatch) {
+                                        duration = durationMatch[1];
+                                    }
+                                }
+                                
+                                if (metaLine.includes('BPS')) {
+                                    const bpsMatch = metaLine.match(/BPS\s*:\s*(\d+)/);
+                                    if (bpsMatch) {
+                                        bps = bpsMatch[1];
+                                    }
+                                }
+                                
+                                if (metaLine.includes('NUMBER_OF_FRAMES')) {
+                                    const framesMatch = metaLine.match(/NUMBER_OF_FRAMES:\s*(\d+)/);
+                                    if (framesMatch) {
+                                        numberOfFrames = framesMatch[1];
+                                    }
+                                }
+                                
+                                if (metaLine.includes('NUMBER_OF_BYTES')) {
+                                    const bytesMatch = metaLine.match(/NUMBER_OF_BYTES:\s*(\d+)/);
+                                    if (bytesMatch) {
+                                        numberOfBytes = bytesMatch[1];
+                                    }
+                                }
+                                
+                                if (metaLine.includes('title')) {
+                                    const titleMatch = metaLine.match(/title\s*:\s*(.+)/);
+                                    if (titleMatch) {
+                                        title = titleMatch[1];
+                                    }
+                                }
+                            }
+                            
+                            const streamInfo = {
+                                id: streamId,
+                                language: language,
+                                type: type,
+                                codecInfo: codecInfo,
+                                duration: duration,
+                                title: title,
+                                bps: bps,
+                                numberOfFrames: numberOfFrames,
+                                numberOfBytes: numberOfBytes,
+                                isAttachedPic: isAttachedPic
+                            };
+                            
+                            if (type === 'Video' && !isAttachedPic) {
+                                videoStream = streamInfo;
+                            } else if (type === 'Video' && isAttachedPic) {
+                                attachedPics.push(streamInfo);
+                            } else if (type === 'Audio') {
+                                audioStreams.push(streamInfo);
+                            } else if (type === 'Subtitle') {
+                                subtitleStreams.push(streamInfo);
+                            }
+                        }
+                    }
+                }
+                
+                if (!videoStream || !videoStream.duration) {
+                    resultsDiv.innerHTML = '<div class="error">Não foi possível encontrar a faixa de vídeo principal ou sua duração no output.</div>';
+                    return;
+                }
+                
+                const videoDurationMs = parseTimeToMs(videoStream.duration);
+                
+                let html = `
+                    <div class="video-info">
+                        <div class="stream-header">🎥 Faixa de Vídeo Principal (Referência)</div>
+                        <div class="stream-details">
+                            <strong>Stream:</strong> #0:${videoStream.id}<br>
+                            <strong>Codec:</strong> ${videoStream.codecInfo}<br>
+                            <strong>Duração:</strong> ${videoStream.duration} (${videoDurationMs.toFixed(0)} ms)<br>
+                            ${videoStream.bps ? `<strong>Bitrate:</strong> ${parseInt(videoStream.bps).toLocaleString()} bps<br>` : ''}
+                            ${videoStream.numberOfFrames ? `<strong>Frames:</strong> ${parseInt(videoStream.numberOfFrames).toLocaleString()}<br>` : ''}
+                            ${videoStream.numberOfBytes ? `<strong>Tamanho:</strong> ${(parseInt(videoStream.numberOfBytes) / 1024 / 1024).toFixed(2)} MB` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                // Analisar faixas de áudio
+                if (audioStreams.length > 0) {
+                    html += '<h3>🔊 Faixas de Áudio</h3>';
+                    audioStreams.forEach(stream => {
+                        if (stream.duration) {
+                            const streamDurationMs = parseTimeToMs(stream.duration);
+                            const diffMs = streamDurationMs - videoDurationMs;
+                            const diffClass = diffMs > 0 ? 'positive' : (diffMs < 0 ? 'negative' : 'zero');
+                            
+                            html += `
+                                <div class="stream-item audio">
+                                    <div class="stream-header">Stream #0:${stream.id} (${stream.language})</div>
+                                    <div class="stream-details">
+                                        <strong>Título:</strong> ${stream.title || 'N/A'}<br>
+                                        <strong>Codec:</strong> ${stream.codecInfo}<br>
+                                        <strong>Duração:</strong> ${stream.duration} (${streamDurationMs.toFixed(0)} ms)<br>
+                                        ${stream.bps ? `<strong>Bitrate:</strong> ${parseInt(stream.bps).toLocaleString()} bps<br>` : ''}
+                                        ${stream.numberOfFrames ? `<strong>Frames:</strong> ${parseInt(stream.numberOfFrames).toLocaleString()}<br>` : ''}
+                                        ${stream.numberOfBytes ? `<strong>Tamanho:</strong> ${(parseInt(stream.numberOfBytes) / 1024 / 1024).toFixed(2)} MB` : ''}
+                                    </div>
+                                    <div class="difference ${diffClass}">
+                                        Diferença: ${formatDifference(diffMs)}
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            html += `
+                                <div class="stream-item audio">
+                                    <div class="stream-header">Stream #0:${stream.id} (${stream.language})</div>
+                                    <div class="stream-details">
+                                        <strong>Título:</strong> ${stream.title || 'N/A'}<br>
+                                        <strong>Codec:</strong> ${stream.codecInfo}<br>
+                                        <strong>Duração:</strong> Não disponível
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                }
+                
+                // Analisar faixas de legenda
+                if (subtitleStreams.length > 0) {
+                    html += '<h3>📝 Faixas de Legenda</h3>';
+                    subtitleStreams.forEach(stream => {
+                        if (stream.duration) {
+                            const streamDurationMs = parseTimeToMs(stream.duration);
+                            const diffMs = streamDurationMs - videoDurationMs;
+                            const diffClass = diffMs > 0 ? 'positive' : (diffMs < 0 ? 'negative' : 'zero');
+                            
+                            html += `
+                                <div class="stream-item subtitle">
+                                    <div class="stream-header">Stream #0:${stream.id} (${stream.language})</div>
+                                    <div class="stream-details">
+                                        <strong>Título:</strong> ${stream.title || 'N/A'}<br>
+                                        <strong>Codec:</strong> ${stream.codecInfo}<br>
+                                        <strong>Duração:</strong> ${stream.duration} (${streamDurationMs.toFixed(0)} ms)
+                                    </div>
+                                    <div class="difference ${diffClass}">
+                                        Diferença: ${formatDifference(diffMs)}
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            html += `
+                                <div class="stream-item subtitle">
+                                    <div class="stream-header">Stream #0:${stream.id} (${stream.language})</div>
+                                    <div class="stream-details">
+                                        <strong>Título:</strong> ${stream.title || 'N/A'}<br>
+                                        <strong>Codec:</strong> ${stream.codecInfo}<br>
+                                        <strong>Duração:</strong> Não disponível
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                }
+                
+                // Analisar attached pics (capas/thumbnails)
+                if (attachedPics.length > 0) {
+                    html += '<h3>🖼️ Imagens Anexadas (Capas/Thumbnails)</h3>';
+                    attachedPics.forEach(stream => {
+                        html += `
+                            <div class="stream-item attached-pic">
+                                <div class="stream-header">Stream #0:${stream.id}</div>
+                                <div class="stream-details">
+                                    <strong>Tipo:</strong> Imagem anexada (capa/thumbnail)<br>
+                                    <strong>Codec:</strong> ${stream.codecInfo}
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+                
+                // Resumo
+                const totalStreams = audioStreams.length + subtitleStreams.length;
+                html += `
+                    <div class="summary">
+                        <strong>📊 Resumo:</strong><br>
+                        • Faixa de vídeo principal: ${videoStream.duration}<br>
+                        • ${audioStreams.length} faixa(s) de áudio analisada(s)<br>
+                        • ${subtitleStreams.length} faixa(s) de legenda analisada(s)<br>
+                        • ${attachedPics.length} imagem(ns) anexada(s)<br>
+                        • Total: ${totalStreams} faixas comparadas com o vídeo
+                    </div>
+                `;
+                
+                resultsDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="error">Erro ao analisar o output: ${error.message}<br><br>Stack trace: ${error.stack}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
+
