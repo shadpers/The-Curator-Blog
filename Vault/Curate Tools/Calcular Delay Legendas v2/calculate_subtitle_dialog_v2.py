@@ -188,9 +188,8 @@ def clean_text(text):
     return ' '.join(text.split()).strip()
 
 def read_srt_dialogues(srt_file, max_time=1250):
-    """Lê as 3 primeiras e 3 últimas linhas de diálogo válidas de um arquivo .srt, evitando duplicatas."""
+    """Lê todos os diálogos válidos de um arquivo .srt, evitando duplicatas."""
     try:
-        # Tenta abrir com diferentes codificações
         encodings = ['utf-8', 'latin-1', 'cp1252']
         subs = None
         for encoding in encodings:
@@ -209,19 +208,17 @@ def read_srt_dialogues(srt_file, max_time=1250):
             print(error_msg)
             print(error_msg, file=sys.stderr)
             sys.exit(1)
-        # Converte tempos para segundos e obtém texto
         dialogues = []
-        seen = set()  # Para rastrear entradas únicas (texto, start_time, end_time)
+        seen = set()
         for sub in subs:
             raw_text = sub.text.replace('\n', ' ')
             cleaned = clean_text(raw_text)
-            if len(cleaned) > 10 and len(cleaned.split()) > 1:  # Ignora linhas curtas ou tags-only
+            if len(cleaned) > 10 and len(cleaned.split()) > 1:
                 start_time = sub.start.hours * 3600 + sub.start.minutes * 60 + sub.start.seconds + sub.start.milliseconds / 1000
                 end_time = sub.end.hours * 3600 + sub.end.minutes * 60 + sub.end.seconds + sub.end.milliseconds / 1000
-                # Ignora linhas após max_time (provável ED)
                 if start_time > max_time:
                     continue
-                key = (cleaned, start_time, end_time)  # Chave para verificar duplicatas
+                key = (cleaned, start_time, end_time)
                 if key not in seen:
                     seen.add(key)
                     dialogues.append({
@@ -235,15 +232,36 @@ def read_srt_dialogues(srt_file, max_time=1250):
             print(error_msg)
             print(error_msg, file=sys.stderr)
             sys.exit(1)
-        # Retorna as 3 primeiras, 3 últimas e todas as falas válidas
-        first_three = dialogues[:3]
-        last_three = dialogues[-3:] if len(dialogues) >= 3 else dialogues
-        return first_three, last_three, dialogues
+        return dialogues
     except Exception as e:
         error_msg = f"Erro ao ler arquivo .srt {srt_file}: {str(e)}"
         print(error_msg)
         print(error_msg, file=sys.stderr)
         sys.exit(1)
+
+
+def find_best_matches(bd_all, web_all, threshold=0.6):
+    """
+    Varre todos os diálogos de BD e WEB buscando pares com maior similaridade textual.
+    Cada linha do BD é casada com a melhor linha disponível do WEB (sem reutilização).
+    Retorna os pares ordenados pelo tempo de início no BD.
+    """
+    used_web = set()
+    pairs = []
+    for bd_d in bd_all:
+        best_web = None
+        best_ratio = 0
+        for i, web_d in enumerate(web_all):
+            if i in used_web:
+                continue
+            ratio = difflib.SequenceMatcher(None, bd_d['text'], web_d['text']).ratio()
+            if ratio > best_ratio and ratio >= threshold:
+                best_ratio = ratio
+                best_web = (i, web_d)
+        if best_web is not None:
+            used_web.add(best_web[0])
+            pairs.append((bd_d, best_web[1], best_ratio))
+    return pairs
 
 def list_subtitles(subtitles, file_type):
     """Lista as legendas disponíveis e retorna a lista."""
@@ -269,23 +287,39 @@ def select_subtitle(subtitles, file_type):
             print(error_msg)
             print(error_msg, file=sys.stderr)
 
+def is_signs_songs_track(sub):
+    """Retorna True se a faixa parece ser Signs & Songs (não contém diálogos completos)."""
+    title_lower = sub['title'].lower()
+    keywords = ['sign', 'song', 'full subtitle', 'full sub']
+    return any(kw in title_lower for kw in keywords)
+
 def auto_select_subtitle(subtitles, file_type):
     """Seleciona automaticamente uma legenda com base na ordem de prioridade de idiomas."""
     print(f"\nDepuração: Idiomas disponíveis em {file_type}: {[sub['lang'] for sub in subtitles]}")
     for lang_key, lang_codes in LANGUAGE_PRIORITY.items():
         matching_subs = [sub for sub in subtitles if sub['lang'] in lang_codes]
-        # Prefere faixas que não sejam "Songs" ou "Full Subtitles"
-        dialogue_only = [sub for sub in matching_subs if 'song' not in sub['title'].lower() and 'full' not in sub['title'].lower()]
-        if dialogue_only:
-            matching_subs = dialogue_only[:1]  # Escolhe a primeira faixa "limpa"
-        if len(matching_subs) == 1:
-            print(f"\nLegenda selecionada automaticamente para {file_type}: Lang={matching_subs[0]['lang']}, Title=\"{matching_subs[0]['title']}\", Duração={matching_subs[0]['duration']:.3f} s")
-            return matching_subs[0]
-        elif len(matching_subs) > 1:
-            print(f"\nMúltiplas legendas encontradas para o idioma '{lang_key}' em {file_type}. Seleção manual necessária.")
-            matching_subs = list_subtitles(matching_subs, f"{file_type} (idioma {lang_key})")
-            return select_subtitle(matching_subs, f"{file_type} (idioma {lang_key})")
+        if not matching_subs:
+            continue
+        # Prefere faixas que não sejam Signs/Songs/Full Subtitles
+        dialogue_only = [sub for sub in matching_subs if not is_signs_songs_track(sub)]
+
+        if len(dialogue_only) == 1:
+            # Apenas uma faixa limpa → seleciona automaticamente
+            print(f"\nLegenda selecionada automaticamente para {file_type}: Lang={dialogue_only[0]['lang']}, Title=\"{dialogue_only[0]['title']}\", Duração={dialogue_only[0]['duration']:.3f} s")
+            return dialogue_only[0]
+        elif len(dialogue_only) > 1:
+            # Múltiplas faixas limpas → pergunta ao usuário
+            print(f"\nMúltiplas legendas de diálogo encontradas para o idioma '{lang_key}' em {file_type}. Seleção manual necessária.")
+            list_subtitles(dialogue_only, f"{file_type} (idioma {lang_key})")
+            return select_subtitle(dialogue_only, f"{file_type} (idioma {lang_key})")
+        else:
+            # Nenhuma faixa limpa encontrada (todas são Signs/Songs) → mostra TODAS as faixas disponíveis
+            print(f"\nAVISO: A única faixa '{lang_key}' em {file_type} parece ser Signs & Songs ou similar.")
+            print("Exibindo todas as faixas disponíveis para seleção manual:")
+            list_subtitles(subtitles, file_type)
+            return select_subtitle(subtitles, file_type)
     print(f"\nNenhuma legenda com idioma prioritário ({', '.join(LANGUAGE_PRIORITY.keys())}) encontrada para {file_type}. Seleção manual necessária.")
+    list_subtitles(subtitles, file_type)
     return select_subtitle(subtitles, file_type)
 
 def compare_subtitles(bd_file, web_file):
@@ -326,88 +360,67 @@ def compare_subtitles(bd_file, web_file):
         extract_subtitle(bd_file, bd_selected_sub["index"], bd_srt)
         extract_subtitle(web_file, web_selected_sub["index"], web_srt)
 
-        # Lê as 3 primeiras, 3 últimas e todas as falas válidas
-        bd_first, bd_last, bd_all = read_srt_dialogues(bd_srt, max_time)
-        web_first, web_last, web_all = read_srt_dialogues(web_srt, max_time)
+        # Lê todos os diálogos válidos de ambos os arquivos
+        bd_all = read_srt_dialogues(bd_srt, max_time)
+        web_all = read_srt_dialogues(web_srt, max_time)
 
-        # Verifica se as legendas estão no mesmo idioma
-        same_language = bd_selected_sub["lang"] == web_selected_sub["lang"]
-
-        # Exibe resultados
+        # Exibe cabeçalho
         print("\n===== RESULTADOS =====")
         print(f"\nLegenda selecionada BD: Lang={bd_selected_sub['lang']}, Title=\"{bd_selected_sub['title']}\", Duração={bd_selected_sub['duration']:.3f} s")
         print(f"Legenda selecionada WEB: Lang={web_selected_sub['lang']}, Title=\"{web_selected_sub['title']}\", Duração={web_selected_sub['duration']:.3f} s")
-        print(f"\nBD TEM {len(bd_subs)} LEGENDAS")
-        print(f"WEB-DL TEM {len(web_subs)} LEGENDAS\n")
+        print(f"\nBD TEM {len(bd_subs)} LEGENDAS ({len(bd_all)} diálogos válidos)")
+        print(f"WEB-DL TEM {len(web_subs)} LEGENDAS ({len(web_all)} diálogos válidos)\n")
 
-        print("=== BD: 3 Primeiras Linhas de Diálogo ===")
-        for d in bd_first:
-            print(f"Índice: {d['index']}, Tempo: {d['start_time']:.3f}s - {d['end_time']:.3f}s, Texto: {d['text']}")
-        print("\n=== BD: 3 Últimas Linhas de Diálogo ===")
-        for d in bd_last:
-            print(f"Índice: {d['index']}, Tempo: {d['start_time']:.3f}s - {d['end_time']:.3f}s, Texto: {d['text']}")
+        def print_pairs(pairs, label):
+            print(f"\n{label}:")
+            for i, (bd_d, web_d, ratio) in enumerate(pairs, 1):
+                diff_ms = int((bd_d['start_time'] - web_d['start_time']) * 1000)
+                sim_str = f", sim={ratio:.2f}" if ratio < 1.0 else ""
+                print(f"  [{i}] (Δ {diff_ms:+d}ms{sim_str})")
+                print(f"    BD : {bd_d['start_time']:.3f}s → {bd_d['text']}")
+                print(f"    WEB: {web_d['start_time']:.3f}s → {web_d['text']}")
 
-        print("\n=== WEB-DL: 3 Primeiras Linhas de Diálogo ===")
-        for d in web_first:
-            print(f"Índice: {d['index']}, Tempo: {d['start_time']:.3f}s - {d['end_time']:.3f}s, Texto: {d['text']}")
-        print("\n=== WEB-DL: 3 Últimas Linhas de Diálogo ===")
-        for d in web_last:
-            print(f"Índice: {d['index']}, Tempo: {d['start_time']:.3f}s - {d['end_time']:.3f}s, Texto: {d['text']}")
+        # Tenta sempre similaridade textual primeiro — ignora lang tag (pode ser mal rotulada)
+        print("=== Comparação de Tempos (Falas Alinhadas) ===")
+        all_pairs = find_best_matches(bd_all, web_all, threshold=0.6)
 
-        # Comparação de tempos
-        print("\n=== Comparação de Tempos (Falas Alinhadas) ===")
-        if same_language:
-            # Alinha falas por similaridade (mesmo idioma)
-            def find_matching_dialogues(bd_dialogues, web_dialogues, threshold=0.6):
-                matches = []
-                for bd_d in bd_dialogues:
-                    best_match = None
-                    best_ratio = 0
-                    for web_d in web_dialogues:
-                        ratio = difflib.SequenceMatcher(None, bd_d['text'], web_d['text']).ratio()
-                        if ratio > best_ratio and ratio >= threshold:
-                            best_match = web_d
-                            best_ratio = ratio
-                    if best_match:
-                        matches.append((bd_d, best_match, best_ratio))
-                return matches
-
-            # Encontra correspondências para as primeiras e últimas falas
-            first_matches = find_matching_dialogues(bd_first, web_all[:30], threshold=0.6)
-            last_matches = find_matching_dialogues(bd_last, web_all[-30:], threshold=0.6)
-
-            print("Primeiras Linhas (BD vs WEB-DL):")
-            for i, (bd_d, web_d, ratio) in enumerate(first_matches[:3], 1):
-                diff_start_ms = int((bd_d['start_time'] - web_d['start_time']) * 1000)
-                print(f"Diálogo {i} (Diferença: {diff_start_ms:+d}ms):")
-                print(f"  BD: Início={bd_d['start_time']:.3f}s, Texto: {bd_d['text']}")
-                print(f"  WEB: Início={web_d['start_time']:.3f}s, Texto: {web_d['text']} (Similaridade: {ratio:.2f})")
-
-            print("\nÚltimas Linhas (BD vs WEB-DL):")
-            for i, (bd_d, web_d, ratio) in enumerate(last_matches[:3], 1):
-                diff_start_ms = int((bd_d['start_time'] - web_d['start_time']) * 1000)
-                print(f"Diálogo {i} (Diferença: {diff_start_ms:+d}ms):")
-                print(f"  BD: Início={bd_d['start_time']:.3f}s, Texto: {bd_d['text']}")
-                print(f"  WEB: Início={web_d['start_time']:.3f}s, Texto: {web_d['text']} (Similaridade: {ratio:.2f})")
+        if len(all_pairs) >= 3:
+            # Similaridade textual funcionou
+            first_matches = all_pairs[:3]
+            last_matches  = all_pairs[-3:]
+            print_pairs(first_matches, "3 Primeiros Pares Correspondentes")
+            if last_matches != first_matches:
+                print_pairs(last_matches, "3 Últimos Pares Correspondentes")
         else:
-            # Exibe falas diretamente com diferenças de tempo (idiomas diferentes)
-            print("Primeiras Linhas (BD vs WEB-DL):")
-            for i in range(min(3, len(bd_first), len(web_first))):
-                bd_d = bd_first[i]
-                web_d = web_first[i]
-                diff_start_ms = int((bd_d['start_time'] - web_d['start_time']) * 1000)
-                print(f"Diálogo {i+1} (Diferença: {diff_start_ms:+d}ms):")
-                print(f"  BD: Início={bd_d['start_time']:.3f}s, Texto: {bd_d['text']}")
-                print(f"  WEB: Início={web_d['start_time']:.3f}s, Texto: {web_d['text']}")
+            # Fallback: idiomas diferentes, alinha por posição temporal proporcional
+            bd_dur  = bd_selected_sub["duration"]
+            web_dur = web_selected_sub["duration"]
+            print("(Similaridade textual insuficiente — usando alinhamento por posição proporcional)")
 
-            print("\nÚltimas Linhas (BD vs WEB-DL):")
-            for i in range(min(3, len(bd_last), len(web_last))):
-                bd_d = bd_last[i]
-                web_d = web_last[i]
-                diff_start_ms = int((bd_d['start_time'] - web_d['start_time']) * 1000)
-                print(f"Diálogo {i+1} (Diferença: {diff_start_ms:+d}ms):")
-                print(f"  BD: Início={bd_d['start_time']:.3f}s, Texto: {bd_d['text']}")
-                print(f"  WEB: Início={web_d['start_time']:.3f}s, Texto: {web_d['text']}")
+            used_web_times = set()
+
+            def find_proportional_match_unique(bd_d):
+                prop_time = (bd_d['start_time'] / bd_dur) * web_dur
+                candidates = sorted(web_all, key=lambda w: abs(w['start_time'] - prop_time))
+                for candidate in candidates:
+                    if candidate['start_time'] not in used_web_times:
+                        used_web_times.add(candidate['start_time'])
+                        return candidate
+                return candidates[0]
+
+            def get_prop_pairs(bd_subset):
+                pairs = []
+                for bd_d in bd_subset:
+                    web_d = find_proportional_match_unique(bd_d)
+                    pairs.append((bd_d, web_d, 0.0))
+                    if len(pairs) == 3:
+                        break
+                return pairs
+
+            used_web_times.clear()
+            print_pairs(get_prop_pairs(bd_all[:15]),  "\n3 Primeiros Diálogos (proporcional)")
+            used_web_times.clear()
+            print_pairs(get_prop_pairs(bd_all[-15:]), "\n3 Últimos Diálogos (proporcional)")
 
         # Calcula fator de expansão total
         bd_sub_dur = bd_selected_sub["duration"]

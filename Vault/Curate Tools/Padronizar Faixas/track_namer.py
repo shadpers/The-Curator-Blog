@@ -20,24 +20,38 @@ from collections import defaultdict
 MKVMERGE = r"C:\Program Files\MKVToolNix\mkvmerge.exe"
 
 # ─── Ordem de prioridade canônica ─────────────────────────────────────────────
-# Top 15 idiomas mais comuns em releases de internet + variante europeia de PT
+# Top idiomas mais comuns em releases de internet + expandido
 LANGUAGE_ORDER: List[str] = [
     "jpn",        #  1  Japanese
     "eng",        #  2  English
     "por_br",     #  3  Português Brasileiro
     "spa_lat",    #  4  Español Latino
-    "spa_cast",   #  5  Español Castelhano
+    "spa_cast",   #  5  Español Castellano
     "fre",        #  6  Français
-    "ita",        #  7  Italiano
-    "ger",        #  8  Deutsch
-    "rus",        #  9  Русский
-    "chi_s",      # 10  中文 (Simplificado)
-    "chi_t",      # 11  中文 (Tradicional)
-    "kor",        # 12  한국어
-    "ara",        # 13  العربية
-    "hin",        # 14  हिन्दी
-    "dut",        # 15  Nederlands
-    "por_pt",     #     Português (Europeu) — suportado mas fora do top-15
+    "por_pt",     #  7  Português Europeu
+    "ita",        #  8  Italiano
+    "ger",        #  9  Deutsch
+    "rus",        # 10  Русский
+    "chi_s",      # 11  中文 (Simplificado)
+    "chi_t",      # 12  中文 (Tradicional)
+    "kor",        # 13  한국어
+    "ara",        # 14  العربية
+    "hin",        # 15  हिन्दी
+    "dut",        # 16  Nederlands
+    # ── Adições de outros idiomas comuns ──
+    "pol",        # 17  Polski
+    "tur",        # 18  Türkçe
+    "swe",        # 19  Svenska
+    "nor",        # 20  Norsk
+    "dan",        # 21  Dansk
+    "fin",        # 22  Suomi
+    "cze",        # 23  Čeština
+    "hun",        # 24  Magyar
+    "gre",        # 25  Ελληνικά
+    "ind",        # 26  Bahasa Indonesia
+    "may",        # 27  Bahasa Melayu
+    "tha",        # 28  ไทย
+    "vie",        # 29  Tiếng Việt
 ]
 
 LANGUAGE_NAMES: Dict[str, str] = {
@@ -45,7 +59,7 @@ LANGUAGE_NAMES: Dict[str, str] = {
     "eng":      "English",
     "por_br":   "Português Brasileiro",
     "spa_lat":  "Español Latino",
-    "spa_cast": "Español Castelhano",
+    "spa_cast": "Español Castellano",
     "fre":      "Français",
     "ita":      "Italiano",
     "ger":      "Deutsch",
@@ -56,61 +70,87 @@ LANGUAGE_NAMES: Dict[str, str] = {
     "ara":      "العربية",
     "hin":      "हिन्दी",
     "dut":      "Nederlands",
-    "por_pt":   "Português (Europeu)",
+    "por_pt":   "Português Europeu",
+    # ── Adições ──
+    "pol":      "Polski",
+    "tur":      "Türkçe",
+    "swe":      "Svenska",
+    "nor":      "Norsk",
+    "dan":      "Dansk",
+    "fin":      "Suomi",
+    "cze":      "Čeština",
+    "hun":      "Magyar",
+    "gre":      "Ελληνικά",
+    "ind":      "Bahasa Indonesia",
+    "may":      "Bahasa Melayu",
+    "tha":      "ไทย",
+    "vie":      "Tiếng Việt",
 }
 
 # BCP-47 (IETF) → chave canônica
-# Tags com subtag regional são consideradas "certas" (ex: "pt-BR", "es-419")
-# Tags genéricas são "incertas" e podem precisar de desambiguação (ex: "pt", "es")
 IETF_MAP: Dict[str, str] = {
-    # Japonês
-    "ja":       "jpn",
-    # Inglês
-    "en":       "eng",    "en-us":    "eng",    "en-gb":   "eng",
-    # Português — "pt" genérico presume BR; "pt-pt" é certo para europeu
-    "pt":       "por_br", "pt-br":    "por_br", "pt-pt":   "por_pt",
-    # Espanhol — "es" genérico presume Latino; tags regionais são certas
-    "es":       "spa_lat","es-419":   "spa_lat","es-la":   "spa_lat",
-    "es-mx":    "spa_lat","es-ar":    "spa_lat","es-co":   "spa_lat",
-    "es-cl":    "spa_lat","es-ve":    "spa_lat","es-pe":   "spa_lat",
-    "es-es":    "spa_cast",
-    # Francês
-    "fr":       "fre",    "fr-fr":    "fre",
-    # Italiano
-    "it":       "ita",    "it-it":    "ita",
-    # Alemão
-    "de":       "ger",    "de-de":    "ger",    "de-at":   "ger",
-    # Russo
-    "ru":       "rus",    "ru-ru":    "rus",
-    # Chinês — "zh" genérico presume Simplificado
-    "zh":       "chi_s",  "zh-hans":  "chi_s",  "zh-cn":   "chi_s",  "zh-sg": "chi_s",
-    "zh-hant":  "chi_t",  "zh-tw":    "chi_t",  "zh-hk":   "chi_t",
-    # Coreano
-    "ko":       "kor",    "ko-kr":    "kor",
-    # Árabe
-    "ar":       "ara",    "ar-sa":    "ara",
-    # Hindi
-    "hi":       "hin",    "hi-in":    "hin",
-    # Holandês
-    "nl":       "dut",    "nl-nl":    "dut",    "nl-be":   "dut",
+    "ja": "jpn",
+    "en": "eng", "en-us": "eng", "en-gb": "eng",
+    "pt": "por_br", "pt-br": "por_br", "pt-pt": "por_pt",
+    "es": "spa_lat", "es-419": "spa_lat", "es-la": "spa_lat",
+    "es-mx": "spa_lat", "es-ar": "spa_lat", "es-co": "spa_lat",
+    "es-cl": "spa_lat", "es-ve": "spa_lat", "es-pe": "spa_lat",
+    "es-es": "spa_cast",
+    "fr": "fre", "fr-fr": "fre",
+    "it": "ita", "it-it": "ita",
+    "de": "ger", "de-de": "ger", "de-at": "ger",
+    "ru": "rus", "ru-ru": "rus",
+    "zh": "chi_s", "zh-hans": "chi_s", "zh-cn": "chi_s", "zh-sg": "chi_s",
+    "zh-hant": "chi_t", "zh-tw": "chi_t", "zh-hk": "chi_t",
+    "ko": "kor", "ko-kr": "kor",
+    "ar": "ara", "ar-sa": "ara",
+    "hi": "hin", "hi-in": "hin",
+    "nl": "dut", "nl-nl": "dut", "nl-be": "dut",
+    # ── Adições ──
+    "pl": "pol", "pl-pl": "pol",
+    "tr": "tur", "tr-tr": "tur",
+    "sv": "swe", "sv-se": "swe",
+    "no": "nor", "nb": "nor", "nn": "nor", "no-no": "nor",
+    "da": "dan", "da-dk": "dan",
+    "fi": "fin", "fi-fi": "fin",
+    "cs": "cze", "cs-cz": "cze",
+    "hu": "hun", "hu-hu": "hun",
+    "el": "gre", "el-gr": "gre",
+    "id": "ind", "id-id": "ind",
+    "ms": "may", "ms-my": "may",
+    "th": "tha", "th-th": "tha",
+    "vi": "vie", "vi-vn": "vie",
 }
 
 # ISO 639-2 → chave canônica (fallback quando não há tag IETF)
-# Presunções de variante padrão estão comentadas
 ISO_MAP: Dict[str, str] = {
     "jpn": "jpn",
     "eng": "eng",
-    "por": "por_br",    # presume Brasileiro
-    "spa": "spa_lat",   # presume Latino
-    "fre": "fre",  "fra": "fre",
+    "por": "por_br",
+    "spa": "spa_lat",
+    "fre": "fre", "fra": "fre",
     "ita": "ita",
-    "ger": "ger",  "deu": "ger",
+    "ger": "ger", "deu": "ger",
     "rus": "rus",
-    "chi": "chi_s", "zho": "chi_s", "cmn": "chi_s",  # presume Simplificado
+    "chi": "chi_s", "zho": "chi_s", "cmn": "chi_s",
     "kor": "kor",
     "ara": "ara",
     "hin": "hin",
-    "dut": "dut",  "nld": "dut",
+    "dut": "dut", "nld": "dut",
+    # ── Adições (inclui sinônimos comuns do padrão ISO) ──
+    "pol": "pol",
+    "tur": "tur",
+    "swe": "swe",
+    "nor": "nor",
+    "dan": "dan",
+    "fin": "fin",
+    "cze": "cze", "ces": "cze",
+    "hun": "hun",
+    "gre": "gre", "ell": "gre",
+    "ind": "ind",
+    "may": "may", "msa": "may",
+    "tha": "tha",
+    "vie": "vie",
 }
 
 # ISO codes que possuem variantes ambíguas (dois dialetos distintos)

@@ -126,7 +126,7 @@ def resolve_path(path_str: str) -> Path:
 
 def get_mkv_files(folder: Path) -> List[Path]:
     """Retorna arquivos MKV ordenados naturalmente"""
-    mkv_files = [f for f in folder.iterdir() if f.suffix.lower() == '.mkv']
+    mkv_files = [f for f in folder.iterdir() if f.suffix.lower() in ('.mkv', '.mka')]
     return sorted(mkv_files, key=lambda x: natural_sort_key(x.name))
 
 
@@ -263,7 +263,8 @@ def validate_folder_structure(folders: List[Path]) -> bool:
         # Analisa primeiro episódio como referência
         ref_videos, ref_audios, ref_subs = get_track_info(episodes[0])
         
-        if not ref_videos:
+        is_audio_only = episodes[0].suffix.lower() == '.mka'
+        if not ref_videos and not is_audio_only:
             print(f"  [ERRO] Nenhuma faixa de vídeo encontrada em {episodes[0].name}")
             return False
         
@@ -283,7 +284,7 @@ def validate_folder_structure(folders: List[Path]) -> bool:
                 print(f"  ✗ {ep.name}: Tem MENOS faixas de legenda ({len(subs)} vs {len(ref_subs)})")
                 all_consistent = False
             
-            if len(videos) != len(ref_videos):
+            if not is_audio_only and len(videos) != len(ref_videos):
                 print(f"  ✗ {ep.name}: Quantidade diferente de vídeo ({len(videos)} vs {len(ref_videos)})")
                 all_consistent = False
         
