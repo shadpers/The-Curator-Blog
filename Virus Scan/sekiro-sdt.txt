@@ -1,0 +1,276 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██      
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-04-21 10:23:37
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Sekiro - Shadows Die Twice [FitGirl Repack].zip
+Size: 9457970739 bytes
+MD5: 9BE3F4CD0EE13698B8898F8CE5DB7ADB
+SHA256: 474FC250F11BE2B2E48F3744A971FF44366A10002A0517A61A8A639A873479D3
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.5.1.240
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 151.0.5515
+Coredllfileversion: 3.1.0.231
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.108928
+Detectiondatetime: 2026-04-21T13:23:13Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.8246)
+Objectsscanned: 1
+Scanendtime: 2026-04-21T13:23:34Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-04-21T13:23:13Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.24.8.522
+Last Database Update: 2026-04-21 09:44:55
+
+Scan Result:
+; --- Settings ---
+; Action on detect:		Disinfect automatically
+; Scan objects:			All objects
+; Use iChecker:			Yes
+; Use iSwift:			Yes
+; Try disinfect:		Yes
+; Try delete:			No
+; Try delete container:		No
+; Scan archives:		No
+; Exclude by mask:		No
+; Include by mask:		No
+; Objects to scan:	
+; 	"D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip"	Enable = Yes	Recursive = No
+2026-04-21 10:20:47	Scan_Objects$6227                          starting   1          
+2026-04-21 10:20:47	Scan_Objects$6227                          running    1          
+2026-04-21 10:20:48 	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip	archive	ZIP
+2026-04-21 10:22:07	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-01.bin	ok
+2026-04-21 10:22:09	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-02.bin	ok
+2026-04-21 10:22:10	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-03.bin	ok
+2026-04-21 10:22:14	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-optional-bonus-content.bin	ok
+2026-04-21 10:22:19	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-optional-credits-video.bin	ok
+2026-04-21 10:22:22	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-selective-english.bin	ok
+2026-04-21 10:22:24	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-selective-french.bin	ok
+2026-04-21 10:22:26	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-selective-german.bin	ok
+2026-04-21 10:22:27	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-selective-italian.bin	ok
+2026-04-21 10:22:30	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-selective-japanese.bin	ok
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/fg-selective-spanish.bin	ok
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/MD5/QuickSFV.EXE//#	ok
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2026-04-21 10:22:32 	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe	archive	Inno
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//exe//data0035.res	ok
+2026-04-21 10:22:32	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//exe//data0037.res	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//exe	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//script	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0000	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0001	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0002	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0003	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0004	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0005	ok
+2026-04-21 10:22:33	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0006	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0007	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0008	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0009	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0010	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0011	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0012	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0013	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0014//#	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0014	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0015//#	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0015	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0016	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0017	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0018	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0019	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0020	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0021	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0022	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0023	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0024	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0025	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0026	ok
+2026-04-21 10:22:34	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0027	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0028	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0029	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0030	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0031	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0032	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0033	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0034	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0035	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0036	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0037	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0038	ok
+2026-04-21 10:22:35 	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0039	packed	UPX
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0039//UPX	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0039	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0040	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0041	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0042	ok
+2026-04-21 10:22:35	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0043	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0044	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0045//#	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0045	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0046	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0047	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0048	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0049//#	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0049	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0050	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0051	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0052	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0053	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0054	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0055	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0056	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0057	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0058	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0059	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0060	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0061	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0062	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0063	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0064	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0065	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0066	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe//data0067	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/setup.exe	ok
+2026-04-21 10:22:36	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip//Sekiro - Shadows Die Twice [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2026-04-21 10:22:37	D:\Temp\Sekiro - Shadows Die Twice [FitGirl Repack].zip	ok
+2026-04-21 10:22:42	Scan_Objects$6227                          completed             
+;  --- Statistics ---
+; Time Start:		2026-04-21 10:20:47
+; Time Finish:		2026-04-21 10:22:42
+; Processed objects:	94
+; Total OK:		94
+; Total detected:	0
+; Suspicions:		0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:		0
+; Errors:		0
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              completed             
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         completed             
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

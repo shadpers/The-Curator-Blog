@@ -1,0 +1,279 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██      
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-04-21 10:54:55
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip
+Size: 33942754437 bytes
+MD5: 74A771FA1BABB903E369A29820BBE475
+SHA256: C9EFAB77E87EAE29374F8D6386937143ECF03CAC45308679D46AB8108965D198
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.5.1.240
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 151.0.5515
+Coredllfileversion: 3.1.0.231
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.108928
+Detectiondatetime: 2026-04-21T13:49:59Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.8246)
+Objectsscanned: 1
+Scanendtime: 2026-04-21T13:50:10Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-04-21T13:49:59Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.24.8.522
+Last Database Update: 2026-04-21 09:44:55
+
+Scan Result:
+; --- Settings ---
+; Action on detect:		Disinfect automatically
+; Scan objects:			All objects
+; Use iChecker:			Yes
+; Use iSwift:			Yes
+; Try disinfect:		Yes
+; Try delete:			No
+; Try delete container:		No
+; Scan archives:		No
+; Exclude by mask:		No
+; Include by mask:		No
+; Objects to scan:	
+; 	"C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip"	Enable = Yes	Recursive = No
+2026-04-21 10:48:44	Scan_Objects$6232                          starting   1          
+2026-04-21 10:48:44	Scan_Objects$6232                          running    1          
+2026-04-21 10:48:45 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip	archive	ZIP
+2026-04-21 10:48:45 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Assassin's Creed Origins-Fix File by siason267.rar	archive	RAR
+2026-04-21 10:48:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Assassin's Creed Origins-Fix File by siason267.rar//Crack v1.51\ACOrigins.exe	ok
+2026-04-21 10:48:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Assassin's Creed Origins-Fix File by siason267.rar//Crack v1.51\CODEX.ini	ok
+2026-04-21 10:48:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Assassin's Creed Origins-Fix File by siason267.rar//Crack v1.51\uplay_r1_loader64.cdx	ok
+2026-04-21 10:48:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Assassin's Creed Origins-Fix File by siason267.rar//Crack v1.51\uplay_r1_loader64.dll	ok
+2026-04-21 10:48:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Assassin's Creed Origins-Fix File by siason267.rar	ok
+2026-04-21 10:53:54	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-01.bin	ok
+2026-04-21 10:54:08	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-02.bin	ok
+2026-04-21 10:54:12	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-03.bin	ok
+2026-04-21 10:54:15	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-04.bin	ok
+2026-04-21 10:54:16	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-05.bin	ok
+2026-04-21 10:54:16	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-06.bin	ok
+2026-04-21 10:54:19	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-brazilian.bin	ok
+2026-04-21 10:54:23	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-english.bin	ok
+2026-04-21 10:54:27	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-french.bin	ok
+2026-04-21 10:54:31	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-german.bin	ok
+2026-04-21 10:54:34	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-italian.bin	ok
+2026-04-21 10:54:37	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-japanese.bin	ok
+2026-04-21 10:54:40	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-russian.bin	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/fg-selective-spanish.bin	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/FitGirl releases on 1337x.url	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/FitGirl releases on KAT.url	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/MD5/fitgirl-bins.md5	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/MD5/QuickSFV.EXE	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/MD5/QuickSFV.ini	ok
+2026-04-21 10:54:45 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe	archive	Inno
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//exe//data0035.res	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//exe//data0037.res	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//exe	ok
+2026-04-21 10:54:45	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//script	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0000	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0001	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0002	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0003	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0004	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0005	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0006	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0007	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0008	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0009	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0010	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0011	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0012	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0013	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0014	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0015	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0016	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0017	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0018	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0019	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0020	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0021	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0022	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0023	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0024	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0025	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0026	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0027	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0028	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0029	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0030	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0031	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0032	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0033	ok
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0034	ok
+2026-04-21 10:54:46 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0035	packed	UPX
+2026-04-21 10:54:46	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0035//UPX	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0035	ok
+2026-04-21 10:54:47 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0036	packed	UPX
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0036//UPX	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0036	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0037	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0038	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0039	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0040	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0041	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0042	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0043	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0044	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0045	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0046	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0047	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0048	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0049	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0050	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0051	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0052	ok
+2026-04-21 10:54:47 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0053	packed	UPX
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0053//UPX	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0053	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0054	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0055	ok
+2026-04-21 10:54:47 	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0056	archive	7-Zip
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0056	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0057	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0058	ok
+2026-04-21 10:54:47	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe//data0059	ok
+2026-04-21 10:54:48	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/setup.exe	ok
+2026-04-21 10:54:48	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip//Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix)/Verify BIN files before installation.bat	ok
+2026-04-21 10:54:48	C:\Users\[USER]\Downloads\Assassin's Creed - Origins [FitGirl Repack] (+Crack Fix).zip	ok
+2026-04-21 10:54:55	Scan_Objects$6232                          completed             
+;  --- Statistics ---
+; Time Start:		2026-04-21 10:48:44
+; Time Finish:		2026-04-21 10:54:55
+; Processed objects:	91
+; Total OK:		91
+; Total detected:	0
+; Suspicions:		0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:		0
+; Errors:		0
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              completed             
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         completed             
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░

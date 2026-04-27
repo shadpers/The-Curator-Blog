@@ -1,0 +1,315 @@
+░██████████░██                     ░██████                                    ░██                        
+    ░██    ░██                    ░██   ░██                                   ░██                        
+    ░██    ░████████   ░███████  ░██        ░██    ░██ ░██░████  ░██████   ░████████  ░███████  ░██░████ 
+    ░██    ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░███           ░██     ░██    ░██    ░██ ░███     
+    ░██    ░██    ░██ ░█████████ ░██        ░██    ░██ ░██       ░███████     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██ ░██         ░██   ░██ ░██   ░███ ░██      ░██   ░██     ░██    ░██    ░██ ░██      
+    ░██    ░██    ░██  ░███████    ░██████   ░█████░██ ░██       ░█████░██     ░████  ░███████  ░██      
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-04-22 08:36:53
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: CoD - Black Ops 3 [FitGirl Repack].zip
+Size: 121976301218 bytes
+MD5: 566AF4181D5712FDE2A04D180657CC2C
+SHA256: 616ADD52F2DC6EA9C021E33830C4FD8871A1956B97573619938EBC64FEF6160B
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.5.1.240
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 151.0.5515
+Coredllfileversion: 3.1.0.231
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.108964
+Detectiondatetime: 2026-04-22T14:14:32Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26200.8246)
+Objectsscanned: 1
+Scanendtime: 2026-04-22T14:15:08Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-04-22T14:14:32Z
+Threatsdetected: 0
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.24.8.522
+Last Database Update: 2026-04-22 07:33:28
+
+Scan Result:
+; --- Settings ---
+; Action on detect:		Disinfect automatically
+; Scan objects:			All objects
+; Use iChecker:			Yes
+; Use iSwift:			Yes
+; Try disinfect:		Yes
+; Try delete:			No
+; Try delete container:		No
+; Scan archives:		No
+; Exclude by mask:		No
+; Include by mask:		No
+; Objects to scan:	
+; 	"D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip"	Enable = Yes	Recursive = No
+2026-04-22 07:59:45	Scan_Objects$6287                          starting   1          
+2026-04-22 07:59:45	Scan_Objects$6287                          running    1          
+2026-04-22 07:59:46 	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip	archive	ZIP
+2026-04-22 08:01:31	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-1.bin	ok
+2026-04-22 08:02:34	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-2.bin	ok
+2026-04-22 08:02:49	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-brazilian.bin	ok
+2026-04-22 08:03:11	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-french.bin	ok
+2026-04-22 08:03:14	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-04.bin	ok
+2026-04-22 08:03:45	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-english.bin	ok
+2026-04-22 08:04:12	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-italian.bin	ok
+2026-04-22 08:05:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-english.bin	ok
+2026-04-22 08:05:55	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-spanish.bin	ok
+2026-04-22 08:07:24	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-italian.bin	ok
+2026-04-22 08:07:26	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-05.bin	ok
+2026-04-22 08:07:39	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-spanish.bin	ok
+2026-04-22 08:07:40	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-06.bin	ok
+2026-04-22 08:09:14	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-02.bin	ok
+2026-04-22 08:09:25	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-russian.bin	ok
+2026-04-22 08:09:25	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-07.bin	ok
+2026-04-22 08:10:23	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-french.bin	ok
+2026-04-22 08:10:34	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-german.bin	ok
+2026-04-22 08:12:07	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-1.bin	ok
+2026-04-22 08:13:15	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-brazilian.bin	ok
+2026-04-22 08:13:24	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-english.bin	ok
+2026-04-22 08:13:25 	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe	archive	Inno
+2026-04-22 08:13:25	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//exe//data0035.res	ok
+2026-04-22 08:13:25	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//exe//data0037.res	ok
+2026-04-22 08:13:26	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//exe	ok
+2026-04-22 08:13:26	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//script	ok
+2026-04-22 08:13:26	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0000	ok
+2026-04-22 08:13:26	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0001	ok
+2026-04-22 08:13:26	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0002	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0003	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0004	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0005	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0006	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0007	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0008	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0009	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0010	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0011	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0012	ok
+2026-04-22 08:13:27	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0013	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0014//#	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0014	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0015//#	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0015	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0016	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0017	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0018	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0019	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0020	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0021	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0022	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0023	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0024	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0025	ok
+2026-04-22 08:13:28	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0026	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0027	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0028	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0029//#	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0029	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0030//#	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0030	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0031	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0032	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0033	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0034	ok
+2026-04-22 08:13:29	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0035	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0036	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0037//#	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0037	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0038	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0039//#	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0039	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0040	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0041	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0042	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0043	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0044	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0045	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0046	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0047	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0048	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0049	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0050	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0051	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0052	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0053	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0054	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0055	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0056	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0057	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0058	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0059	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0060	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0061	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0062	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0063	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0064	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0065	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0066	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0067	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0068	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0069	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0070	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0071	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0072	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0073	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0074	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0075	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0076	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0077	ok
+2026-04-22 08:13:30 	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0078	packed	UPX
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0078//UPX	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0078	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0079	ok
+2026-04-22 08:13:30	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0080	ok
+2026-04-22 08:13:31	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0081	ok
+2026-04-22 08:13:31	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe//data0082	ok
+2026-04-22 08:13:31	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/setup-multi10.exe	ok
+2026-04-22 08:13:41	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-italian.bin	ok
+2026-04-22 08:13:47	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-08.bin	ok
+2026-04-22 08:14:02	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-3.bin	ok
+2026-04-22 08:14:24	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-german.bin	ok
+2026-04-22 08:14:25	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/Verify BIN files before installation.bat	ok
+2026-04-22 08:14:36	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-selective-french.bin	ok
+2026-04-22 08:15:01	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-russian.bin	ok
+2026-04-22 08:15:11	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-mp-2.bin	ok
+2026-04-22 08:27:54	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-01.bin	ok
+2026-04-22 08:29:08	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-german.bin	ok
+2026-04-22 08:29:09	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-09.bin	ok
+2026-04-22 08:29:09	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/MD5/fitgirl-bins.md5	ok
+2026-04-22 08:29:09	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/MD5/QuickSFV.ini	ok
+2026-04-22 08:29:09	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/MD5/QuickSFV.EXE	ok
+2026-04-22 08:30:12	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-spanish.bin	ok
+2026-04-22 08:30:24	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-03.bin	ok
+2026-04-22 08:31:32	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-optional-zombies-selective-russian.bin	ok
+2026-04-22 08:31:52	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip//CoD - Black Ops 3 [FitGirl Repack]/fg-selective-brazilian.bin	ok
+2026-04-22 08:31:52	D:\Temp\FitGirl\CoD - Black Ops 3 [FitGirl Repack].zip	ok
+2026-04-22 08:31:53	Scan_Objects$6287                          completed             
+;  --- Statistics ---
+; Time Start:		2026-04-22 07:59:45
+; Time Finish:		2026-04-22 08:31:53
+; Processed objects:	134
+; Total OK:		134
+; Total detected:	0
+; Suspicions:		0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:		0
+; Errors:		0
+
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              completed             
+ Scan_My_Computer                           enabled               
+ Scan_Objects                               enabled               
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         completed             
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================
+            ░▒░    ░▒░░▒▒▒░░▒▒▒▒░     ▒▒         ░▒▒▒▒▒▒              ░░░▒░▒░▒▒▒▒▒▒▒░░░               ▒
+               ░▒░                 ░░░     ░░░░  ░▒▒░▒░░         ░░░░ ░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░ ░░░          ░
+                  ░░▒▒▒░░░    ░░░░░░░ ░   ░░    ░▒▒▒░░▒░             ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ░
+                          ░░░░                 ░░▒░░▒░▒           ░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░            ░
+                                             ░  ▒▒░░▒ ░            ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒            ░
+                                           ░  ░▒▒░▒▒░             ░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒           ░
+                                            ░ ▒▒▒▒▒▒          ░▒░░▒▒░ ▒▒▒░░▒▒▒▒▒▒▒▒▒▒░  
+                              ░░░          ░▒▒▒░▒░░░          ░▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒
+                                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░            ░▒▒▒▒░ ░░░▒▒▒▒▒▒▒▒▒▒
+                                  ░░▒▒▒▒░▒░░░░     ░             ░▒▒▒▒  ░░░░░▒▒▒▒▒▒▒▒
+                                    ░▒  ░░░░    ░▒               ░▒▒▒▒   ░░░▒▒▒▒▒▒▒▒▒
+                                     ░   ░░░░░                   ░▒░▒░     ▒▒▒▒▒▒▒▒▒▒
+                                         ░░░░░                    ░ ▒░    ▒▒░▒▒▒▒░▒░▒░
+                                                                 ░  ▒░
+                                                ░                  ░▒░
+                                                                  ░▒░           ░▒▒▒      ░
+                                                                 ▒▒▒       ░░    ░▒       ░░
+                                                                ░░▒▒      ░▒▒░   ▒         ░░
+                                                                ░▒▒▒░     ▒▒▒░░░░         ░░░
+                                                                ░▒▒▒▒        ░▒░          ░░
+                                                                ░▒▒▒▒ ░░░░▒░░▒▒        ░ ░▒░
+                                                                ░░▒▒▒░░░▒▒▒▒▒▒▒       ░░░▒░
+                                                                ░░▒▒▒▒ ░▒▒▒▒▒▒▒      ░░▒▒░
+                                                                 ░▒▒▒▒▒▒░▒▒▒▒▒▒░   ░░░▒░
+                                                                 ░░▒▒▒▒▒▒▒░▒▒▒▒░    ░░░
+                                                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                                                  ░▒▒▒▒▒▒▒▒▒▒▒░
+                                                       ░░░░░      ░▒▒▒▒▒▒▒▒▒▒▒
+                                                      ░░▒▒░░    ░░░▒▒▒▒▒▒▒▒▒▒░
+                                                                 ░░░▒▒▒▒▒▒▒▒░
+                                                                  ░░░▒▒▒▒▒▒▒
+                                                                    ░▒ ▒▒▒▒
+                                                                   ░▒ ░▒▒▒
+           ░    ░                                          ░░  ▒▒▒▒▒▒▒▒▒░
+               ░░                     ▒   ░ ░░▒░░░░░░  ░   ░░░   ░░▒▒▒▒▒
+               ░               ░  ░░▒▒░▒░░░░▒░░▒▒▒▒░░░░░ ░░░░░    ░░░▒▒░
+                ░              ░ ▒▒░▒▒▒▒░░▒░░░░        ░   ░▒   ░░ ░░░░
+      ░           ░            ▒▒░▒▒░▒                       ░▒▒░▒▒ ░▒▒░
+          ░     ░               ░░░                         ░░░░░░░▒░▒▒░
+         ░       ░             ░░░░░                                ░ ░░
+                ░▒░ ░     ░   ░▒░▒                     ░▒▒▒▒▒▒▒▒▒▒░▒▒░
+              ░ ▒░░░▒░░      ░░░   ░                   ░▒▒▒▒░░▒▒▒▒▒░
+                  ░░░░░▒░░░▒░ ░    ░             ░░         ░▒▒▒▒▒░
+                   ░░░░▒▒░▒░░  ░░             ░    ░░░▒     ░░▒▒▒░
+                         ▒▒░░░ ░   ░                 ░ ░░ ░▒▒░▒▒▒
+░                      ░░░░▒░░▒░ ▒▒ ░▒░░░ ░       ░░░░░▒░░░▒░▒▒▒
+░▒▒                      ░▒░░▒░░░░░ ▒░  ░        ░░░░▒▒░▒░▒░░▒░░
+░░░▒▒                      ░░ ░▒▒▒▒▒░ ░░ ░░░░▒▒░ ░ ░░▒▒▒░▒▒▒▒▒░
+ ▒ ░▒▒▒                       ░▒▒░░░▒  ▒░░▒▒░░░ ░░░░▒░░▒▒▒▒▒▒
+   ░ ░▒▒░                      ░▒▒▒░░░░▒░▒░░░░░░ ░▒▒░▒░▒▒▒▒▒░
+░     ░░░░ ░░                     ░ ░░▒  ░▒░▒░░░░░  ░░▒▒▒▒▒▒
+ ░           ░▒        ░       ░              ░    ▒░▒▒▒▒▒▒
+░▒▒░░         ░░▒░              ░░▒░░░             ▒░░ ▒░░
+░▒▒░░░          ░▒▒░              ░▒▒▒▒░       ░░░░░░ ░
+░░░▒▒░░          ░▒▒▒▒            ░▒▒▒░     ░▒▒▒▒
+░░▒▒░░▒▒░          ▒▒▒▒▒          ░░      ░▒▒▒▒▒▒
+░▒░▒▒▒▒▒▒▒░          ▒▒▒▒▒▒            ░░▒▒▒▒▒▒▒▒
+░▒▒░░▒▒▒▒▒▒▒░         ▒▒▒▒▒▒▒░░      ░░▒▒▒▒▒▒▒▒▒▒░
+░▒▒▒▒▒░▒▒▒▒▒▒▒░      ░░▒▒░ ▒▒▒▒  ░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░
+░░▒░▒▒▒▒░▒▒▒░░▒▒▒▒▒  ▒▒▒             ░▒▒▒▒▒▒▒▒▒▒▒▒▒
+░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒░░▒▒▒             ░░   ▒▒▒▒▒▒▒▒▒▒▒░
+░░▒▒░▒▒▒▒▒▒▒▒▒▒▒░▒▒▒                ░▒   ▒▒░▒▒▒▒▒▒▒░
+░ ░▒▒▒░▒▒▒▒░░▒▒░▒▒                  ░▒░   ░▒▒▒▒▒▒▒░░░
