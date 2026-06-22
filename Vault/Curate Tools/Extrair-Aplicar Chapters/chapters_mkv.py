@@ -3,6 +3,8 @@ import sys
 import os
 import ctypes
 import tempfile
+import struct
+import random
 
 # Habilita ANSI no terminal Windows
 try:
@@ -354,6 +356,195 @@ def apply_mode(mkv_files, chapters_file):
     print(f"{SEP2}\n")
 
 # ─────────────────────────────────────────────
+# MODO GERAÇÃO (chapters-only MKV)
+# ─────────────────────────────────────────────
+
+def _vint(n):
+    """Codifica n como EBML vint (campo de tamanho). Suporta até ~256 MB."""
+    if n <= 0x7E:
+        return bytes([0x80 | n])
+    elif n <= 0x3FFE:
+        return struct.pack('>H', 0x4000 | n)
+    elif n <= 0x1FFFFE:
+        b = struct.pack('>I', 0x200000 | n)
+        return b[1:]
+    elif n <= 0x0FFFFFFE:
+        return struct.pack('>I', 0x10000000 | n)
+    else:
+        return struct.pack('>Q', 0x0100000000000000 | n)
+
+
+def _el(eid: bytes, data: bytes) -> bytes:
+    """Envolve data em um elemento EBML com o ID dado."""
+    return eid + _vint(len(data)) + data
+
+
+def _uint_bytes(n: int) -> bytes:
+    """Codifica inteiro sem sinal com o mínimo de bytes necessários."""
+    if n == 0:
+        return b'\x00'
+    size = (n.bit_length() + 7) // 8
+    return n.to_bytes(size, 'big')
+
+
+def _parse_ogm_ts_ns(ts: str) -> int:
+    """Converte timestamp OGM (HH:MM:SS.mmm) em nanosegundos."""
+    h, m, rest = ts.split(':')
+    if '.' in rest:
+        s, frac = rest.split('.', 1)
+        # OGM usa 3 casas decimais (ms); preenche até 9 para ns
+        frac_ns = int(frac.ljust(9, '0')[:9])
+    else:
+        s, frac_ns = rest, 0
+    return (int(h) * 3600 + int(m) * 60 + int(s)) * 1_000_000_000 + frac_ns
+
+
+def _parse_ogm_to_chapters(ogm_text: str):
+    """
+    Parseia texto OGM → lista de (time_ns: int, name: str).
+    Preserva a ordem original dos capítulos.
+    """
+    times = {}
+    names = {}
+    for line in ogm_text.splitlines():
+        line = line.strip()
+        if not line or '=' not in line:
+            continue
+        key, _, val = line.partition('=')
+        key_up = key.strip().upper()
+        val    = val.strip()
+        if not key_up.startswith('CHAPTER'):
+            continue
+        rest = key_up[7:]           # remove o prefixo "CHAPTER"
+        if rest.endswith('NAME'):
+            idx = rest[:-4]         # índice numérico, ex: "01"
+            names[idx] = val
+        else:
+            times[rest] = val
+
+    # Ordena pelo número do capítulo
+    def sort_key(idx):
+        try:
+            return int(idx)
+        except ValueError:
+            return idx
+
+    result = []
+    for idx in sorted(times.keys(), key=sort_key):
+        if idx in names:
+            result.append((_parse_ogm_ts_ns(times[idx]), names[idx]))
+    return result
+
+
+def _build_chapters_mkv(ogm_text: str) -> bytes:
+    """
+    Constrói um MKV Matroska mínimo contendo apenas os capítulos,
+    sem nenhuma faixa de vídeo/áudio/legenda.
+    Escrito diretamente em binário EBML — sem dependência do mkvmerge.
+    """
+    chapters = _parse_ogm_to_chapters(ogm_text)
+
+    # ── ChapterAtom para cada capítulo ────────────────────────────────────
+    atoms = b''
+    for ts_ns, name in chapters:
+        uid = random.randint(1, 0xFFFF_FFFF_FFFF_FFFF)
+        display = _el(
+            b'\x80',                                        # ChapterDisplay
+            _el(b'\x85', name.encode('utf-8'))         +   # ChapterString
+            _el(b'\x43\x7C', b'und')                       # ChapterLanguage
+        )
+        atom = _el(
+            b'\xB6',                                        # ChapterAtom
+            _el(b'\x73\xC4', uid.to_bytes(8, 'big'))   +  # ChapterUID
+            _el(b'\x91', _uint_bytes(ts_ns))            +  # ChapterTimeStart
+            _el(b'\x98', b'\x00')                       +  # ChapterFlagHidden = 0
+            _el(b'\x45\x98', b'\x01')                   +  # ChapterFlagEnabled = 1
+            display
+        )
+        atoms += atom
+
+    chapters_el = _el(
+        b'\x10\x43\xA7\x70',                               # Chapters
+        _el(b'\x45\xB9', atoms)                            # EditionEntry
+    )
+
+    # ── Info (obrigatório no Segment) ─────────────────────────────────────
+    info = _el(
+        b'\x15\x49\xA9\x66',                               # Info
+        _el(b'\x2A\xD7\xB1', (1_000_000).to_bytes(3, 'big'))  +  # TimestampScale = 1 ms
+        _el(b'\x4D\x80', b'chapters_mkv')                  +  # MuxingApp
+        _el(b'\x57\x41', b'chapters_mkv')                     # WritingApp
+    )
+
+    # ── Segment (tamanho desconhecido = 0x01FFFFFFFFFFFFFF) ───────────────
+    segment_data = info + chapters_el
+    segment = b'\x18\x53\x80\x67' + b'\x01\xFF\xFF\xFF\xFF\xFF\xFF\xFF' + segment_data
+
+    # ── EBML Header ───────────────────────────────────────────────────────
+    hdr_data = (
+        _el(b'\x42\x86', b'\x01')      +  # EBMLVersion = 1
+        _el(b'\x42\xF7', b'\x01')      +  # EBMLReadVersion = 1
+        _el(b'\x42\xF2', b'\x04')      +  # EBMLMaxIDLength = 4
+        _el(b'\x42\xF3', b'\x08')      +  # EBMLMaxSizeLength = 8
+        _el(b'\x42\x82', b'matroska')  +  # DocType = "matroska"
+        _el(b'\x42\x87', b'\x04')      +  # DocTypeVersion = 4
+        _el(b'\x42\x85', b'\x02')          # DocTypeReadVersion = 2
+    )
+    ebml_hdr = b'\x1A\x45\xDF\xA3' + _vint(len(hdr_data)) + hdr_data
+
+    return ebml_hdr + segment
+
+
+def generate_mode(chapter_files):
+    print(f"\n{SEP2}")
+    print(f"{WHITE}  {bold(colored('MODO: GERAÇÃO DE MKV DE CAPÍTULOS', CYAN))}{RESET}")
+    print(f"{WHITE}  {dim(str(len(chapter_files)) + ' arquivo(s) de capítulos')}{RESET}")
+    print(SEP2)
+
+    total_ok  = 0
+    total_err = 0
+
+    for chapters_file in chapter_files:
+        chapters_map = parse_chapters_file(chapters_file)
+        out_dir      = os.path.dirname(chapters_file)
+
+        if not chapters_map:
+            print(f"\n{WHITE}  {colored('✘ Nenhuma entrada válida em: ' + os.path.basename(chapters_file), RED)}{RESET}")
+            total_err += 1
+            continue
+
+        for mkv_name, ogm_content in chapters_map.items():
+            # Nome de saída: "Arquivo.mkv" → "Arquivo_chapters.mkv"
+            base     = mkv_name[:-4] if mkv_name.lower().endswith('.mkv') else mkv_name
+            out_name = base + "_chapters.mkv"
+            out_path = os.path.join(out_dir, out_name)
+
+            print(f"\n{SEP}")
+            print(f"{WHITE}  {bold(out_name)}{RESET}")
+            print(SEP)
+
+            n = count_chapters(ogm_content)
+            print(f"{WHITE}  {dim(str(n) + ' capítulo(s) encontrado(s)')}{RESET}")
+
+            try:
+                mkv_bytes = _build_chapters_mkv(ogm_content)
+                with open(out_path, 'wb') as f:
+                    f.write(mkv_bytes)
+                size_kb = len(mkv_bytes) / 1024
+                print(f"{WHITE}  {colored('✔ Gerado', GREEN)}  {dim('(' + f'{size_kb:.1f} KB)')}{RESET}")
+                total_ok += 1
+            except Exception as e:
+                print(f"{WHITE}  {colored('✘ Erro: ' + str(e), RED)}{RESET}")
+                total_err += 1
+
+    # ── Resumo ────────────────────────────────────────────────────────────
+    print(f"\n{SEP2}")
+    ok_s  = colored(f"{total_ok} gerado(s)", GREEN)
+    err_s = colored(f"{total_err} erro(s)", RED) if total_err else dim("0 erro(s)")
+    print(f"{WHITE}  {bold('CONCLUÍDO:')}  {ok_s}  |  {err_s}{RESET}")
+    print(f"{SEP2}\n")
+
+# ─────────────────────────────────────────────
 # Main
 # ─────────────────────────────────────────────
 
@@ -361,7 +552,8 @@ def main():
     if len(sys.argv) < 2:
         print(f"\n{WHITE}  Uso:")
         print(f"    {dim('Extração:')}  arraste um ou mais MKVs para o .bat")
-        print(f"    {dim('Aplicação:')} arraste MKVs + arquivo .chapters.txt para o .bat{RESET}\n")
+        print(f"    {dim('Aplicação:')} arraste MKVs + arquivo .chapters.txt para o .bat")
+        print(f"    {dim('Geração:')}   arraste apenas o arquivo .chapters.txt para o .bat{RESET}\n")
         return
 
     args = sys.argv[1:]
@@ -385,19 +577,25 @@ def main():
     if unknown:
         print(f"\n{WHITE}  {colored('⚠ Arquivo(s) não reconhecido(s) serão ignorados.', YELLOW)}{RESET}")
 
-    if not mkv_files:
-        print(f"\n{WHITE}  {colored('✘ Nenhum arquivo .mkv encontrado.', RED)}{RESET}\n")
-        return
-
     # ── Despacha o modo ───────────────────────────────────────────────────
-    if chapter_files:
+    if chapter_files and not mkv_files:
+        # Apenas .chapters.txt → gera MKV de capítulos
+        generate_mode(chapter_files)
+
+    elif mkv_files and chapter_files:
+        # MKVs + .chapters.txt → aplica capítulos
         chapters_file = chapter_files[0]
         if len(chapter_files) > 1:
             print(f"\n{WHITE}  {colored('⚠ Múltiplos arquivos .chapters.txt — usando:', YELLOW)} "
                   f"{os.path.basename(chapters_file)}{RESET}")
         apply_mode(mkv_files, chapters_file)
-    else:
+
+    elif mkv_files:
+        # Apenas MKVs → extrai capítulos
         extract_mode(mkv_files)
+
+    else:
+        print(f"\n{WHITE}  {colored('✘ Nenhum arquivo .mkv ou .chapters.txt encontrado.', RED)}{RESET}\n")
 
 
 if __name__ == "__main__":

@@ -62,6 +62,7 @@ class MuxConfig:
     subtitle_selections: Dict[str, List[int]]  # folder -> [track_indices]
     subtitle_order: List[int]  # Ordem global das faixas de legenda
     subtitle_modifications: Dict[int, SubtitleModification]  # global_index -> modification
+    track_fingerprints: Optional[Dict] = None  # {'audio': {folder: [{index, language, title}]}, 'subtitle': {...}}
     
     def to_dict(self):
         """Converte para dicionário serializável"""
@@ -72,7 +73,8 @@ class MuxConfig:
             'audio_modifications': {k: asdict(v) for k, v in self.audio_modifications.items()},
             'subtitle_selections': self.subtitle_selections,
             'subtitle_order': self.subtitle_order,
-            'subtitle_modifications': {k: asdict(v) for k, v in self.subtitle_modifications.items()}
+            'subtitle_modifications': {k: asdict(v) for k, v in self.subtitle_modifications.items()},
+            'track_fingerprints': self.track_fingerprints or {}
         }
     
     @staticmethod
@@ -88,7 +90,8 @@ class MuxConfig:
             audio_modifications=audio_mods,
             subtitle_selections=data['subtitle_selections'],
             subtitle_order=data['subtitle_order'],
-            subtitle_modifications=sub_mods
+            subtitle_modifications=sub_mods,
+            track_fingerprints=data.get('track_fingerprints', None)
         )
 
 
@@ -787,6 +790,157 @@ def modify_subtitle_tracks(folders: List[Path], subtitle_selections: Dict[str, L
     return modifications
 
 
+def capture_fingerprints(folders: List[Path], config: MuxConfig) -> Dict:
+    """
+    Captura fingerprints (language + title) de cada faixa selecionada na configuração.
+    Salvo junto com a config para detectar mudanças nas sources em execuções futuras.
+    """
+    folder_map = {f.name: f for f in folders}
+    fingerprints: Dict = {'audio': {}, 'subtitle': {}}
+
+    for folder_name, indices in config.audio_selections.items():
+        folder = folder_map.get(folder_name)
+        if not folder:
+            continue
+        episodes = get_mkv_files(folder)
+        if not episodes:
+            continue
+        _, audios, _ = get_track_info(episodes[0])
+        fingerprints['audio'][folder_name] = [
+            {'index': idx, 'language': audios[idx].language, 'title': audios[idx].title}
+            for idx in indices if idx < len(audios)
+        ]
+
+    for folder_name, indices in config.subtitle_selections.items():
+        folder = folder_map.get(folder_name)
+        if not folder:
+            continue
+        episodes = get_mkv_files(folder)
+        if not episodes:
+            continue
+        _, _, subs = get_track_info(episodes[0])
+        fingerprints['subtitle'][folder_name] = [
+            {'index': idx, 'language': subs[idx].language, 'title': subs[idx].title}
+            for idx in indices if idx < len(subs)
+        ]
+
+    return fingerprints
+
+
+def validate_config_fingerprints(folders: List[Path], config: MuxConfig) -> bool:
+    """
+    Compara as faixas atuais das sources com os fingerprints salvos na configuração.
+    Qualquer diferença de idioma, título ou índice ausente gera aviso obrigatório
+    e exige confirmação explícita do usuário antes de prosseguir.
+    Retorna True para prosseguir, False para cancelar e reconfigurar.
+    """
+    if not config.track_fingerprints:
+        print("\n[AVISO] Configuração salva não possui fingerprints de faixas.")
+        print("        Não é possível validar se as sources mudaram desde a última execução.")
+        print("        Recomendado recriar a configuração para habilitar esta proteção.")
+        return True
+
+    folder_map = {f.name: f for f in folders}
+    mismatches = []
+
+    print(f"\n{'=' * 70}")
+    print("VALIDANDO FAIXAS CONTRA CONFIGURAÇÃO SALVA")
+    print(f"{'=' * 70}")
+
+    # --- Valida áudios ---
+    for folder_name, saved_tracks in config.track_fingerprints.get('audio', {}).items():
+        folder = folder_map.get(folder_name)
+        if not folder:
+            continue
+        episodes = get_mkv_files(folder)
+        if not episodes:
+            continue
+        _, audios, _ = get_track_info(episodes[0])
+
+        for fp in saved_tracks:
+            idx = fp['index']
+            if idx >= len(audios):
+                mismatches.append({
+                    'folder': folder_name, 'type': 'ÁUDIO', 'index': idx,
+                    'problema': f"Índice {idx} não existe mais (pasta tem {len(audios)} faixa(s) de áudio)",
+                    'esperado': f"[{fp['language']}] {fp['title']}",
+                    'atual': '--- AUSENTE ---'
+                })
+                continue
+            current = audios[idx]
+            if current.language != fp['language'] or current.title != fp['title']:
+                mismatches.append({
+                    'folder': folder_name, 'type': 'ÁUDIO', 'index': idx,
+                    'problema': 'Faixa diferente no índice selecionado',
+                    'esperado': f"[{fp['language']}] {fp['title']}",
+                    'atual': f"[{current.language}] {current.title}"
+                })
+
+    # --- Valida legendas ---
+    for folder_name, saved_tracks in config.track_fingerprints.get('subtitle', {}).items():
+        folder = folder_map.get(folder_name)
+        if not folder:
+            continue
+        episodes = get_mkv_files(folder)
+        if not episodes:
+            continue
+        _, _, subs = get_track_info(episodes[0])
+
+        for fp in saved_tracks:
+            idx = fp['index']
+            if idx >= len(subs):
+                mismatches.append({
+                    'folder': folder_name, 'type': 'LEGENDA', 'index': idx,
+                    'problema': f"Índice {idx} não existe mais (pasta tem {len(subs)} faixa(s) de legenda)",
+                    'esperado': f"[{fp['language']}] {fp['title']}",
+                    'atual': '--- AUSENTE ---'
+                })
+                continue
+            current = subs[idx]
+            if current.language != fp['language'] or current.title != fp['title']:
+                mismatches.append({
+                    'folder': folder_name, 'type': 'LEGENDA', 'index': idx,
+                    'problema': 'Faixa diferente no índice selecionado',
+                    'esperado': f"[{fp['language']}] {fp['title']}",
+                    'atual': f"[{current.language}] {current.title}"
+                })
+
+    if not mismatches:
+        print("✓ Todas as faixas selecionadas batem com a configuração salva.")
+        return True
+
+    # --- Divergências encontradas ---
+    print(f"\n{'!' * 70}")
+    print(f"  ATENÇÃO: {len(mismatches)} DIVERGÊNCIA(S) DETECTADA(S) NAS SOURCES")
+    print(f"{'!' * 70}")
+    print("\nAs faixas abaixo são DIFERENTES do que estava configurado na última execução:\n")
+
+    for m in mismatches:
+        print(f"  📁 {m['folder']}  |  {m['type']} índice [{m['index']}]")
+        print(f"     Problema : {m['problema']}")
+        print(f"     Esperado : {m['esperado']}")
+        print(f"     Atual    : {m['atual']}")
+        print()
+
+    print('!' * 70)
+    print("⚠  USAR A CONFIGURAÇÃO SALVA PODE RESULTAR EM MUXING INCORRETO!")
+    print('!' * 70)
+    print("\nOpções:")
+    print("  [s] Ignorar divergências e prosseguir com a configuração salva (RISCO)")
+    print("  [n] Cancelar e reconfigurar manualmente")
+
+    while True:
+        resposta = input("\nDeseja prosseguir mesmo assim? (s/n): ").strip().lower()
+        if resposta == 's':
+            print("\n[AVISO] Prosseguindo com configuração salva apesar das divergências.")
+            return True
+        elif resposta == 'n':
+            print("\nOperação cancelada. Reconfigure manualmente para corrigir os índices.")
+            return False
+        else:
+            print("[ERRO] Digite 's' para prosseguir ou 'n' para cancelar.")
+
+
 def save_config(config: MuxConfig):
     """Salva configuração em arquivo JSON"""
     try:
@@ -1096,6 +1250,8 @@ def main():
         if input().strip().lower() == 's':
             config = saved_config
             print("✓ Usando configuração salva")
+            if not validate_config_fingerprints(folders, config):
+                config = None  # Força reconfiguração manual
     
     # Se não tem config, cria interativamente
     if not config:
@@ -1134,6 +1290,11 @@ def main():
             subtitle_order=subtitle_order,
             subtitle_modifications=subtitle_modifications
         )
+        
+        # Captura fingerprints para validação em execuções futuras
+        print("\nCapturando fingerprints das faixas selecionadas...")
+        config.track_fingerprints = capture_fingerprints(folders, config)
+        print("✓ Fingerprints registrados")
         
         # Salva config
         save_config(config)

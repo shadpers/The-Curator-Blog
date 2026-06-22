@@ -122,45 +122,57 @@ def select_audio_stream(streams, file_type, target_lang=None):
     if not streams:
         print(f"Erro: Nenhuma faixa de áudio em {file_type}")
         sys.exit(1)
-    
+
+    all_streams = streams  # lista completa, para exibição e indexação
+    selectable = streams   # subconjunto que o usuário pode escolher
+
     print(f"\n=== Faixas de áudio em {file_type} ===")
-    for i, s in enumerate(streams, 1):
+    for i, s in enumerate(all_streams, 1):
         dur_str = f"{s['duration']:.1f}s" if s['duration'] > 0 else "N/A"
         print(f"{i}. [{s['lang']}] {s['codec']} {s['channels']}ch - \"{s['title']}\" ({dur_str})")
-    
+
     # Se há idioma alvo, tenta selecionar automaticamente
     if target_lang:
-        candidates = [s for s in streams if normalize_language(s['lang']) == target_lang]
+        candidates = [s for s in all_streams if normalize_language(s['lang']) == target_lang]
         # Filtra commentary/SFX
-        main_tracks = [s for s in candidates 
-                      if 'commentary' not in s['title'].lower() 
-                      and 'sfx' not in s['title'].lower()]
-        
+        main_tracks = [s for s in candidates
+                       if 'commentary' not in s['title'].lower()
+                       and 'sfx' not in s['title'].lower()]
+
         if len(main_tracks) == 1:
             selected = main_tracks[0]
             print(f"✓ Selecionado automaticamente: [{selected['lang']}] {selected['title']}")
             return selected
         elif len(main_tracks) > 1:
-            print(f"⚠ Múltiplas faixas {target_lang} encontradas. Escolha manualmente:")
-            streams = main_tracks
+            selectable = main_tracks
+            orig_nums = [all_streams.index(s) + 1 for s in selectable]
+            nums_str = " ou ".join(str(n) for n in orig_nums)
+            print(f"⚠ Múltiplas faixas {target_lang} encontradas. Digite o número ({nums_str}):")
+            for orig_n, s in zip(orig_nums, selectable):
+                dur_str = f"{s['duration']:.1f}s" if s['duration'] > 0 else "N/A"
+                print(f"  {orig_n}. [{s['lang']}] {s['codec']} {s['channels']}ch - \"{s['title']}\" ({dur_str})")
         elif len(candidates) == 1:
             selected = candidates[0]
             print(f"✓ Selecionado automaticamente: [{selected['lang']}] {selected['title']}")
             return selected
-    
-    # Seleção manual
-    if len(streams) == 1:
+
+    # Seleção manual — aceita o número exibido na lista original
+    if len(selectable) == 1:
         print("✓ Apenas uma faixa disponível, selecionando automaticamente.")
-        return streams[0]
-    
+        return selectable[0]
+
+    # Mapa: número exibido (posição na lista all_streams) → stream
+    index_map = {all_streams.index(s) + 1: s for s in selectable}
+    valid = sorted(index_map.keys())
+
     while True:
         try:
-            choice = int(input(f"Escolha a faixa para {file_type} (1-{len(streams)}): "))
-            if 1 <= choice <= len(streams):
-                return streams[choice - 1]
+            choice = int(input(f"Escolha a faixa para {file_type} {valid}: "))
+            if choice in index_map:
+                return index_map[choice]
         except ValueError:
             pass
-        print("Entrada inválida.")
+        print(f"Entrada inválida. Opções válidas: {valid}")
 
 def extract_audio_segment(file_path, stream_index, duration, output_wav):
     """Extrai segmento de áudio para WAV mono."""

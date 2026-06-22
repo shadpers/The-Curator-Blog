@@ -87,53 +87,124 @@ def get_streams(mkv_path):
     return _ffprobe_json([FFPROBE, "-v", "quiet", "-print_format", "json",
                           "-show_streams", mkv_path]).get("streams", [])
 
-def find_part_b_ms(chapters):
-    """Retorna o inicio do Part B em ms, ou None se nao encontrado."""
-    for ch in chapters:
-        title = ch.get("tags", {}).get("title", "").lower()
-        if "part b" in title:
-            return int(float(ch["start_time"]) * 1000)
-    return None
+# Aliases conhecidos para o capitulo "Part B" em releases de anime BD
+_PART_B_ALIASES = [
+    "part b", "part 2", "part two", "partb", "b part",
+    "act b", "act 2", "act two",
+    "segunda parte", "second part", "2nd part",
+    "parte b", "parte 2",
+    "2部分", "後半",            # japonês
+    "teil b", "teil 2",        # alemão
+    "partie b", "partie 2",    # francês
+    "parte seconda",            # italiano
+]
 
-def find_chapter_after_part_b(chapters):
-    """Retorna o inicio (ms) do capitulo imediatamente apos o Part B."""
-    found = False
+# Intervalo de tempo esperado para o inicio do Part B em um episodio de 24min
+_PART_B_START_MIN_S =  480   # 8 min
+_PART_B_START_MAX_S = 1000   # ~16.5 min
+
+
+def _ch_start_ms(ch):
+    return int(float(ch["start_time"]) * 1000)
+
+
+def locate_part_b(chapters):
+    """
+    Localiza o capitulo "Part B" usando tres estrategias em cascata:
+
+    1. Correspondencia por nome: qualquer alias em _PART_B_ALIASES.
+    2. Heuristica temporal: capitulo cujo inicio cai em [8min, 16.5min]
+       E que nao seja o primeiro capitulo nessa faixa (Part A pode comecar
+       antes dos 8min mas nunca depois — Part B e o segundo nessa janela).
+    3. Heuristica posicional: em estruturas de 5 ou 6 capitulos (padrao BD
+       de anime: Intro/OP → OP → Part A → Part B → ED → Preview), o Part B
+       e sempre o capitulo de indice 3.
+
+    Retorna (ms, titulo_original, metodo_str) ou (None, None, motivo_str).
+    """
+    if not chapters:
+        return None, None, "nenhum capitulo encontrado"
+
+    # ── Estrategia 1: por nome ────────────────────────────────────────────
     for ch in chapters:
-        title = ch.get("tags", {}).get("title", "").lower()
-        if found:
-            return int(float(ch["start_time"]) * 1000)
-        if "part b" in title:
-            found = True
-    return None
+        title = ch.get("tags", {}).get("title", "").strip()
+        if any(alias in title.lower() for alias in _PART_B_ALIASES):
+            return _ch_start_ms(ch), title, "nome"
+
+    # ── Estrategia 2: heuristica temporal ────────────────────────────────
+    # Pega todos os capitulos cujo inicio cai na janela esperada
+    in_window = [
+        ch for ch in chapters
+        if _PART_B_START_MIN_S <= float(ch["start_time"]) <= _PART_B_START_MAX_S
+    ]
+    if len(in_window) == 1:
+        ch = in_window[0]
+        title = ch.get("tags", {}).get("title", "").strip() or f"(indice {chapters.index(ch)})"
+        return _ch_start_ms(ch), title, "heuristica temporal"
+    if len(in_window) >= 2:
+        # Dois ou mais capitulos na janela: pega o de indice mais alto
+        # (Part A começa antes, Part B começa depois)
+        ch = in_window[-1]
+        title = ch.get("tags", {}).get("title", "").strip() or f"(indice {chapters.index(ch)})"
+        return _ch_start_ms(ch), title, "heuristica temporal (ultimo na janela)"
+
+    # ── Estrategia 3: posicional ──────────────────────────────────────────
+    if len(chapters) >= 5:
+        ch = chapters[3]
+        title = ch.get("tags", {}).get("title", "").strip() or "(sem titulo)"
+        return _ch_start_ms(ch), title, f"posicional (indice 3 de {len(chapters)})"
+
+    return None, None, f"nao foi possivel identificar Part B ({len(chapters)} capitulos)"
+
 
 def chapter_jump_estimate(ref_chapters, tgt_chapters):
     """
     Estima o pulo usando diferenca de timestamps de capitulos.
 
-    Se ambos tem Part B no mesmo instante mas o capitulo seguinte comeca
-    em instantes diferentes, essa diferenca e o pulo total do eyecatch.
+    Compara o inicio do Part B e o inicio do capitulo seguinte em ambos
+    os arquivos. A diferenca entre os dois deltas e o pulo do eyecatch.
 
-    Retorna (jump_ms, detalhes_str) ou (None, motivo_str).
+    Retorna (jump_ms, detalhes_dict) ou (None, motivo_str).
+    detalhes_dict tem chaves: ref_pb_ms, tgt_pb_ms, ref_aft_ms, tgt_aft_ms,
+                               ref_pb_title, tgt_pb_title, method_ref, method_tgt
     """
-    ref_pb  = find_part_b_ms(ref_chapters)
-    tgt_pb  = find_part_b_ms(tgt_chapters)
-    ref_aft = find_chapter_after_part_b(ref_chapters)
-    tgt_aft = find_chapter_after_part_b(tgt_chapters)
+    ref_pb_ms, ref_pb_title, ref_method = locate_part_b(ref_chapters)
+    tgt_pb_ms, tgt_pb_title, tgt_method = locate_part_b(tgt_chapters)
 
-    if None in (ref_pb, tgt_pb, ref_aft, tgt_aft):
-        return None, "capitulos insuficientes em um dos arquivos"
+    if ref_pb_ms is None:
+        return None, f"REF: {ref_method}"
+    if tgt_pb_ms is None:
+        return None, f"ALVO: {tgt_method}"
 
-    cut_delta = tgt_pb - ref_pb      # delta no ponto de corte (~0ms)
-    aft_delta = tgt_aft - ref_aft    # delta no capitulo seguinte
+    # Capitulo imediatamente apos o Part B em cada arquivo
+    def _next_chapter_ms(chapters, part_b_ms):
+        for i, ch in enumerate(chapters):
+            if abs(_ch_start_ms(ch) - part_b_ms) < 500 and i + 1 < len(chapters):
+                return _ch_start_ms(chapters[i + 1])
+        return None
+
+    ref_aft_ms = _next_chapter_ms(ref_chapters, ref_pb_ms)
+    tgt_aft_ms = _next_chapter_ms(tgt_chapters, tgt_pb_ms)
+
+    if ref_aft_ms is None or tgt_aft_ms is None:
+        return None, "capitulo seguinte ao Part B nao encontrado"
+
+    cut_delta = tgt_pb_ms - ref_pb_ms
+    aft_delta = tgt_aft_ms - ref_aft_ms
     jump      = aft_delta - cut_delta
 
-    detail = (
-        f"  Part B  REF={ms_to_human(ref_pb)}  ALVO={ms_to_human(tgt_pb)}"
-        f"  (delta={cut_delta:+d}ms)\n"
-        f"  Prox.cap REF={ms_to_human(ref_aft)}  ALVO={ms_to_human(tgt_aft)}"
-        f"  (delta={aft_delta:+d}ms)"
-    )
-    return jump, detail
+    return jump, {
+        "ref_pb_ms":    ref_pb_ms,
+        "tgt_pb_ms":    tgt_pb_ms,
+        "ref_aft_ms":   ref_aft_ms,
+        "tgt_aft_ms":   tgt_aft_ms,
+        "ref_pb_title": ref_pb_title,
+        "tgt_pb_title": tgt_pb_title,
+        "method_ref":   ref_method,
+        "method_tgt":   tgt_method,
+        "cut_delta":    cut_delta,
+        "aft_delta":    aft_delta,
+    }
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -151,7 +222,7 @@ def detect_fmt(codec_name):
 def extract_subtitle(mkv_path, abs_idx, out_path):
     cmd = [FFMPEG, "-y", "-i", mkv_path,
            "-map", f"0:{abs_idx}", out_path]
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     if r.returncode != 0 or not os.path.exists(out_path):
         raise RuntimeError(f"Falha ao extrair legenda {abs_idx}:\n{r.stderr[-600:]}")
 
@@ -387,8 +458,8 @@ def estimate_jump(ref_evs, tgt_evs, ref_fmt, tgt_fmt, cut_ref_ms,
     """
     MARGIN_MS    = 60_000   # contexto em cada lado do corte
     BEFORE_TOL   = 2_000    # apertado: video identico antes do eyecatch
-    AFTER_TOL    = 2_500    # apertado quando temos ancora por capitulo
-    AFTER_TOL_FB = 6_000    # largo como fallback sem ancora
+    AFTER_TOL    =   800    # muito apertado com ancora de capitulo (evita mis-matches)
+    AFTER_TOL_FB = 4_000    # largo como fallback sem ancora
 
     before_ref_evs = [e for e in ref_evs
                       if cut_ref_ms - MARGIN_MS <= e["start_ms"] < cut_ref_ms]
@@ -436,60 +507,16 @@ def estimate_jump(ref_evs, tgt_evs, ref_fmt, tgt_fmt, cut_ref_ms,
 # Audio fix
 # ─────────────────────────────────────────────────────────────────────────────
 
-def fix_audio_stream(mkv_path, stream_info, cut_s, jump_s, out_audio, tmp_dir):
+def fix_audio_stream(mkv_path, abs_idx, cut_s, jump_s, out_flac):
     """
-    Divide o audio em cut_s e remove/insere jump_s segundos no inicio do seg2,
-    preservando codec, bitrate, sample rate e canais originais.
+    Divide o audio em cut_s e remove/insere jump_s segundos no inicio do seg2.
+    jump_s > 0 -> target atrasado -> tira jump_s do inicio do seg2
+    jump_s < 0 -> target adiantado -> insere silencio no inicio do seg2
     """
-    abs_idx = stream_info["index"]
-    codec_name = stream_info.get("codec_name", "aac")
-    sample_rate = stream_info.get("sample_rate")
-    channels = stream_info.get("channels")
-    bit_rate = stream_info.get("bit_rate")
-    
-    # Mapeamentos de codec internos do ffmpeg (ex: pcm para mkv geralmente é pcm_s16le ou s24le)
-    if "pcm" in codec_name:
-        # Se for PCM, mantemos como s16le por padrão de segurança
-        encoder = "pcm_s16le"
-    elif codec_name == "dts":
-         # FFmpeg dts encoder é experimental e muitas vezes problemático, dca é o decoder, ac3 é a melhor conversão nesses casos se dts estrito não for necessário
-         # MAS para tentar manter igual, usamos dca
-         encoder = "dca"
-    elif codec_name == "aac":
-        encoder = "aac"
-    elif codec_name == "ac3":
-         encoder = "ac3"
-    elif codec_name == "eac3":
-         encoder = "eac3"
-    elif codec_name == "opus":
-         encoder = "libopus"
-    elif codec_name == "vorbis":
-         encoder = "libvorbis"
-    else:
-        # Tenta usar o mesmo nome para o encoder
-        encoder = codec_name
-
-    cmd = [FFMPEG, "-y", "-i", mkv_path]
-    
-    # Monta as opções de codificação originais
-    encode_opts = ["-c:a", encoder]
-    if sample_rate:
-        encode_opts.extend(["-ar", str(sample_rate)])
-    if channels:
-        encode_opts.extend(["-ac", str(channels)])
-    if bit_rate:
-         encode_opts.extend(["-b:a", str(bit_rate)])
-    elif encoder == "aac":
-         # Bitrate padrão de segurança se não informado e for aac
-         encode_opts.extend(["-b:a", "192k"])
-
     if abs(jump_s) < 0.005:
-        # Pequeno ajuste na chamada se não precisar de pulo
-        cmd.extend(["-map", f"0:{abs_idx}"])
-        cmd.extend(encode_opts)
-        cmd.append(out_audio)
-        
-        r = subprocess.run(cmd, capture_output=True, text=True)
+        cmd = [FFMPEG, "-y", "-i", mkv_path,
+               "-map", f"0:{abs_idx}", "-c:a", "flac", out_flac]
+        r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
         if r.returncode != 0:
             raise RuntimeError(r.stderr[-600:])
         return
@@ -506,70 +533,56 @@ def fix_audio_stream(mkv_path, stream_info, cut_s, jump_s, out_audio, tmp_dir):
         f"[_s2]{f2}[a2];"
         f"[a1][a2]concat=n=2:v=0:a=1[out]"
     )
-    
-    cmd.extend(["-filter_complex", fc, "-map", "[out]"])
-    cmd.extend(encode_opts)
-    cmd.append(out_audio)
-    
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    cmd = [FFMPEG, "-y", "-i", mkv_path,
+           "-filter_complex", fc,
+           "-map", "[out]", "-c:a", "flac", out_flac]
+    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     if r.returncode != 0:
         raise RuntimeError(f"FFmpeg falhou no audio {abs_idx}:\n{r.stderr[-600:]}")
 
-def remove_eyecatch_duplicates(events, cut_ms, fmt):
-    """
-    Procura por diálogos duplicados na região do eyecatch (janela de ± 45s).
-    Se encontrar falas idênticas, remove a PRIMEIRA e mantém a SEGUNDA,
-    avisando o usuário no console.
-    """
-    window = 45000  # Procura num raio de 45 segundos ao redor do corte
-    to_remove = set()
-    
-    for i in range(len(events)):
-        if i in to_remove:
-            continue
-        ev1 = events[i]
-        
-        # Verifica se a linha está próxima do ponto de corte do eyecatch
-        if not (cut_ms - window <= ev1["start_ms"] <= cut_ms + window):
-            continue
-            
-        text1 = ev_text(ev1, fmt).strip()
-        
-        # Ignora falas muito curtas (evita apagar respostas genéricas como "sim.", "ah!", etc.)
-        if len(text1) < 10:
-            continue
-            
-        # Olha os próximos 10 eventos para frente
-        for j in range(i + 1, min(i + 11, len(events))):
-            if j in to_remove:
-                continue
-            ev2 = events[j]
-            text2 = ev_text(ev2, fmt).strip()
-            
-            # Se o texto plain (sem tags, minúsculo) for idêntico, é a repetição
-            if text1 == text2:
-                to_remove.add(i) # Marca o PRIMEIRO evento para remoção
-                
-                # Prepara o log amigável para o console
-                raw_text = ev1.get("rest", ev1.get("text", ""))
-                raw_text = raw_text.replace(r"\N", " ").replace("\n", " ")
-                if len(raw_text) > 55: 
-                    raw_text = raw_text[:52] + "..."
-                
-                print(f"\n      [!] Repetição de Eyecatch resolvida:")
-                print(f"          - Removido: [{ms_to_human(ev1['start_ms'])}] {raw_text}")
-                print(f"          - Mantido : [{ms_to_human(ev2['start_ms'])}]")
-                break
-                
-    # Remove os itens marcados, de trás pra frente (para manter os índices da lista intactos)
-    for idx in sorted(list(to_remove), reverse=True):
-        events.pop(idx)
-        
-    return events
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Subtitle fix
 # ─────────────────────────────────────────────────────────────────────────────
+
+def remove_eyecatch_duplicates(events, cut_ms, fmt):
+    """
+    Procura por dialogos duplicados na regiao do eyecatch (janela de ± 45s).
+    Se encontrar falas identicas (texto plain), remove a PRIMEIRA ocorrencia
+    (pre-corte) e mantem a SEGUNDA (pos-corte), avisando no console.
+    Util quando o arquivo alvo repete o ultimo dialogo antes do eyecatch
+    logo apos a emenda.
+    """
+    window   = 45_000   # raio de busca em torno do ponto de corte (ms)
+    to_remove = set()
+
+    for i in range(len(events)):
+        if i in to_remove:
+            continue
+        ev1 = events[i]
+        if not (cut_ms - window <= ev1["start_ms"] <= cut_ms + window):
+            continue
+        text1 = ev_text(ev1, fmt).strip()
+        if len(text1) < 10:          # ignora respostas muito curtas ("sim.", "ah!")
+            continue
+        for j in range(i + 1, min(i + 11, len(events))):
+            if j in to_remove:
+                continue
+            if ev_text(events[j], fmt).strip() == text1:
+                to_remove.add(i)
+                raw = ev1.get("rest", ev1.get("text", ""))
+                raw = raw.replace(r"\N", " ").replace("\n", " ")
+                if len(raw) > 55:
+                    raw = raw[:52] + "..."
+                print(f"\n      [!] Repeticao de Eyecatch resolvida:")
+                print(f"          - Removido: [{ms_to_human(ev1['start_ms'])}] {raw}")
+                print(f"          - Mantido : [{ms_to_human(events[j]['start_ms'])}]")
+                break
+
+    for idx in sorted(to_remove, reverse=True):
+        events.pop(idx)
+    return events
+
 
 def fix_subtitle_stream(mkv_path, abs_idx, codec, cut_ms, jump_ms, out_path, tmp_dir):
     fmt = detect_fmt(codec)
@@ -579,7 +592,7 @@ def fix_subtitle_stream(mkv_path, abs_idx, codec, cut_ms, jump_ms, out_path, tmp
 
     if fmt == "ass":
         header, events = parse_ass(raw)
-        events = remove_eyecatch_duplicates(events, cut_ms, fmt) # <--- CHAMA A FUNÇÃO AQUI
+        events = remove_eyecatch_duplicates(events, cut_ms, fmt)
         for ev in events:
             if ev["start_ms"] >= cut_ms:
                 ev["start_ms"] -= jump_ms
@@ -587,7 +600,7 @@ def fix_subtitle_stream(mkv_path, abs_idx, codec, cut_ms, jump_ms, out_path, tmp
         write_ass(header, events, out_path)
     elif fmt == "srt":
         events = parse_srt(raw)
-        events = remove_eyecatch_duplicates(events, cut_ms, fmt) # <--- CHAMA A FUNÇÃO AQUI
+        events = remove_eyecatch_duplicates(events, cut_ms, fmt)
         for ev in events:
             if ev["start_ms"] >= cut_ms:
                 ev["start_ms"] -= jump_ms
@@ -622,7 +635,7 @@ def mux_output(tgt_path, audio_files, audio_meta, sub_files, sub_meta, output_pa
     # Attachments do alvo (sem video/audio/subs/chapters)
     cmd += ["--no-video", "--no-audio", "--no-subtitles", "--no-chapters", tgt_path]
 
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     if r.returncode > 1:
         raise RuntimeError(f"mkvmerge falhou:\n{r.stdout}\n{r.stderr}")
 
@@ -713,21 +726,28 @@ def main(ref_path, tgt_path):
     print("  Lendo capitulos...")
     ref_chapters = get_chapters(ref_path)
     tgt_chapters = get_chapters(tgt_path)
-    cut_ref_ms   = find_part_b_ms(ref_chapters)
 
-    if cut_ref_ms is None:
-        print("  Capitulo 'Part B' nao encontrado na REF.")
+    ref_pb_ms, ref_pb_title, ref_pb_method = locate_part_b(ref_chapters)
+
+    if ref_pb_ms is None:
+        print(f"  AVISO: Part B nao localizado na REF ({ref_pb_method}).")
         raw = input("  Informe o tempo de inicio do Part B em segundos: ").strip()
         cut_ref_ms = int(float(raw) * 1000)
     else:
-        print(f"  Part B REF: {ms_to_human(cut_ref_ms)} ({cut_ref_ms} ms)")
+        cut_ref_ms = ref_pb_ms
+        print(f"  Part B REF : {ms_to_human(cut_ref_ms)} — \"{ref_pb_title}\" [{ref_pb_method}]")
 
     # Estimativa primaria pelo diff de capitulos
     ch_jump_ms, ch_detail = chapter_jump_estimate(ref_chapters, tgt_chapters)
     if ch_jump_ms is not None:
+        d = ch_detail
         print(f"\n{SEP2}")
         print("  Estimativa por capitulos (metodo primario):")
-        print(ch_detail)
+        print(f"  Part B   REF={ms_to_human(d['ref_pb_ms'])} \"{d['ref_pb_title']}\" [{d['method_ref']}]")
+        print(f"           ALVO={ms_to_human(d['tgt_pb_ms'])} \"{d['tgt_pb_title']}\" [{d['method_tgt']}]"
+              f"  delta={d['cut_delta']:+d}ms")
+        print(f"  Prox.cap REF={ms_to_human(d['ref_aft_ms'])}  ALVO={ms_to_human(d['tgt_aft_ms'])}"
+              f"  delta={d['aft_delta']:+d}ms")
         print(f"  => PULO ESTIMADO: {ch_jump_ms:+d} ms")
     else:
         print(f"  Aviso capitulos: {ch_detail}")
@@ -892,21 +912,9 @@ def main(ref_path, tgt_path):
             idx   = s["index"]
             lang  = s.get("tags", {}).get("language", "")
             title = s.get("tags", {}).get("title", "")
-            
-            # Pega o codec pra tentar usar a extensão certa (pra não dar pau no mkvmerge)
-            codec_name = s.get("codec_name", "aac")
-            if codec_name == "libopus" or codec_name == "opus": ext = "opus"
-            elif codec_name == "vorbis": ext = "ogg"
-            elif codec_name == "ac3" or codec_name == "eac3": ext = "ac3"
-            elif codec_name == "dts" or codec_name == "dca": ext = "dts"
-            elif "pcm" in codec_name: ext = "wav"
-            else: ext = codec_name # fallback, ex: m4a/aac
-            if ext == "aac": ext = "m4a"
-
-            out = os.path.join(tmp, f"audio_{idx}.{ext}")
-            
-            print(f"  [{idx}] {title or lang} ({codec_name}) ...", end=" ", flush=True)
-            fix_audio_stream(tgt_path, s, cut_tgt_s, jump_s, out, tmp)
+            out   = os.path.join(tmp, f"audio_{idx}.flac")
+            print(f"  [{idx}] {title or lang} ...", end=" ", flush=True)
+            fix_audio_stream(tgt_path, idx, cut_tgt_s, jump_s, out)
             audio_files.append(out)
             audio_meta.append({"language": lang, "title": title})
             print("OK")

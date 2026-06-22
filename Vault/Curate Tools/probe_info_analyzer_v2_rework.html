@@ -23,8 +23,6 @@
 <div class="container">
   <h2>Probe Info Analyzer Rework</h2>
 
-  <!-- reference to uploaded file (local path) -->
-  <!-- File preview (if available in your environment): -->
   <img class="cover" src="/mnt/data/a44e48ee-ea69-4b13-b58f-0e780538b3c9.webp" alt="cover preview" onerror="this.style.display='none'">
 
   <textarea id="input" placeholder="Cole aqui o output completo do ffprobe (o .bat que você usa já gera o TXT com tudo)..."></textarea>
@@ -53,13 +51,23 @@ function download(name, content){ const blob=new Blob([content],{type:'text/plai
 /* Flags map */
 const FLAGS = { jpn:'🇯🇵', eng:'🇺🇸', por:'🇧🇷', spa:'🇪🇸', fre:'🇫🇷', ger:'🇩🇪', ita:'🇮🇹', rus:'🇷🇺', ara:'🇸🇦', chi:'🇨🇳' };
 
-/* Video codec pretty map (format B) */
+/* Video codec pretty map */
 const VIDEO_CODECS = { hevc:'HEVC/H.265', h265:'HEVC/H.265', h264:'AVC/H.264', avc:'AVC/H.264', vp9:'VP9', av1:'AV1' };
 
-/* keywords to detect S&S (option A) */
+/* Variant display labels (suffix after flag, joined with hyphen: 🇪🇸-ꜱᴘ) */
+const VARIANT_DISPLAY = {
+  'ES-ES': 'ꜱᴘ',
+  'ES-LA': 'ʟᴀ',
+  'PT-BR': 'ʙʀ',
+  'PT-PT': 'ᴘᴛ',
+  'EN-US': 'ᴜꜱ',
+  'EN-GB': 'ɢʙ',
+};
+
+/* keywords to detect S&S */
 const SS_PATTERNS = [/sign/i, /song/i, /s&s/i];
 
-/* Detect variant from title heuristics (simple, conservative) */
+/* Detect variant from title heuristics */
 function detectVariant(base, title){
   if(!title) return null;
   const t = title.toLowerCase();
@@ -72,30 +80,14 @@ function detectVariant(base, title){
     if(/\b(lat|latino|latam|latinoamerica)\b/.test(t)) return 'ES-LA';
   }
   if(base==='por'){
-    if(/\b(pt|portugal|pt-pt)\b/.test(t)) return 'PT-PT';
+    if(/\b(portugal|pt-pt)\b/.test(t)) return 'PT-PT';  // standalone 'pt' removed – matches 'PT' in 'PT-BR'
     if(/\b(br|brazil|brasil|pt-br)\b/.test(t)) return 'PT-BR';
-  }
-  if(base==='fre'){
-    // no variants commonly needed
-    return 'FR';
   }
   return null;
 }
 
-/* Build display token for a language code: either flag or flag + variant if needed */
-function displayLangToken(langCode, title, needVariant){
-  // langCode from ffprobe: often 'eng','por','spa', etc.
-  if(!langCode) return '';
-  const base = langCode.slice(0,3).toLowerCase(); // 'eng','por','spa'...
-  const flag = FLAGS[langCode.toLowerCase()] || FLAGS[base] || '🏳️';
-  if(!needVariant) return flag;
-  const variant = detectVariant(base, title) || base.slice(0,2).toUpperCase();
-  return `${flag} ${variant}`;
-}
-
 /* ============== Core parse ============== */
 function parseProbe(input){
-  // Split into stream blocks using "Stream #0:"
   const lines = input.split(/\r?\n/);
   const blocks = [];
   let cur=null;
@@ -104,12 +96,10 @@ function parseProbe(input){
     const streamHeader = ln.match(/^\s*Stream\s+#0:(\d+)(?:\(([^)]+)\))?:\s*(Video|Audio|Subtitle):\s*(.+)/i);
     if(streamHeader){
       if(cur) blocks.push(cur);
-      cur = { index: streamHeader[1], lang: streamHeader[2]||'', type: streamHeader[3], header: streamHeader[4], raw:[ln] , meta: {} };
-      // collect following metadata lines
+      cur = { index: streamHeader[1], lang: streamHeader[2]||'', type: streamHeader[3], header: streamHeader[4], raw:[ln], meta: {} };
       let j=i+1;
       while(j<lines.length && !/^\s*Stream\s+#0:\d+/.test(lines[j])){
         cur.raw.push(lines[j]);
-        // try capture title and NUMBER_OF_BYTES and BPS
         const t = lines[j].match(/^\s*title\s*:\s*(.+)/i);
         if(t) cur.meta.title = t[1].trim();
         const nb = lines[j].match(/^\s*NUMBER_OF_BYTES\s*:\s*(\d+)/i);
@@ -122,26 +112,25 @@ function parseProbe(input){
     }
   }
   if(cur) blocks.push(cur);
-
   return blocks;
 }
 
 function generatePost(input){
-  const outputDiv = document.getElementById('output');
   const blocks = parseProbe(input);
 
-  // Title: first occurrence of metadata title at top-level, else fallback to input title
+  // Title: strip season/episode patterns and trailing parentheticals (e.g. "(The Curator)")
   let fileTitle = extractFirst(input, /title\s*:\s*(.+)/i) || 'Untitled';
   fileTitle = fileTitle.trim();
+  // Remove " - S01E01" (and everything after it on the same "chunk")
+  fileTitle = fileTitle.replace(/\s*[-–]\s*S\d+E\d+.*/i, '');
+  // Remove trailing parenthetical like "(The Curator)"
+  fileTitle = fileTitle.replace(/\s*\([^)]*\)\s*$/, '').trim();
 
-  // Video main
+  // Video
   const videoBlock = blocks.find(b => b.type && b.type.toLowerCase().startsWith('video'));
-  let codecRaw = '';
-  let codecPretty = 'Unknown';
-  let resolution = 'Unknown';
+  let codecRaw = '', codecPretty = 'Unknown', resolution = 'Unknown';
   if(videoBlock){
     const hdr = videoBlock.header;
-    // header contains codec and resolution usually
     const codecMatch = hdr.match(/^([^\s,]+)/);
     if(codecMatch) codecRaw = codecMatch[1].toLowerCase();
     codecPretty = VIDEO_CODECS[codecRaw] || codecRaw.toUpperCase();
@@ -149,82 +138,102 @@ function generatePost(input){
     if(resMatch) resolution = resMatch[1];
   }
 
-  // bitrate: take the global "bitrate: N kb/s" line (not BPS)
+  // Bitrate
   const bitrateMatch = input.match(/bitrate:\s*(\d+)\s*kb\/s/i);
   let bitrateText = 'Unknown';
   if(bitrateMatch){
-    let mb = Number(bitrateMatch[1]) / 1000; // kbps -> Mbps
+    let mb = Number(bitrateMatch[1]) / 1000;
     mb = roundToHalf(mb);
-    // format C: integer -> no decimal, decimal -> one decimal
     bitrateText = (mb % 1 === 0) ? `~${mb} Mbps` : `~${mb.toFixed(1)} Mbps`;
   }
 
-  // total bytes: sum of NUMBER_OF_BYTES across all blocks
+  // Size
   let totalBytes = 0;
   blocks.forEach(b => { if(b.meta && b.meta.number_of_bytes) totalBytes += b.meta.number_of_bytes; });
   let sizeText = 'Unknown';
   if(totalBytes>0){
     let gb = totalBytes / (1024**3);
-    gb = roundToHalf(gb); // round to 0.5
-    // ensure format: 1 -> 1.0? user wanted e.g. 1.5 GB/EP; keep as 1.5 or 1.0
+    gb = roundToHalf(gb);
     sizeText = (gb % 1 === 0) ? `${gb}.0 GB/EP` : `${gb} GB/EP`;
-    // If you prefer trimming .0, change above. User accepted "1.5 GB/EP" so keep as-is.
   }
 
-  // Build audio groups: codec -> [{lang, title}]
+  // Audio
   const audioBlocks = blocks.filter(b => b.type && b.type.toLowerCase().startsWith('audio'));
-  const audioMap = {};
-  const langCountBase = {}; // count base occurrences across all streams (to decide if variant needed)
-  audioBlocks.forEach(b => {
-    // language code from header b.lang (may be 'eng', 'por' etc.)
+
+  // Build per-stream info (preserves stream order)
+  const audioStreams = audioBlocks.map(b => {
     const langCode = (b.lang || '').toLowerCase();
+    const base = langCode.slice(0,3);
+    const title = b.meta && b.meta.title ? b.meta.title : '';
     const codecMatch = b.header.match(/^([^\s,]+)/);
-    const codecName = codecMatch? codecMatch[1].toUpperCase() : 'AUDIO';
-    if(!audioMap[codecName]) audioMap[codecName]=[];
-    audioMap[codecName].push({ lang: langCode || '', title: (b.meta && b.meta.title) ? b.meta.title : '' });
-
-    const base = langCode.slice(0,3) || '';
-    if(base) langCountBase[base] = (langCountBase[base]||0)+1;
+    const codecName = codecMatch ? codecMatch[1].toUpperCase() : 'AUDIO';
+    const flag = FLAGS[langCode] || FLAGS[base] || '🏳️';
+    const variantKey = detectVariant(base, title); // e.g. 'ES-LA', 'ES-ES', null
+    const variantLabel = variantKey ? (VARIANT_DISPLAY[variantKey] || variantKey) : null;
+    return { base, flag, variantKey, variantLabel, codecName };
   });
 
-  // Build audio compact line: "🎧 Audio: FLAC • 🇯🇵 | AAC (LC) • 🇺🇸 ..."
-  const codecOrder = Object.keys(audioMap);
-  const audioCompactParts = codecOrder.map(codec => {
-    const entries = audioMap[codec];
-    // for each entry decide token: flag or flag + variant
-    const tokens = entries.map(e => displayLangToken(e.lang, e.title, (langCountBase[(e.lang||'').slice(0,3)]||0) > 1));
-    return `${codec}${codec.toUpperCase().includes('AAC') ? ' (LC)' : ''} • ${tokens.join(' ')}`;
+  // Count how many times each base language appears across all audio streams
+  const baseLangCount = {};
+  audioStreams.forEach(s => { baseLangCount[s.base] = (baseLangCount[s.base] || 0) + 1; });
+
+  // Fallback variant when stream has no detected variant but shares lang with another stream
+  const LANG_FALLBACK_VARIANT = {
+    'spa': 'ꜱᴘ',  // undetected Spanish -> assume Castilian/Spain
+    'por': 'ʙʀ',  // undetected Portuguese -> assume Brazil
+    'eng': 'ᴜꜱ',  // undetected English -> assume US
+  };
+
+  // Helper: build display token for a stream
+  // If that language has >1 stream total: show flag-variant (detected or fallback); otherwise just flag
+  function audioToken(s){
+    if(baseLangCount[s.base] > 1){
+      const label = s.variantLabel || LANG_FALLBACK_VARIANT[s.base] || null;
+      if(label) return `${s.flag}-${label}`;
+    }
+    return s.flag;
+  }
+
+  // Overview line: all streams in order
+  const overviewTokens = audioStreams.map(s => audioToken(s));
+  const overviewLine = overviewTokens.join(' ');
+
+  // Per-codec lines: group in encounter order
+  const codecMap = {};
+  const codecOrder = [];
+  audioStreams.forEach(s => {
+    if(!codecMap[s.codecName]){ codecMap[s.codecName] = []; codecOrder.push(s.codecName); }
+    codecMap[s.codecName].push(audioToken(s));
   });
 
-  // If you want format exactly "FLAC • 🇯🇵 | AAC (LC) • 🇺🇸 ..." where codec names first:
-  const audioLine = audioCompactParts.join(' | ');
+  const codecLines = codecOrder.map(codec => {
+    const displayCodec = codec.includes('AAC') ? 'AAC (LC)' : codec;
+    return `${displayCodec} • ${codecMap[codec].join(' ')}`;
+  });
 
-  // Subtitles: we need to detect S&S by searching titles of subtitle blocks
+  const audioSection = `🎧 Audio: ${overviewLine}\n${codecLines.join('\n')}`;
+
+  // Subtitles
   const subBlocks = blocks.filter(b => b.type && b.type.toLowerCase().startsWith('subtitle'));
-  // Build subs tokens keeping duplicates; when S&S detected, append (ꜱ-ꜱ) right after that flag
   const subsTokens = subBlocks.map(b => {
     const lang = (b.lang||'').toLowerCase();
     const flag = FLAGS[lang] || FLAGS[lang.slice(0,3)] || '🏳️';
     const title = b.meta && b.meta.title ? b.meta.title : '';
-    // detect S&S by patterns (option A: sign/song/s&s only)
     const isSS = SS_PATTERNS.some(rx => rx.test(title));
-    return isSS ? `${flag} (ꜱ-ꜱ)` : `${flag}`;
+    return isSS ? `${flag} (ꜱ-ꜱ)` : flag;
   });
-
-  // If subsTokens empty, show empty placeholder
   const subsLine = subsTokens.join(' ');
 
-  // Title line: use fileTitle directly (user wanted title auto)
   const final =
 `⭐ ${fileTitle}
 💿 Blu-ray • ${codecPretty}
 🎬 ${resolution} | ${bitrateText}
 
-🎧 Audio: ${audioLine}
+${audioSection}
 
 💬 Subs: ${subsLine}
-📦 ${sizeText}
 
+📦 ${sizeText}
 🔗 Sources:
 🛠️ Muxing & Upload: The Curator`;
 
@@ -244,12 +253,10 @@ function render(){
 
 document.getElementById('processBtn').onclick = () => { render(); };
 document.getElementById('clearBtn').onclick = () => { document.getElementById('input').value=''; outEl.textContent=''; outEl.classList.remove('visible'); };
-
 document.getElementById('input').addEventListener('paste', ()=>{ setTimeout(render,80); });
 
 document.getElementById('exportTxt').onclick = ()=>{ const txt = render(); if(txt) download('mux_info.txt', txt); };
 document.getElementById('exportMd').onclick = ()=>{ const txt = render(); if(!txt) return; const md = txt.replace(/^⭐/m,'## ⭐').replace(/💿/,'### 💿').replace(/🎬/,'### 🎬').replace(/🎧/,'### 🎧').replace(/💬/,'### 💬').replace(/📦/,'### 📦').replace(/🔗/,'### 🔗'); download('mux_info.md', md); };
-
 </script>
 </body>
 </html>

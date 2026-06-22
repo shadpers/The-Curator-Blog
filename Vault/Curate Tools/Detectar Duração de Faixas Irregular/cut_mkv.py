@@ -404,7 +404,7 @@ def _codec_ext_fixable(codec_id_internal: str, codec_name: str):
 # Processamento principal — Pipeline 4 etapas
 # ─────────────────────────────────────────────
 
-def process_file(input_file, info, index, total):
+def process_file(input_file, info, index, total, sub_state):
     print(f"\n{SEP}")
     print(f"{WHITE}  {bold('[' + str(index) + '/' + str(total) + ']')} {os.path.basename(input_file)}{RESET}")
     print(SEP)
@@ -449,6 +449,12 @@ def process_file(input_file, info, index, total):
         if result.returncode != 0:
             print(f"\n{WHITE}  {colored('✘ Erro no FFmpeg (etapa de corte A/V)', RED)}{RESET}")
             return False
+
+        # ── Confirmação antes das legendas ───────────────────────────────
+        process_subs = True
+        if has_subs and not ask_subtitle_proceed(sub_state):
+            sub_tracks = []      # pula o loop de extração/correção por completo
+            process_subs = False # mantém as legendas originais no remux final
 
         # ── Etapa 3: Extrair + Corrigir legendas ─────────────────────────
         mkvmerge_sub_args = []   # argumentos extras para o mkvmerge final
@@ -523,12 +529,16 @@ def process_file(input_file, info, index, total):
         # Inclui o arquivo original apenas como fonte de attachments (fontes TTF/OTF
         # usadas pelas legendas ASS, imagens de capa, etc.). As flags --no-* evitam
         # duplicar vídeo, áudio, legendas e capítulos que já vêm de tmp_nosub.
+        # Quando legendas foram puladas (process_subs=False), omite --no-subtitles
+        # para que as faixas originais passem intactas pelo input_file.
+        no_sub_flag = ["--no-subtitles"] if process_subs else []
+
         mkvmerge_cmd = [
             MKVMERGE_PATH,
             "-o", output_file,
             tmp_nosub,
             *mkvmerge_sub_args,
-            "--no-video", "--no-audio", "--no-subtitles", "--no-chapters", "--no-global-tags",
+            "--no-video", "--no-audio", *no_sub_flag, "--no-chapters", "--no-global-tags",
             input_file,
         ]
 
@@ -589,6 +599,34 @@ def ask_choice(prompt, options):
         if resp.isdigit() and 1 <= int(resp) <= len(options):
             return int(resp) - 1
         print(f"{WHITE}  Digite um número entre 1 e {len(options)}.{RESET}")
+
+def ask_subtitle_proceed(sub_state):
+    """
+    Pergunta se deve prosseguir com a correção de legendas após o corte A/V.
+    sub_state = {"decision": None | "all_yes" | "all_no"}
+    Retorna True (processar legendas) ou False (pular).
+    """
+    if sub_state["decision"] == "all_yes":
+        return True
+    if sub_state["decision"] == "all_no":
+        return False
+
+    while True:
+        resp = input(
+            f"\n{WHITE}  {bold('Áudio corrigido, prosseguir para legendas?')} "
+            f"{colored('[S/N/ST (Sim p/ Todos)/SN (Não p/ Todos)]', CYAN)}{WHITE}: {RESET}"
+        ).strip().upper()
+        if resp == "S":
+            return True
+        if resp == "N":
+            return False
+        if resp == "ST":
+            sub_state["decision"] = "all_yes"
+            return True
+        if resp == "SN":
+            sub_state["decision"] = "all_no"
+            return False
+        print(f"{WHITE}  S = Sim  |  N = Não  |  ST = Sim para todos  |  SN = Não para todos{RESET}")
 
 def ask_multi(prompt, options):
     for i, opt in enumerate(options, 1):
@@ -757,8 +795,9 @@ def main():
 
     success = 0
     failed  = 0
+    sub_state = {"decision": None}
     for i, (f, info) in enumerate(to_cut, 1):
-        ok = process_file(f, info, i, len(to_cut))
+        ok = process_file(f, info, i, len(to_cut), sub_state)
         if ok:
             success += 1
         else:
