@@ -5,6 +5,9 @@ echo ========================================
 echo  Track Namer - Padronizacao de Faixas
 echo ========================================
 echo.
+echo  Ordem ja correta: edita o MKV in-place (sem remux).
+echo  Ordem diferente: pergunta se remuxa ou so renomeia in-place.
+echo.
 
 if "%~1"=="" (
     echo [ERRO] Nenhum arquivo ou pasta foi arrastado!
@@ -14,8 +17,6 @@ if "%~1"=="" (
     echo   2. Ou arraste pastas contendo arquivos .mkv
     echo   3. Siga as instrucoes no console
     echo.
-    echo Os arquivos remuxados serao salvos em subpastas "Remuxed\"
-    echo ao lado de cada arquivo original.
     pause
     exit /b
 )

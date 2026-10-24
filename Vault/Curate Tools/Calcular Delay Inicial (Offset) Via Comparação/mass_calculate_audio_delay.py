@@ -63,12 +63,20 @@ def extract_episode_number(filename):
     name = os.path.splitext(os.path.basename(filename))[0]
 
     patterns = [
-        r'[Ss]\d+[Ee](\d+)',                                       # S01E01
-        r'[-_ ](\d{2,3})[-_ \[\(]',                               # ' - 002 [' ou ' - 002 ('
-        r'[-_ ](\d{2,3})$',                                        # termina em ' - 001'
-        r'(\d{2,3})[vV]\d',                                        # 001v2
-        r'(?:^|[\s\[\(#-])Ep?\.?\s*(\d{2,3})(?:[\s\]\)_.-]|$)',  # EP01/Ep.02 (restrito)
-        r'\b(\d{2,3})\b',                                          # fallback
+        # S01E01 / S1E01
+        r'[Ss]\d+[Ee](\d{1,3})',
+        # .E01. / -E01- / _E01_ / espaçoE01
+        r'[._\-\s][Ee](\d{1,3})(?=[._\-\s]|$)',
+        # EP01 / Ep.01 / E01 (prefixos mais amplos)
+        r'(?:^|[._\-\s\[\(])[Ee][Pp]?\.?\s*(\d{1,3})(?:[._\-\s\]\)]|$)',
+        # ' - 002 [' ou ' - 002 ('
+        r'[-_ ](\d{2,3})[-_ \[\(]',
+        # termina em ' - 001' ou '_001'
+        r'[-_ ](\d{2,3})$',
+        # 001v2
+        r'(\d{2,3})[vV]\d',
+        # fallback: número isolado de 2-3 dígitos
+        r'\b(\d{2,3})\b',
     ]
 
     for pat in patterns:

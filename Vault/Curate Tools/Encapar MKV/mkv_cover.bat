@@ -5,13 +5,14 @@ echo  MKV Cover - Drag and Drop
 echo ========================================
 echo.
 
-REM Verifica se há arquivos arrastados
+REM Verifica se ha arquivos arrastados
 if "%~1"=="" (
     echo [ERRO] Nenhum arquivo foi arrastado!
     echo.
     echo Como usar:
-    echo 1. Arraste arquivos MKV + uma imagem JPG sobre este .bat
-    echo 2. Siga as instrucoes no console
+    echo 1. ADICIONAR capa: arraste MKVs + uma imagem sobre este .bat
+    echo 2. EXTRAIR capas: arraste so MKVs ^(ou uma pasta de MKVs^)
+    echo 3. Siga as instrucoes no console
     pause
     exit /b
 )

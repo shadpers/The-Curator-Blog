@@ -6,6 +6,7 @@ import ctypes
 import tempfile
 import shutil
 import re
+import time
 
 # Habilita ANSI no terminal Windows
 try:
@@ -69,6 +70,18 @@ def bold(text):
 
 def dim(text):
     return f"{DIM}{text}{RESET}{WHITE}"
+
+def format_time(seconds):
+    """Formata segundos como HH:MM:SS ou MM:SS."""
+    if seconds is None or seconds < 0 or not isinstance(seconds, (int, float)):
+        return "--:--"
+    seconds = max(0, float(seconds))
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = int(seconds % 60)
+    if h > 0:
+        return f"{h:02d}:{m:02d}:{s:02d}"
+    return f"{m:02d}:{s:02d}"
 
 # ─────────────────────────────────────────────
 # FFprobe helpers
@@ -430,7 +443,9 @@ def process_file(input_file, info, index, total, sub_state):
         # "-map 0:v" (minúsculo) os incluía, gerando a faixa fantasma no MKV final.
         map_args = ["-map", "0:V", "-map", "0:a"] if has_subs else ["-map", "0"]
         ffmpeg_cmd = [
-            FFMPEG_PATH, "-y", "-v", "error", "-stats",
+            FFMPEG_PATH, "-y", "-v", "error",
+            "-progress", "pipe:1",
+            "-nostats",
             "-i", input_file,
             *map_args,
             "-map_metadata", "0",
@@ -445,9 +460,115 @@ def process_file(input_file, info, index, total, sub_state):
                      if has_subs else "")
         print(f"{WHITE}  {dim('Saída: ' + os.path.basename(output_file))}{sub_label}\n{RESET}")
 
-        result = subprocess.run(ffmpeg_cmd)
-        if result.returncode != 0:
+        # Executa FFmpeg com barra de progresso em tempo real
+        process = subprocess.Popen(
+            ffmpeg_cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="ignore",
+            bufsize=1,
+        )
+
+        start_ts  = time.time()
+        bar_width = 28
+        prog_data = {}
+        last_line = ""
+
+        while True:
+            line = process.stdout.readline()
+            if not line and process.poll() is not None:
+                break
+            line = line.strip()
+            if not line or "=" not in line:
+                continue
+
+            key, _, value = line.partition("=")
+            prog_data[key] = value
+
+            if key != "progress":
+                continue
+
+            # Calcula progresso a partir de out_time_ms (ou out_time como fallback)
+            cur_sec = 0.0
+            try:
+                if "out_time_ms" in prog_data:
+                    cur_sec = int(prog_data["out_time_ms"]) / 1_000_000.0
+                elif "out_time" in prog_data:
+                    # formato HH:MM:SS.micro
+                    t = prog_data["out_time"].strip()
+                    parts = t.split(":")
+                    if len(parts) == 3:
+                        cur_sec = int(parts[0]) * 3600 + int(parts[1]) * 60 + float(parts[2])
+            except (ValueError, TypeError, IndexError):
+                cur_sec = 0.0
+
+            if video_dur > 0:
+                pct = min(100.0, (cur_sec / video_dur) * 100.0)
+            else:
+                pct = 0.0
+
+            elapsed = time.time() - start_ts
+
+            speed_raw = prog_data.get("speed", "N/A")
+            speed_val = None
+            if speed_raw not in ("N/A", ""):
+                try:
+                    speed_val = float(speed_raw.rstrip("x"))
+                except ValueError:
+                    pass
+
+            if speed_val and speed_val > 0 and video_dur > cur_sec:
+                eta_sec = (video_dur - cur_sec) / speed_val
+            elif pct > 0.5:
+                eta_sec = elapsed * (100.0 - pct) / pct
+            else:
+                eta_sec = None
+
+            speed = speed_raw if speed_raw.endswith("x") or speed_raw == "N/A" else f"{speed_raw}x"
+
+            filled = int(bar_width * pct / 100.0)
+            bar = "█" * filled + "░" * (bar_width - filled)
+
+            status = (
+                f"\r{WHITE}  [{CYAN}{bar}{WHITE}] {pct:5.1f}%  "
+                f"{dim(format_time(cur_sec))}{WHITE}/{format_time(video_dur)}  "
+                f"{dim('decorrido')} {format_time(elapsed)}  "
+                f"{dim('restante')} {format_time(eta_sec)}  "
+                f"{dim('speed')} {speed}{RESET}"
+            )
+            # Evita reimprimir a mesma linha (reduz flicker em terminais lentos)
+            if status != last_line:
+                print(status, end="", flush=True)
+                last_line = status
+
+            if value == "end":
+                break
+
+        # Garante que o processo terminou e captura stderr
+        process.wait()
+        stderr_out = process.stderr.read() if process.stderr else ""
+
+        # Linha final de progresso (100% ou estado real)
+        if process.returncode == 0:
+            filled = bar_width
+            bar = "█" * filled
+            elapsed = time.time() - start_ts
+            print(
+                f"\r{WHITE}  [{GREEN}{bar}{WHITE}] 100.0%  "
+                f"{format_time(video_dur)}/{format_time(video_dur)}  "
+                f"{dim('decorrido')} {format_time(elapsed)}  "
+                f"{dim('restante')} 00:00  "
+                f"{RESET}"
+            )
+        else:
+            print()  # apenas quebra a linha da barra incompleta
+
+        if process.returncode != 0:
             print(f"\n{WHITE}  {colored('✘ Erro no FFmpeg (etapa de corte A/V)', RED)}{RESET}")
+            if stderr_out.strip():
+                print(f"  {dim(stderr_out.strip()[:500])}{RESET}")
             return False
 
         # ── Confirmação antes das legendas ───────────────────────────────

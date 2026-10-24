@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Mass Mux Tool v2 - Muxing em massa de episódios de anime
-Combina vídeo, áudio e legendas de múltiplas pastas aplicando configurações uniformes
+Combina vídeo, áudio, legendas e capítulos de múltiplas pastas aplicando configurações uniformes
 """
 
 import subprocess
@@ -63,6 +63,7 @@ class MuxConfig:
     subtitle_order: List[int]  # Ordem global das faixas de legenda
     subtitle_modifications: Dict[int, SubtitleModification]  # global_index -> modification
     track_fingerprints: Optional[Dict] = None  # {'audio': {folder: [{index, language, title}]}, 'subtitle': {...}}
+    chapter_source_folder: Optional[str] = None
     
     def to_dict(self):
         """Converte para dicionário serializável"""
@@ -74,7 +75,8 @@ class MuxConfig:
             'subtitle_selections': self.subtitle_selections,
             'subtitle_order': self.subtitle_order,
             'subtitle_modifications': {k: asdict(v) for k, v in self.subtitle_modifications.items()},
-            'track_fingerprints': self.track_fingerprints or {}
+            'track_fingerprints': self.track_fingerprints or {},
+            'chapter_source_folder': self.chapter_source_folder
         }
     
     @staticmethod
@@ -91,7 +93,8 @@ class MuxConfig:
             subtitle_selections=data['subtitle_selections'],
             subtitle_order=data['subtitle_order'],
             subtitle_modifications=sub_mods,
-            track_fingerprints=data.get('track_fingerprints', None)
+            track_fingerprints=data.get('track_fingerprints', None),
+            chapter_source_folder=data.get('chapter_source_folder', None)
         )
 
 
@@ -133,10 +136,30 @@ def get_mkv_files(folder: Path) -> List[Path]:
     return sorted(mkv_files, key=lambda x: natural_sort_key(x.name))
 
 
-def get_track_info(mkv_path: Path) -> Tuple[List[TrackInfo], List[TrackInfo], List[TrackInfo]]:
+def extract_episode_number(filename: str) -> Optional[int]:
     """
-    Extrai informações de todas as faixas de um arquivo MKV
-    Retorna: (videos, audios, subtitles)
+    Extrai o número de episódio de um nome de arquivo para pareamento com relatório.
+    """
+    name = os.path.splitext(os.path.basename(filename))[0]
+    patterns = [
+        r'[Ss]\d+[Ee](\d+)',
+        r'[-_ ](\d{2,3})[-_ \[\(]',
+        r'[-_ ](\d{2,3})$',
+        r'(\d{2,3})[vV]\d',
+        r'(?:^|[\s\[\(#-])Ep?\.?\s*(\d{2,3})(?:[\s\]\)_.-]|$)',
+        r'\b(\d{2,3})\b',
+    ]
+    for pat in patterns:
+        m = re.search(pat, name)
+        if m:
+            return int(m.group(1))
+    return None
+
+
+def get_track_info(mkv_path: Path) -> Tuple[List[TrackInfo], List[TrackInfo], List[TrackInfo], bool]:
+    """
+    Extrai informações de todas as faixas e capítulos de um arquivo MKV
+    Retorna: (videos, audios, subtitles, has_chapters)
     """
     try:
         result = subprocess.run(
@@ -175,16 +198,18 @@ def get_track_info(mkv_path: Path) -> Tuple[List[TrackInfo], List[TrackInfo], Li
                 audios.append(track_info)
             elif track_type == 'subtitles':
                 subtitles.append(track_info)
+                
+        has_chapters = len(data.get('chapters', [])) > 0
         
-        return videos, audios, subtitles
+        return videos, audios, subtitles, has_chapters
     
     except subprocess.CalledProcessError as e:
         print(f"[ERRO] Falha ao analisar {mkv_path.name}")
         print(f"Erro: {e.stderr}")
-        return [], [], []
+        return [], [], [], False
     except json.JSONDecodeError:
         print(f"[ERRO] Falha ao decodificar JSON de {mkv_path.name}")
-        return [], [], []
+        return [], [], [], False
 
 
 def get_track_durations(mkv_path: Path) -> Dict[int, int]:
@@ -264,20 +289,19 @@ def validate_folder_structure(folders: List[Path]) -> bool:
         print(f"\n📁 {folder.name}")
         
         # Analisa primeiro episódio como referência
-        ref_videos, ref_audios, ref_subs = get_track_info(episodes[0])
+        ref_videos, ref_audios, ref_subs, ref_chapters = get_track_info(episodes[0])
         
         is_audio_only = episodes[0].suffix.lower() == '.mka'
-        if not ref_videos and not is_audio_only:
-            print(f"  [ERRO] Nenhuma faixa de vídeo encontrada em {episodes[0].name}")
-            return False
+        if not ref_videos and not is_audio_only and not ref_subs and not ref_chapters and not ref_audios:
+            print(f"  [AVISO] O arquivo {episodes[0].name} parece estar vazio (Dummy?).")
         
         print(f"  Referência: {episodes[0].name}")
-        print(f"    Vídeo: {len(ref_videos)}, Áudio: {len(ref_audios)}, Legendas: {len(ref_subs)}")
+        print(f"    Vídeo: {len(ref_videos)}, Áudio: {len(ref_audios)}, Legendas: {len(ref_subs)}, Capítulos: {'Sim' if ref_chapters else 'Não'}")
         
         # Verifica todos os outros episódios
         all_consistent = True
         for ep in episodes[1:]:
-            videos, audios, subs = get_track_info(ep)
+            videos, audios, subs, has_chapters = get_track_info(ep)
             
             if len(audios) < len(ref_audios):
                 print(f"  ✗ {ep.name}: Tem MENOS faixas de áudio ({len(audios)} vs {len(ref_audios)})")
@@ -289,6 +313,10 @@ def validate_folder_structure(folders: List[Path]) -> bool:
             
             if not is_audio_only and len(videos) != len(ref_videos):
                 print(f"  ✗ {ep.name}: Quantidade diferente de vídeo ({len(videos)} vs {len(ref_videos)})")
+                all_consistent = False
+                
+            if has_chapters != ref_chapters:
+                print(f"  ✗ {ep.name}: Presença de capítulos inconsistente em relação à referência")
                 all_consistent = False
         
         if all_consistent:
@@ -321,7 +349,7 @@ def display_track_table(folders: List[Path], track_type: str) -> Dict[str, List[
         if not episodes:
             continue
         
-        videos, audios, subs = get_track_info(episodes[0])
+        videos, audios, subs, _ = get_track_info(episodes[0])
         
         if track_type == 'video':
             tracks = videos
@@ -468,7 +496,7 @@ def reorder_tracks(folders: List[Path], selections: Dict[str, List[int]], track_
         if not episodes:
             continue
         
-        videos, audios, subs = get_track_info(episodes[0])
+        videos, audios, subs, _ = get_track_info(episodes[0])
         
         if track_type == 'audio':
             tracks = audios
@@ -561,7 +589,7 @@ def modify_audio_tracks(folders: List[Path], audio_selections: Dict[str, List[in
         if not episodes:
             continue
         
-        _, audios, _ = get_track_info(episodes[0])
+        _, audios, _, _ = get_track_info(episodes[0])
         
         for idx in audio_selections.get(folder_name, []):
             if idx < len(audios):
@@ -706,7 +734,7 @@ def modify_subtitle_tracks(folders: List[Path], subtitle_selections: Dict[str, L
         if not episodes:
             continue
         
-        _, _, subs = get_track_info(episodes[0])
+        _, _, subs, _ = get_track_info(episodes[0])
         
         for idx in subtitle_selections.get(folder_name, []):
             if idx < len(subs):
@@ -790,6 +818,44 @@ def modify_subtitle_tracks(folders: List[Path], subtitle_selections: Dict[str, L
     return modifications
 
 
+def select_chapter_source(folders: List[Path]) -> Optional[str]:
+    """Permite usuário escolher de qual pasta virão os capítulos (ou ignorá-los)"""
+    print(f"\n{'=' * 70}")
+    print("FONTE DE CAPÍTULOS")
+    print(f"{'=' * 70}")
+    
+    for i, folder in enumerate(folders):
+        episodes = get_mkv_files(folder)
+        if not episodes:
+            continue
+            
+        _, _, _, has_chapters = get_track_info(episodes[0])
+        status = " [Tem capítulos]" if has_chapters else " [Sem capítulos]"
+        print(f"  [{i}] {folder.name}{status}")
+        
+    print(f"  [{len(folders)}] NENHUM (Remover todos os capítulos)")
+    
+    while True:
+        print("\nDe qual pasta deseja usar os CAPÍTULOS?")
+        print("Digite o número da pasta:")
+        
+        selection = input("Pasta de capítulos: ").strip()
+        
+        try:
+            idx = int(selection)
+            if 0 <= idx < len(folders):
+                selected_folder = folders[idx].name
+                print(f"\n✓ Capítulos serão extraídos de: {selected_folder}")
+                return selected_folder
+            elif idx == len(folders):
+                print(f"\n✓ Os capítulos serão REMOVIDOS do mux final.")
+                return None
+            else:
+                print(f"[ERRO] Índice inválido! Digite um número entre 0 e {len(folders)}")
+        except ValueError:
+            print("[ERRO] Digite um número válido!")
+
+
 def capture_fingerprints(folders: List[Path], config: MuxConfig) -> Dict:
     """
     Captura fingerprints (language + title) de cada faixa selecionada na configuração.
@@ -805,7 +871,7 @@ def capture_fingerprints(folders: List[Path], config: MuxConfig) -> Dict:
         episodes = get_mkv_files(folder)
         if not episodes:
             continue
-        _, audios, _ = get_track_info(episodes[0])
+        _, audios, _, _ = get_track_info(episodes[0])
         fingerprints['audio'][folder_name] = [
             {'index': idx, 'language': audios[idx].language, 'title': audios[idx].title}
             for idx in indices if idx < len(audios)
@@ -818,7 +884,7 @@ def capture_fingerprints(folders: List[Path], config: MuxConfig) -> Dict:
         episodes = get_mkv_files(folder)
         if not episodes:
             continue
-        _, _, subs = get_track_info(episodes[0])
+        _, _, subs, _ = get_track_info(episodes[0])
         fingerprints['subtitle'][folder_name] = [
             {'index': idx, 'language': subs[idx].language, 'title': subs[idx].title}
             for idx in indices if idx < len(subs)
@@ -855,7 +921,7 @@ def validate_config_fingerprints(folders: List[Path], config: MuxConfig) -> bool
         episodes = get_mkv_files(folder)
         if not episodes:
             continue
-        _, audios, _ = get_track_info(episodes[0])
+        _, audios, _, _ = get_track_info(episodes[0])
 
         for fp in saved_tracks:
             idx = fp['index']
@@ -884,7 +950,7 @@ def validate_config_fingerprints(folders: List[Path], config: MuxConfig) -> bool
         episodes = get_mkv_files(folder)
         if not episodes:
             continue
-        _, _, subs = get_track_info(episodes[0])
+        _, _, subs, _ = get_track_info(episodes[0])
 
         for fp in saved_tracks:
             idx = fp['index']
@@ -966,13 +1032,86 @@ def load_config() -> Optional[MuxConfig]:
         return None
 
 
-def process_muxing(folders: List[Path], config: MuxConfig):
+def check_report_coverage(report_data: dict, anchor_folder: str, target_folders: Set[str]) -> List[str]:
+    """Verifica quais pastas de origem selecionadas NÃO possuem dados de delay no relatório."""
+    if not report_data or "comparisons" not in report_data:
+        return list(target_folders)
+        
+    missing_folders = []
+    for target in target_folders:
+        found = False
+        for comp in report_data["comparisons"].values():
+            f1 = comp.get("folder_1")
+            f2 = comp.get("folder_2")
+            if (f1 == anchor_folder and f2 == target) or (f1 == target and f2 == anchor_folder):
+                found = True
+                break
+        if not found:
+            missing_folders.append(target)
+    return missing_folders
+
+
+def get_report_delay(report_data: dict, anchor_folder: str, target_folder: str, ep_num: int) -> Tuple[Optional[float], bool]:
+    """Busca o valor do delay no relatório com base na âncora de vídeo."""
+    if not report_data or "comparisons" not in report_data:
+        return None, False
+        
+    for comp in report_data["comparisons"].values():
+        f1 = comp.get("folder_1")
+        f2 = comp.get("folder_2")
+        episodes = comp.get("episodes", {})
+        ep_key = str(ep_num)
+        
+        if ep_key in episodes:
+            offset = episodes[ep_key]
+            # Caso 1: anchor é f1 (BD) e target é f2 (WEB) -> delay do WEB é -offset
+            if f1 == anchor_folder and f2 == target_folder:
+                return -offset, True
+            # Caso 2: target é f1 (BD) e anchor é f2 (WEB) -> delay do BD é +offset
+            if f1 == target_folder and f2 == anchor_folder:
+                return offset, True
+    return None, False
+
+
+def select_output_directory(folders: List[Path]) -> Path:
     """
-    Executa o muxing em massa de todos os episódios
+    Pergunta ao usuário o local de saída do mux.
+    Enter = usa o padrão atual (pasta 'mass_mux_output' ao lado das pastas de origem).
+    Caso um caminho seja informado, os arquivos são escritos diretamente nele.
     """
-    # Cria pasta de saída
-    output_dir = folders[0].parent / "mass_mux_output"
-    output_dir.mkdir(exist_ok=True)
+    default_output = folders[0].parent / "mass_mux_output"
+    
+    print(f"\n{'=' * 70}")
+    print("PASTA DE SAÍDA")
+    print(f"{'=' * 70}")
+    print(f"\nPadrão atual: {default_output}")
+    print("Digite o caminho completo onde os arquivos devem ser salvos")
+    print("(a escrita será feita diretamente nessa pasta),")
+    print("ou pressione Enter para usar o padrão acima.")
+    print(r"Ex: H:\Rips\Fullmetal BH")
+    print("\nCaminho de saída: ", end='')
+    
+    user_input = input().strip().strip('"')
+    
+    if not user_input:
+        output_dir = default_output
+        print(f"✓ Usando local padrão: {output_dir}")
+    else:
+        output_dir = resolve_path(user_input)
+        print(f"✓ Local de saída definido: {output_dir}")
+    
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return output_dir
+
+
+def process_muxing(folders: List[Path], config: MuxConfig, report_data: Optional[dict] = None, output_dir: Optional[Path] = None):
+    """
+    Executa o muxing em massa de todos os episódios aplicando delays automáticos se fornecidos
+    """
+    # Cria/usa pasta de saída
+    if output_dir is None:
+        output_dir = folders[0].parent / "mass_mux_output"
+    output_dir.mkdir(parents=True, exist_ok=True)
     
     print(f"\n{'=' * 70}")
     print("INICIANDO MUXING EM MASSA")
@@ -1000,7 +1139,7 @@ def process_muxing(folders: List[Path], config: MuxConfig):
         if not episodes:
             continue
         
-        _, audios, _ = get_track_info(episodes[0])
+        _, audios, _, _ = get_track_info(episodes[0])
         
         for idx in config.audio_selections.get(folder_name, []):
             if idx < len(audios):
@@ -1016,7 +1155,7 @@ def process_muxing(folders: List[Path], config: MuxConfig):
         if not episodes:
             continue
         
-        _, _, subs = get_track_info(episodes[0])
+        _, _, subs, _ = get_track_info(episodes[0])
         
         for idx in config.subtitle_selections.get(folder_name, []):
             if idx < len(subs):
@@ -1038,10 +1177,10 @@ def process_muxing(folders: List[Path], config: MuxConfig):
         cmd = [MKVMERGE, "-o", str(output_path)]
         
         # === VÍDEO ===
-        videos, _, _ = get_track_info(video_ep)
+        videos, _, _, _ = get_track_info(video_ep)
         if videos:
             video_track_id = videos[0].track_id
-            cmd.extend(["-d", str(video_track_id)])
+            cmd.extend(["--no-chapters", "-d", str(video_track_id)]) # Bloqueia capítulos nativos
             cmd.extend(["-A", "-S"])
             cmd.append(str(video_ep))
             print(f"  ✓ Vídeo: {video_folder.name}/{video_ep.name}")
@@ -1056,7 +1195,7 @@ def process_muxing(folders: List[Path], config: MuxConfig):
                 continue
             
             current_ep = folder_episodes[ep_idx - 1]
-            _, audios, _ = get_track_info(current_ep)
+            _, audios, _, _ = get_track_info(current_ep)
             
             if local_idx >= len(audios):
                 continue
@@ -1064,19 +1203,31 @@ def process_muxing(folders: List[Path], config: MuxConfig):
             audio_track = audios[local_idx]
             
             # Seleciona apenas esta faixa de áudio
-            cmd.extend(["-a", str(audio_track.track_id)])
+            cmd.extend(["--no-chapters", "-a", str(audio_track.track_id)]) # Bloqueia capítulos
             cmd.extend(["-D", "-S"])  # Sem vídeo nem legendas
             
-            # Aplica modificações - audio_order[new_idx] dá o índice ORIGINAL
+            # Aplica modificações manuais
+            manual_delay = 0
             original_idx = config.audio_order[new_idx]
             if original_idx in config.audio_modifications:
                 mod = config.audio_modifications[original_idx]
-                
                 if mod.new_name:
                     cmd.extend(["--track-name", f"{audio_track.track_id}:{mod.new_name}"])
+                manual_delay = mod.delay_ms
                 
-                if mod.delay_ms != 0:
-                    cmd.extend(["--sync", f"{audio_track.track_id}:{mod.delay_ms}"])
+            # Cálculo de delay automático via relatório
+            auto_delay = 0
+            if report_data and folder_name != config.video_source_folder:
+                ep_num = extract_episode_number(current_ep.name)
+                if ep_num is not None:
+                    delay_val, found = get_report_delay(report_data, config.video_source_folder, folder_name, ep_num)
+                    if found and delay_val is not None:
+                        auto_delay = round(delay_val)
+                        print(f"    [DELAY AUTO] Áudio - Ep {ep_num:03d}: Aplicando {auto_delay:+.0f} ms para '{folder_name}'")
+            
+            total_delay = manual_delay + auto_delay
+            if total_delay != 0:
+                cmd.extend(["--sync", f"{audio_track.track_id}:{total_delay}"])
             
             # Adiciona o arquivo DEPOIS das opções
             cmd.append(str(current_ep))
@@ -1093,7 +1244,7 @@ def process_muxing(folders: List[Path], config: MuxConfig):
                 continue
             
             current_ep = folder_episodes[ep_idx - 1]
-            _, _, subs = get_track_info(current_ep)
+            _, _, subs, _ = get_track_info(current_ep)
             
             if local_idx >= len(subs):
                 continue
@@ -1101,27 +1252,57 @@ def process_muxing(folders: List[Path], config: MuxConfig):
             sub_track = subs[local_idx]
             
             # Seleciona apenas esta faixa de legenda
-            cmd.extend(["-s", str(sub_track.track_id)])
+            cmd.extend(["--no-chapters", "-s", str(sub_track.track_id)]) # Bloqueia capítulos
             cmd.extend(["-D", "-A"])  # Sem vídeo nem áudio
             
-            # Aplica modificações - subtitle_order[new_idx] dá o índice ORIGINAL
+            # Aplica modificações manuais
+            manual_delay = 0
+            stretch = 1.0
             original_idx = config.subtitle_order[new_idx]
             if original_idx in config.subtitle_modifications:
                 mod = config.subtitle_modifications[original_idx]
-                
                 if mod.new_name:
                     cmd.extend(["--track-name", f"{sub_track.track_id}:{mod.new_name}"])
+                manual_delay = mod.delay_ms
+                stretch = mod.stretch
                 
-                if mod.delay_ms != 0 or mod.stretch != 1.0:
-                    sync_param = f"{sub_track.track_id}:{mod.delay_ms}"
-                    if mod.stretch != 1.0:
-                        sync_param += f",{mod.stretch}"
-                    cmd.extend(["--sync", sync_param])
+            # Cálculo de delay automático via relatório
+            auto_delay = 0
+            if report_data and folder_name != config.video_source_folder:
+                ep_num = extract_episode_number(current_ep.name)
+                if ep_num is not None:
+                    delay_val, found = get_report_delay(report_data, config.video_source_folder, folder_name, ep_num)
+                    if found and delay_val is not None:
+                        auto_delay = round(delay_val)
+                        print(f"    [DELAY AUTO] Legenda - Ep {ep_num:03d}: Aplicando {auto_delay:+.0f} ms para '{folder_name}'")
+                        
+            total_delay = manual_delay + auto_delay
+            if total_delay != 0 or stretch != 1.0:
+                sync_param = f"{sub_track.track_id}:{total_delay}"
+                if stretch != 1.0:
+                    sync_param += f",{stretch}"
+                cmd.extend(["--sync", sync_param])
             
             # Adiciona o arquivo DEPOIS das opções
             cmd.append(str(current_ep))
         
         print(f"  ✓ Legendas: {len(ordered_sub_tracks)} faixas")
+
+        # === CAPÍTULOS ===
+        if config.chapter_source_folder:
+            chapter_folder = folder_map.get(config.chapter_source_folder)
+            if chapter_folder:
+                chapter_episodes = get_mkv_files(chapter_folder)
+                
+                if ep_idx - 1 < len(chapter_episodes):
+                    chapter_ep = chapter_episodes[ep_idx - 1]
+                    # Passamos os ignorar vídeo, áudio e legendas.
+                    # Sem passar `--no-chapters`, o mkvmerge vai importar os capítulos deste arquivo!
+                    cmd.extend(["-A", "-D", "-S"])
+                    cmd.append(str(chapter_ep))
+                    print(f"  ✓ Capítulos integrados de: {chapter_folder.name}")
+                else:
+                    print(f"  ✗ ERRO: Pasta de capítulos '{chapter_folder.name}' não tem o episódio {ep_idx}")
         
         # Executa mkvmerge
         try:
@@ -1141,7 +1322,7 @@ def process_muxing(folders: List[Path], config: MuxConfig):
             audio_durations = []
             
             for track_id, duration in durations.items():
-                _, audios, _ = get_track_info(output_path)
+                _, audios, _, _ = get_track_info(output_path)
                 audio_ids = [a.track_id for a in audios]
                 
                 if track_id in audio_ids:
@@ -1205,7 +1386,7 @@ def main():
     if len(sys.argv) < 2:
         print("\n[ERRO] Nenhuma pasta fornecida!")
         print("\nUso:")
-        print("  Arraste PASTAS (ou atalhos) sobre mass_mux.bat")
+        print("  Arraste PASTAS (or atalhos) sobre mass_mux.bat")
         print("  Cada pasta deve conter episódios .mkv")
         sys.exit(1)
     
@@ -1236,6 +1417,9 @@ def main():
     if not validate_folder_structure(folders):
         print("\n[ERRO] Estrutura de pastas inválida!")
         sys.exit(1)
+    
+    # Escolha do local de saída (logo no início)
+    output_dir = select_output_directory(folders)
     
     # Verifica se existe config anterior
     config = None
@@ -1280,6 +1464,9 @@ def main():
         # 7. Modificações de legendas
         subtitle_modifications = modify_subtitle_tracks(folders, subtitle_selections, subtitle_order)
         
+        # 8. Fonte de capítulos
+        chapter_source = select_chapter_source(folders)
+        
         # Cria config
         config = MuxConfig(
             video_source_folder=video_source,
@@ -1288,7 +1475,8 @@ def main():
             audio_modifications=audio_modifications,
             subtitle_selections=subtitle_selections,
             subtitle_order=subtitle_order,
-            subtitle_modifications=subtitle_modifications
+            subtitle_modifications=subtitle_modifications,
+            chapter_source_folder=chapter_source
         )
         
         # Captura fingerprints para validação em execuções futuras
@@ -1303,18 +1491,65 @@ def main():
     print(f"\n{'=' * 70}")
     print("RESUMO DA OPERAÇÃO")
     print(f"{'=' * 70}")
-    print(f"Vídeo: {config.video_source_folder}")
+    print(f"Vídeo (Âncora): {config.video_source_folder}")
     print(f"Áudio: {sum(len(v) for v in config.audio_selections.values())} faixas de {len(config.audio_selections)} pastas")
     print(f"Legendas: {sum(len(v) for v in config.subtitle_selections.values())} faixas de {len(config.subtitle_selections)} pastas")
+    print(f"Capítulos: {config.chapter_source_folder if config.chapter_source_folder else 'NENHUM'}")
+    print(f"Saída: {output_dir}")
     print(f"{'=' * 70}")
+    
+    # --- INTEGRAÇÃO COM RELATÓRIO DE DELAY ---
+    report_path = Path("sync_delay_report.json")
+    report_data = {}
+    apply_auto_delay = False
+    
+    if report_path.exists():
+        try:
+            with open(report_path, "r", encoding="utf-8") as f:
+                report_data = json.load(f)
+        except Exception as e:
+            print(f"\n[AVISO] Não foi possível ler o relatório de delay unificado: {e}")
+            
+    # Mapeia todas as pastas secundárias que fornecerão faixas para o mux
+    target_folders = set()
+    for f_name, tracks in config.audio_selections.items():
+        if tracks:
+            target_folders.add(f_name)
+    for f_name, tracks in config.subtitle_selections.items():
+        if tracks:
+            target_folders.add(f_name)
+    target_folders.discard(config.video_source_folder)
+    
+    if target_folders:
+        missing_data_folders = check_report_coverage(report_data, config.video_source_folder, target_folders)
+        if missing_data_folders:
+            print(f"\n⚠️  [AVISO] As seguintes pastas de origem NÃO possuem dados de sincronia no relatório em relação à âncora '{config.video_source_folder}':")
+            for mf in missing_data_folders:
+                print(f"    - {mf}")
+            print("  Se prosseguir, essas faixas NÃO receberão ajuste automático de delay.")
+            
+        available_folders = target_folders - set(missing_data_folders)
+        if available_folders:
+            print(f"\n📊 Dados de delay encontrados para as seguintes pastas em relação à âncora '{config.video_source_folder}':")
+            for af in available_folders:
+                print(f"    - {af}")
+            
+            print("\n🤔 Deseja aplicar as correções de delay do relatório automaticamente?")
+            resp = input("Aplicar correções de delay automaticamente? (s/n): ").strip().lower()
+            if resp == 's':
+                apply_auto_delay = True
+                print("✓ Correções de delay automáticas ativadas.")
+            else:
+                print("✗ Correções automáticas ignoradas. Usando apenas configurações manuais.")
+    # ----------------------------------------
     
     print("\nIniciar muxing? (s/n): ", end='')
     if input().strip().lower() != 's':
         print("Operação cancelada.")
         sys.exit(0)
     
-    # Executa muxing
-    process_muxing(folders, config)
+    # Executa muxing passando o dicionário de relatórios de delay se ativado
+    process_muxing(folders, config, report_data if apply_auto_delay else None, output_dir)
 
 
 if __name__ == "__main__":

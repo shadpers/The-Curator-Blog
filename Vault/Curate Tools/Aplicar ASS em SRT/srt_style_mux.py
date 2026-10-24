@@ -1,11 +1,16 @@
 """
 srt_style_mux.py
-Extrai tracks SRT de um MKV, aplica estilo de um .ass de referência e remux automático.
+Extrai tracks SRT de múltiplos MKVs, aplica o estilo de um .ass de referência
+e remuxa automaticamente para uma pasta de saída.
 
 Uso:
-    python srt_style_mux.py "arquivo.mkv" "estilo_referencia.ass"
+    python srt_style_mux.py "estilo_referencia.ass" "fonte.ttf" "video1.mkv" "video2.mkv" ...
+    (A fonte é opcional. Se não houver fonte, passe os MKVs após o .ass)
 
-    Ou via srt_style_mux.bat arrastando os dois arquivos.
+    Ou via srt_style_mux.bat arrastando os arquivos juntos.
+
+Saída:
+    <pasta do primeiro MKV>/styled/<nome>_styled.mkv
 """
 
 import json
@@ -13,7 +18,102 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Console
+# ──────────────────────────────────────────────────────────────────────────────
+
+def _enable_ansi() -> None:
+    """Liga sequências ANSI no console do Windows 10+."""
+    if sys.platform != "win32":
+        return
+    try:
+        import ctypes
+        kernel = ctypes.windll.kernel32
+        handle = kernel.GetStdHandle(-11)
+        mode = ctypes.c_uint()
+        if kernel.GetConsoleMode(handle, ctypes.byref(mode)):
+            kernel.SetConsoleMode(handle, mode.value | 0x0004)
+    except Exception:
+        pass
+
+
+_enable_ansi()
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+
+class C:
+    RESET  = "\033[0m"
+    BOLD   = "\033[1m"
+    DIM    = "\033[2m"
+    RED    = "\033[31m"
+    GREEN  = "\033[32m"
+    YELLOW = "\033[33m"
+    BLUE   = "\033[34m"
+    CYAN   = "\033[36m"
+    WHITE  = "\033[97m"
+    GRAY   = "\033[90m"
+
+
+W = 58
+
+
+def paint(text: str, *styles: str) -> str:
+    return "".join(styles) + text + C.RESET
+
+
+def rule(char: str = "─") -> str:
+    return paint(char * W, C.GRAY)
+
+
+def banner() -> None:
+    print()
+    print(paint("┌" + "─" * (W - 2) + "┐", C.CYAN))
+    print(paint("│", C.CYAN) + paint("  SRT STYLE MUX".center(W - 2), C.BOLD, C.WHITE) + paint("│", C.CYAN))
+    print(paint("│", C.CYAN) + paint("  estilo · fonte · remux".center(W - 2), C.DIM) + paint("│", C.CYAN))
+    print(paint("└" + "─" * (W - 2) + "┘", C.CYAN))
+
+
+def section(title: str) -> None:
+    print()
+    print(paint(f"  {title}", C.BOLD, C.CYAN))
+    print(rule())
+
+
+def kv(label: str, value: str) -> None:
+    print(f"  {paint(f'{label:<10}', C.GRAY)} {value}")
+
+
+def info(msg: str) -> None:
+    print(f"  {paint('·', C.CYAN)} {msg}")
+
+
+def ok(msg: str) -> None:
+    print(f"  {paint('✓', C.GREEN)} {msg}")
+
+
+def warn(msg: str) -> None:
+    print(f"  {paint('!', C.YELLOW)} {paint(msg, C.YELLOW)}")
+
+
+def err(msg: str) -> None:
+    print(f"  {paint('✗', C.RED)} {paint(msg, C.RED)}")
+
+
+def ask(prompt: str) -> str:
+    try:
+        return input(f"  {paint('›', C.CYAN)} {prompt} ").strip()
+    except EOFError:
+        return ""
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -33,7 +133,7 @@ def find_tool(name: str) -> str:
     for c in candidates:
         if c.exists():
             return str(c)
-    sys.exit(f"[ERRO] '{name}' não encontrado. Instale o MKVToolNix e adicione ao PATH.")
+    sys.exit(f"\n  {paint('✗', C.RED)} '{name}' não encontrado. Instale o MKVToolNix e adicione ao PATH.\n")
 
 
 def get_tracks(mkv: Path) -> list[dict]:
@@ -43,6 +143,9 @@ def get_tracks(mkv: Path) -> list[dict]:
         [mkvmerge, "-J", str(mkv)],
         capture_output=True, text=True, encoding="utf-8"
     )
+    if result.returncode != 0 or not result.stdout.strip():
+        detail = (result.stderr or result.stdout or "sem saída").strip()
+        raise RuntimeError(detail)
     data = json.loads(result.stdout)
     return data.get("tracks", [])
 
@@ -138,36 +241,40 @@ def extract_fonts_from_ass(ref_path: Path) -> list[str]:
     return fonts
 
 
-def check_font(fonts: list[str], ttf_path: Path | None):
+def check_font(fonts: list[str], ttf_path: Path | None) -> None:
     """Exibe aviso sobre dependências de fonte e status do arquivo fornecido."""
-    print("\nDependências de fonte do estilo:")
-    for font in fonts:
-        print(f"  → {font}")
-
+    section("Fontes do estilo")
     if not fonts:
-        print("  (nenhuma fonte declarada nos estilos)")
+        info("Nenhuma fonte declarada nos estilos.")
         return
 
+    for font in fonts:
+        info(font)
+
     if ttf_path is None:
-        print("\n  [AVISO] Nenhum arquivo de fonte fornecido — a fonte NÃO será embedada.")
-        print("          Arraste o .ttf/.otf no .bat para embeddá-la automaticamente.")
+        print()
+        warn("Nenhum arquivo de fonte fornecido — a fonte NÃO será embedada.")
+        info("Arraste o .ttf/.otf junto no .bat para embedar automaticamente.")
+        return
+
+    print()
+    kv("Arquivo", ttf_path.name)
+    font_tokens = {t.lower() for f in fonts for t in f.split()}
+    file_stem = ttf_path.stem.lower()
+    match = any(tok in file_stem for tok in font_tokens if len(tok) > 2)
+    if match:
+        ok("Nome do arquivo bate com o estilo. OK para embedar.")
     else:
-        print(f"\n  Fonte fornecida : {ttf_path.name}")
-        # Verificação simples: nome do arquivo contém algum token do nome da fonte
-        font_tokens = {t.lower() for f in fonts for t in f.split()}
-        file_stem   = ttf_path.stem.lower()
-        match = any(tok in file_stem for tok in font_tokens if len(tok) > 2)
-        if match:
-            print("  Status          : ✓ Nome do arquivo bate com o estilo — OK para embedar.")
-        else:
-            print("  Status          : ⚠ Nome do arquivo não parece corresponder ao estilo.")
-            print(f"                    Esperado algo relacionado a: {', '.join(fonts)}")
-            resp = input("  Continuar mesmo assim? [s/N]: ").strip().lower()
-            if resp not in ("s", "sim", "y", "yes"):
-                sys.exit("Operação cancelada pelo usuário.")
+        warn("O nome do arquivo não parece corresponder ao estilo.")
+        info(f"Esperado algo relacionado a: {', '.join(fonts)}")
+        resp = ask("Continuar mesmo assim? [s/N]:").lower()
+        if resp not in ("s", "sim", "y", "yes"):
+            print()
+            err("Operação cancelada.")
+            sys.exit(1)
 
 
-def convert_to_ass(srt_path: Path, header: str, out_path: Path):
+def convert_to_ass(srt_path: Path, header: str, out_path: Path) -> int:
     try:
         raw = srt_path.read_text(encoding="utf-8-sig")
     except UnicodeDecodeError:
@@ -192,7 +299,7 @@ def convert_to_ass(srt_path: Path, header: str, out_path: Path):
 
 def remux(mkv: Path, all_tracks: list[dict], selected_ids: list[int],
           all_sub_ids: list[int], ass_files: dict[int, Path],
-          track_meta: dict[int, dict], ttf_path: Path | None, out_path: Path):
+          track_meta: dict[int, dict], ttf_path: Path | None, out_path: Path) -> None:
     """
     Remux preservando a ordem exata das tracks originais via --track-order.
     Cada .ass convertido entra no slot exato do SRT que substituiu.
@@ -200,7 +307,6 @@ def remux(mkv: Path, all_tracks: list[dict], selected_ids: list[int],
     mkvmerge = find_tool("mkvmerge")
     cmd = [mkvmerge, "-o", str(out_path)]
 
-    # Subtitles do MKV original que NÃO foram convertidos
     keep_sub_ids = [sid for sid in all_sub_ids if sid not in selected_ids]
     if keep_sub_ids:
         cmd += ["--subtitle-tracks", ",".join(str(i) for i in keep_sub_ids)]
@@ -209,8 +315,6 @@ def remux(mkv: Path, all_tracks: list[dict], selected_ids: list[int],
 
     cmd.append(str(mkv))
 
-    # Mapeia track_id → índice do arquivo extra (1-based, pois 0 = MKV original)
-    # A ordem de append dos .ass define o file index no mkvmerge
     ass_file_index: dict[int, int] = {}
     for file_idx, (tid, ass_path) in enumerate(ass_files.items(), start=1):
         meta = track_meta.get(tid, {})
@@ -230,18 +334,15 @@ def remux(mkv: Path, all_tracks: list[dict], selected_ids: list[int],
         cmd.append(str(ass_path))
         ass_file_index[tid] = file_idx
 
-    # Reconstrói --track-order na ordem original das tracks
     order_parts = []
     for t in all_tracks:
-        tid  = t["id"]
+        tid = t["id"]
         ttype = t.get("type", "")
         if tid in ass_file_index:
-            # Track convertida: vem do arquivo extra correspondente
             order_parts.append(f"{ass_file_index[tid]}:0")
         elif ttype == "subtitles" and tid in selected_ids:
-            pass  # não deveria ocorrer, mas ignora por segurança
+            pass
         else:
-            # Track original mantida
             order_parts.append(f"0:{tid}")
 
     if ttf_path is not None:
@@ -255,26 +356,62 @@ def remux(mkv: Path, all_tracks: list[dict], selected_ids: list[int],
 
 
 # ──────────────────────────────────────────────────────────────────────────────
+# Saída
+# ──────────────────────────────────────────────────────────────────────────────
+
+def output_dir_for(mkv_paths: list[Path]) -> Path:
+    """Uma pasta 'styled' ao lado do primeiro MKV da fila."""
+    return mkv_paths[0].parent / "styled"
+
+
+def unique_output(folder: Path, mkv: Path, used: set[str]) -> Path:
+    """Evita colisão quando dois MKVs de pastas diferentes têm o mesmo nome."""
+    stem = mkv.stem + "_styled"
+    candidate = stem
+    if candidate.lower() in used:
+        candidate = f"{mkv.parent.name}_{stem}"
+        n = 2
+        while candidate.lower() in used:
+            candidate = f"{mkv.parent.name}_{stem}_{n}"
+            n += 1
+    used.add(candidate.lower())
+    return folder / f"{candidate}.mkv"
+
+
+# ──────────────────────────────────────────────────────────────────────────────
 # UI de seleção no terminal
 # ──────────────────────────────────────────────────────────────────────────────
 
-def ask_selection(srt_tracks: list[dict]) -> list[int]:
-    print("\nTracks SRT encontradas:")
-    print(f"  {'#':<4} {'ID':<6} {'Lang':<8} {'Nome'}")
-    print("  " + "-" * 45)
+def print_tracks(srt_tracks: list[dict]) -> None:
+    print()
+    print(f"  {paint('#', C.GRAY):<5}  {paint('ID', C.GRAY):<6}  {paint('Lang', C.GRAY):<8}  {paint('Nome', C.GRAY)}")
+    print(rule())
     for i, t in enumerate(srt_tracks, 1):
         props = t.get("properties", {})
-        lang  = props.get("language", "und")
-        name  = props.get("track_name", "")
-        print(f"  {i:<4} {t['id']:<6} {lang:<8} {name}")
+        lang = props.get("language", "und") or "und"
+        name = props.get("track_name", "") or "—"
+        forced = "  " + paint("forced", C.YELLOW) if props.get("forced_track") else ""
+        default = "  " + paint("default", C.GREEN) if props.get("default_track") else ""
+        print(f"  {paint(str(i), C.BOLD):<5}  {t['id']:<6}  {lang:<8}  {name}{forced}{default}")
 
+
+def ask_selection(srt_tracks: list[dict], global_choice: str | None = None) -> tuple[list[int], str]:
+    """Retorna os IDs selecionados e a decisão global ('all' ou 'manual')."""
+    if global_choice == "all":
+        info(f"Aplicando em todas as {len(srt_tracks)} track(s) SRT.")
+        return [t["id"] for t in srt_tracks], "all"
+
+    print_tracks(srt_tracks)
     print()
-    resp = input("Aplicar estilo em TODAS as tracks? [S/n]: ").strip().lower()
-    if resp in ("", "s", "sim", "y", "yes"):
-        return [t["id"] for t in srt_tracks]
 
-    print("Digite os números das tracks separados por vírgula (ex: 1,3):")
-    raw = input("> ").strip()
+    if global_choice is None:
+        resp = ask("Aplicar em TODAS as tracks deste e dos próximos? [S/n]:").lower()
+        if resp in ("", "s", "sim", "y", "yes"):
+            return [t["id"] for t in srt_tracks], "all"
+        global_choice = "manual"
+
+    print(paint("  Números separados por vírgula. Ex: 1,3", C.DIM))
+    raw = ask("Tracks:")
     chosen = []
     for part in raw.split(","):
         part = part.strip()
@@ -283,93 +420,162 @@ def ask_selection(srt_tracks: list[dict]) -> list[int]:
             if 0 <= idx < len(srt_tracks):
                 chosen.append(srt_tracks[idx]["id"])
             else:
-                print(f"  [AVISO] Número {part} inválido, ignorado.")
+                warn(f"Número {part} inválido, ignorado.")
     if not chosen:
-        sys.exit("[ERRO] Nenhuma track selecionada.")
-    return chosen
+        warn("Nenhuma track válida. Este arquivo será pulado.")
+    return chosen, global_choice
 
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────────────────────────────────────
 
-def main():
+def main() -> None:
     if len(sys.argv) < 3:
         print(__doc__)
         sys.exit(1)
 
-    mkv_path = Path(sys.argv[1])
-    ref_path = Path(sys.argv[2])
-    ttf_path = Path(sys.argv[3]) if len(sys.argv) >= 4 else None
+    mkv_paths: list[Path] = []
+    ref_path = None
+    ttf_path = None
 
-    if not mkv_path.is_file():
-        sys.exit(f"[ERRO] MKV não encontrado: {mkv_path}")
-    if not ref_path.is_file():
-        sys.exit(f"[ERRO] Referência .ass não encontrada: {ref_path}")
+    for arg in sys.argv[1:]:
+        p = Path(arg)
+        suffix = p.suffix.lower()
+        if suffix == ".mkv":
+            mkv_paths.append(p)
+        elif suffix == ".ass":
+            ref_path = p
+        elif suffix in (".ttf", ".otf"):
+            ttf_path = p
+
+    banner()
+
+    if not mkv_paths:
+        err("Nenhum arquivo MKV fornecido.")
+        sys.exit(1)
+    if ref_path is None or not ref_path.is_file():
+        err("Referência .ass inválida ou não encontrada.")
+        sys.exit(1)
     if ttf_path is not None and not ttf_path.is_file():
-        sys.exit(f"[ERRO] Fonte não encontrada: {ttf_path}")
+        err(f"Fonte não encontrada: {ttf_path}")
+        sys.exit(1)
 
-    print("=" * 55)
-    print(f"  MKV      : {mkv_path.name}")
-    print(f"  Estilo   : {ref_path.name}")
-    if ttf_path:
-        print(f"  Fonte    : {ttf_path.name}")
-    print("=" * 55)
+    out_dir = output_dir_for(mkv_paths)
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Dependências de fonte
+    section("Fila")
+    kv("Estilo", ref_path.name)
+    kv("Fonte", ttf_path.name if ttf_path else "— não embedada")
+    kv("Vídeos", str(len(mkv_paths)))
+    kv("Saída", str(out_dir))
+
     fonts = extract_fonts_from_ass(ref_path)
     check_font(fonts, ttf_path)
 
-    # Listar tracks
-    tracks     = get_tracks(mkv_path)
-    srt_tracks = [t for t in tracks
-                  if t.get("type") == "subtitles"
-                  and t.get("properties", {}).get("codec_id") == "S_TEXT/UTF8"]
-    all_sub_ids = [t["id"] for t in tracks if t.get("type") == "subtitles"]
-
-    if not srt_tracks:
-        sys.exit("[AVISO] Nenhuma track SRT (S_TEXT/UTF8) encontrada no MKV.")
-
-    # Seleção
-    selected_ids = ask_selection(srt_tracks)
-
-    # Metadados para preservar no remux
-    track_meta = {
-        t["id"]: {
-            "language":     t.get("properties", {}).get("language", ""),
-            "name":         t.get("properties", {}).get("track_name", ""),
-            "forced_track": t.get("properties", {}).get("forced_track", False),
-            "default_track":t.get("properties", {}).get("default_track", False),
-        }
-        for t in srt_tracks if t["id"] in selected_ids
-    }
-
     header = extract_header(ref_path)
+    global_choice = None
+    used_names: set[str] = set()
+    done: list[Path] = []
+    skipped: list[str] = []
+    started = time.perf_counter()
 
-    with tempfile.TemporaryDirectory() as tmp:
-        tmp_dir = Path(tmp)
+    for idx, mkv_path in enumerate(mkv_paths, 1):
+        section(f"[{idx}/{len(mkv_paths)}]  {mkv_path.name}")
 
-        # Extrair SRTs
-        print(f"\nExtraindo {len(selected_ids)} track(s)...")
-        srt_files = extract_srts(mkv_path, selected_ids, tmp_dir)
+        if not mkv_path.is_file():
+            err(f"Arquivo não encontrado: {mkv_path}")
+            skipped.append(mkv_path.name)
+            continue
 
-        # Converter para ASS
-        ass_files: dict[int, Path] = {}
-        for tid, srt_path in srt_files.items():
-            ass_path = tmp_dir / f"track_{tid}.ass"
-            count = convert_to_ass(srt_path, header, ass_path)
-            lang = track_meta[tid]["language"]
-            name = track_meta[tid]["name"] or "-"
-            print(f"  Convertido  track {tid} [{lang}] '{name}'  ({count} linhas)")
-            ass_files[tid] = ass_path
+        try:
+            tracks = get_tracks(mkv_path)
+        except (RuntimeError, json.JSONDecodeError) as e:
+            err(f"Não foi possível ler as tracks: {e}")
+            skipped.append(mkv_path.name)
+            continue
 
-        # Remux
-        out_path = mkv_path.parent / (mkv_path.stem + "_styled.mkv")
-        print(f"\nRemuxando → {out_path.name} ...")
-        remux(mkv_path, tracks, selected_ids, all_sub_ids, ass_files, track_meta, ttf_path, out_path)
+        srt_tracks = [t for t in tracks
+                      if t.get("type") == "subtitles"
+                      and t.get("properties", {}).get("codec_id") == "S_TEXT/UTF8"]
+        all_sub_ids = [t["id"] for t in tracks if t.get("type") == "subtitles"]
 
-    print(f"\n✓ Concluído: {out_path.name}")
-    print("=" * 55)
+        if not srt_tracks:
+            warn("Nenhuma track SRT (S_TEXT/UTF8). Pulando.")
+            skipped.append(mkv_path.name)
+            continue
+
+        selected_ids, global_choice = ask_selection(srt_tracks, global_choice)
+        if not selected_ids:
+            skipped.append(mkv_path.name)
+            continue
+
+        track_meta = {
+            t["id"]: {
+                "language":      t.get("properties", {}).get("language", ""),
+                "name":          t.get("properties", {}).get("track_name", ""),
+                "forced_track":  t.get("properties", {}).get("forced_track", False),
+                "default_track": t.get("properties", {}).get("default_track", False),
+            }
+            for t in srt_tracks if t["id"] in selected_ids
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_dir = Path(tmp)
+
+            print()
+            info(f"Extraindo {len(selected_ids)} track(s)...")
+            srt_files = extract_srts(mkv_path, selected_ids, tmp_dir)
+
+            ass_files: dict[int, Path] = {}
+            for tid, srt_path in srt_files.items():
+                ass_path = tmp_dir / f"track_{tid}.ass"
+                try:
+                    count = convert_to_ass(srt_path, header, ass_path)
+                    lang = track_meta[tid]["language"] or "und"
+                    name = track_meta[tid]["name"] or "—"
+                    ok(f"track {tid}  [{lang}]  {name}  ·  {count} linhas")
+                    ass_files[tid] = ass_path
+                except ValueError as e:
+                    warn(f"track {tid}: {e}. Ignorada.")
+
+            if not ass_files:
+                warn("Nenhuma legenda pôde ser convertida.")
+                skipped.append(mkv_path.name)
+                continue
+
+            out_path = unique_output(out_dir, mkv_path, used_names)
+            if out_path.exists():
+                warn(f"Substituindo {out_path.name}")
+            print()
+            info(f"Remuxando → {out_path.name}")
+            try:
+                remux(mkv_path, tracks, selected_ids, all_sub_ids, ass_files, track_meta, ttf_path, out_path)
+            except subprocess.CalledProcessError:
+                err(f"mkvmerge falhou em {mkv_path.name}")
+                skipped.append(mkv_path.name)
+                continue
+
+        done.append(out_path)
+        ok(f"Salvo em styled/{out_path.name}")
+
+    elapsed = time.perf_counter() - started
+    section("Resumo")
+    kv("Pasta", str(out_dir))
+    kv("Prontos", str(len(done)))
+    kv("Pulados", str(len(skipped)))
+    kv("Tempo", f"{elapsed:.1f}s")
+    if done:
+        print()
+        for path in done:
+            ok(path.name)
+    if skipped:
+        print()
+        for name in skipped:
+            warn(name)
+    print()
+    print(paint("  Fila encerrada.", C.BOLD, C.GREEN))
+    print()
 
 
 if __name__ == "__main__":

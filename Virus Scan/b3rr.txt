@@ -1,0 +1,118 @@
+======================================================
+        SECURITY SCAN REPORT
+======================================================
+Report Date: 2026-10-24 17:24:55
+------------------------------------------------------
+     FILE DETAILS
+------------------------------------------------------
+File Name: Burnout 3 Takedown (Xbox) [Recomp Repack].zip
+Size: 1613475388 bytes
+MD5: 9C28640B91635F35E48DB586855543DD
+SHA256: BFB9638E2FC53390054A32D6CCD29BFD63950B9FF93A3B6BC678274613E2BA6B
+------------------------------------------------------
+  1. MALWAREBYTES SCAN (Manual Verification)
+------------------------------------------------------
+Applicationversion: 5.7.2.358
+Clientid: MBAM5
+Clienttype: fullUIScan
+Componentsupdatepackageversion: 166.0.5763
+Coredllfileversion: 3.1.0.291
+Cpu: x64
+Dbsdkupdatepackageversion: 1.0.116139
+Detectiondatetime: 2026-10-24T20:24:46Z
+Filesystem: NTFS
+Licensestate: free
+Os: Windows 11 (Build 26300.9711)
+Objectsscanned: 1
+Scanendtime: 2026-10-24T20:24:52Z
+Scanonlinestatus: online
+Scanresult: completed
+Scanstarttime: 2026-10-24T20:24:46Z
+Threatsdetected: 0
+
+------------------------------------------------------
+  2. KASPERSKY SCAN (Automated via AVP.com)
+------------------------------------------------------
+Kaspersky Client: Kaspersky
+Version: 21.26.4.406
+Last Database Update: 2026-10-24 17:04:43
+
+Scan Result:
+; --- Settings ---
+; Action on detect:		Disinfect automatically
+; Scan objects:			All objects
+; Use iChecker:			Yes
+; Use iSwift:			Yes
+; Try disinfect:		Yes
+; Try delete:			No
+; Try delete container:		No
+; Scan archives:		No
+; Exclude by mask:		No
+; Include by mask:		No
+; Objects to scan:	
+; 	"C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip"	Enable = Yes	Recursive = No
+2026-10-24 17:24:22	Scan_Objects$5652                          starting   1          
+2026-10-24 17:24:22 	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip	archive	ZIP
+2026-10-24 17:24:23	Scan_Objects$5652                          running    1          
+2026-10-24 17:24:26	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Burnout 3 Takedown [Recomp Repack].7z.001	ok
+2026-10-24 17:24:30	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Burnout 3 Takedown [Recomp Repack].7z.002	ok
+2026-10-24 17:24:34	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Burnout 3 Takedown [Recomp Repack].7z.003	ok
+2026-10-24 17:24:34	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Burnout 3 Takedown [Recomp Repack].7z.004	ok
+2026-10-24 17:24:35	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Takedawn-Repack-Setup.exe	ok
+2026-10-24 17:24:35	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Takedawn-Repack-Setup.exe//exe//data0058.res	ok
+2026-10-24 17:24:36	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Takedawn-Repack-Setup.exe//exe	ok
+2026-10-24 17:24:36	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip//Burnout 3 Takedown (Xbox) [Recomp Repack]/Takedawn-Repack-Setup.exe//script	ok
+2026-10-24 17:24:37	C:\Users\[USER]\Downloads\Burnout 3 Takedown (Xbox) [Recomp Repack].zip	ok
+2026-10-24 17:24:37	Scan_Objects$5652                          completed             
+;  --- Statistics ---
+; Time Start:		2026-10-24 17:24:22
+; Time Finish:		2026-10-24 17:24:37
+; Processed objects:	9
+; Total OK:		9
+; Total detected:	0
+; Suspicions:		0
+; Total skipped:	0
+; Password protected:	0
+; Corrupted:		0
+; Errors:		0
+---------------------------------------------------------------------
+ AMSI                                       running               
+ AVStreamMonitorTask                        running               
+ DuplicateFilesScanner                      completed             
+ DuplicateFilesScannerPromo                 enabled               
+ File_Monitoring                            running               
+ Firewall                                   running               
+ FirewallGroup                              running               
+ HardDriveHealthScan                        enabled               
+ Hips                                       running               
+ HipsRescanTask                             enabled               
+ HipsTask                                   running               
+ ids                                        running               
+ LargeFilesScanner                          completed             
+ LargeFilesScannerPromo                     enabled               
+ Mail_Monitoring                            running               
+ PatchManagementScan                        completed             
+ PatchManagementScanBackground              enabled               
+ Protection                                 running               
+ RegistryScanner                            completed             
+ RegistryScannerPromo                       enabled               
+ RollbackUpdate                             enabled               
+ Scan_ContextScan                           enabled               
+ Scan_IdleScan                              stopped               
+ Scan_My_Computer                           completed             
+ Scan_Objects                               enabled               
+ Scan_Qscan                                 completed             
+ Scan_Removable_Drive                       enabled               
+ Scan_Startup                               enabled               
+ Scan_System_Memory                         enabled               
+ Scan_Vulnerabilities                       enabled               
+ SISettingsUpdaterTask                      completed             
+ StartupScanner                             completed             
+ Updater                                    completed             
+ WeakSettingsScanTask                       completed             
+ WeakSettingsScanTask$3235                  completed             
+ WiFiProtection                             running
+
+======================================================
+                  END OF REPORT
+======================================================

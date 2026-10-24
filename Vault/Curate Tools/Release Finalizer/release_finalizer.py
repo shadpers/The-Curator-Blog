@@ -4,7 +4,7 @@ Detecta via ffprobe: resolucao, codec de video, codec/canais do audio principal,
 idiomas de audio, quantidade de legendas e valida a estrutura de faixas.
 
 Novidades:
-- Edita o Titulo do Arquivo (metadados para VLC) com incremento automatico.
+- Edita o Titulo Interno do Arquivo (metadados) com o número real do episódio.
 - Define APENAS a primeira faixa de audio e legenda como Padrao (Default) e Forcada (Forced).
 - Exige uso de MKVToolNix (mkvpropedit) para edicao instantanea sem re-encode.
 """
@@ -150,23 +150,29 @@ def build_filename(title: str, year: str, resolution: str, source: str,
     ]
     return ".".join(p for p in parts if p) + ".mkv"
 
-def increment_vlc_title(base_title: str, index: int) -> str:
+def set_internal_episode(base_title: str, ep_num: int) -> str:
     """
-    Busca algo como 'E01' no título e incrementa apenas esse número.
-    Ex: Naruto S01E01 -> Naruto S01E02
+    Substitui o número do episódio no título interno pelo número real do arquivo.
+    Preserva o padding (zeros à esquerda) do título base.
+    Ex: "Hunter x Hunter (1999) E01 [The Curator]" + 10 → "Hunter x Hunter (1999) E10 [The Curator]"
     """
-    if index == 0:
+    if not base_title or ep_num is None:
         return base_title
-    
-    # Procura a última ocorrência de 'E' ou 'e' seguido de números
+
     m = re.search(r'(.*[Ee])(\d+)(.*)', base_title)
     if m:
         prefix, num_str, suffix = m.groups()
-        new_num = int(num_str) + index
-        # Mantém a quantidade de zeros à esquerda
-        padded_num = f"{new_num:0{len(num_str)}d}"
-        return f"{prefix}{padded_num}{suffix}"
+        padded = f"{ep_num:0{len(num_str)}d}"
+        return f"{prefix}{padded}{suffix}"
     return base_title
+
+
+def extract_ep_number(ep_tag: str) -> int | None:
+    """Extrai o número do episódio de uma tag como 'E01', 'S01E10', etc."""
+    if not ep_tag:
+        return None
+    m = re.search(r'[Ee](\d+)', ep_tag)
+    return int(m.group(1)) if m else None
 
 def apply_metadata_and_flags(filepath: str, title: str, audio_count: int, sub_count: int):
     """
@@ -282,7 +288,7 @@ def batch_rename(files_info: list) -> None:
     year       = input("  Ano            (ex: 2012): ").strip()
     source     = input("  Source         (WEB-DL / BluRay / BDRip): ").strip()
     raw_season = input("  Temporada      (ex: 1 / Enter p/ pular): ").strip()
-    vlc_title  = input("  Titulo Interno/VLC (ex: Naruto S01E01): ").strip()
+    internal_title = input("  Titulo Interno (ex: Naruto S01E01): ").strip()
 
     title_base  = sanitize_title(raw_title) if raw_title else "Unknown"
     year_part   = re.sub(r"\D", "", year)[:4] if year else "????"
@@ -301,24 +307,25 @@ def batch_rename(files_info: list) -> None:
             ep_tag = apply_season(ep_tag, season_num)
         title   = f"{title_base}.{ep_tag}" if ep_tag else title_base
 
-        # Gera o titulo do VLC incrementado (somente o numero do ep)
-        current_vlc_title = increment_vlc_title(vlc_title, i) if vlc_title else ""
+        # Gera o titulo interno com o número REAL do episódio extraído do arquivo
+        ep_num = extract_ep_number(ep_tag)
+        current_internal_title = set_internal_episode(internal_title, ep_num) if internal_title and ep_num is not None else ""
 
         name_args = dict(
             title=title, year=year_part, resolution=info["resolution"],
             source=source_part, video_codec=info["video_codec"],
             audio_label=info["audio_label"], langs=langs, sub_tag=info["sub_tag"],
         )
-        plan.append((fp, name_args, current_vlc_title, info))
+        plan.append((fp, name_args, current_internal_title, info))
 
     # Exibe preview com hash placeholder
     print()
-    for old_path, name_args, c_vlc, info in plan:
+    for old_path, name_args, c_internal, info in plan:
         preview_name = build_filename(**name_args, hash_tag="[????????]")
-        vlc_display  = c_vlc if c_vlc else preview_name
+        internal_display = c_internal if c_internal else preview_name
         print(f"  {os.path.basename(old_path)}")
         print(f"    -> {preview_name}")
-        print(f"    -> Titulo VLC: {vlc_display}\n")
+        print(f"    -> Titulo Interno: {internal_display}\n")
 
     print(sep)
     confirm = input(f"  Renomear e Finalizar todos os {len(plan)} arquivo(s)? (s/n): ").strip().lower()
@@ -328,11 +335,11 @@ def batch_rename(files_info: list) -> None:
 
     erros = 0
     print("\n  Aplicando mudancas...")
-    for old_path, name_args, c_vlc, info in plan:
-        vlc_final = c_vlc  # será preenchido abaixo se necessário
+    for old_path, name_args, c_internal, info in plan:
+        internal_final = c_internal  # será preenchido abaixo se necessário
 
         # 1. Aplica metadados no arquivo com o nome original
-        apply_metadata_and_flags(old_path, vlc_final or os.path.basename(old_path),
+        apply_metadata_and_flags(old_path, internal_final or os.path.basename(old_path),
                                  info["audio_count"], info["sub_count"])
 
         # 2. Calcula o SHA-256 do arquivo já modificado
@@ -342,9 +349,9 @@ def batch_rename(files_info: list) -> None:
 
         # 3. Monta o nome final com o hash correto
         new_name  = build_filename(**name_args, hash_tag=hash_tag)
-        if not vlc_final:
-            vlc_final = new_name
-            apply_metadata_and_flags(old_path, vlc_final, info["audio_count"], info["sub_count"])
+        if not internal_final:
+            internal_final = new_name
+            apply_metadata_and_flags(old_path, internal_final, info["audio_count"], info["sub_count"])
 
         dest = os.path.join(os.path.dirname(os.path.abspath(old_path)), new_name)
 
@@ -382,7 +389,7 @@ def manual_rename_one(info: dict) -> None:
     year       = input("  Ano            (ex: 2012): ").strip()
     source     = input("  Source         (WEB-DL / BluRay / BDRip): ").strip()
     raw_season = input("  Temporada      (ex: 1 / Enter p/ pular): ").strip()
-    vlc_title  = input("  Titulo Interno/VLC: ").strip()
+    internal_title = input("  Titulo Interno: ").strip()
 
     if raw_season:
         season_num = int(re.sub(r"\D", "", raw_season))
@@ -407,12 +414,12 @@ def manual_rename_one(info: dict) -> None:
     preview_name = build_filename(**name_args, hash_tag="[????????]")
 
     print(f"\n  Nome final (hash pendente) : {preview_name}")
-    print(f"  Titulo VLC : {vlc_title if vlc_title else preview_name}\n")
+    print(f"  Titulo Interno : {internal_title if internal_title else preview_name}\n")
 
     confirm = input("  Renomear e Finalizar? (s/n): ").strip().lower()
     if confirm == "s":
         # 1. Aplica metadados no arquivo com o nome original
-        apply_metadata_and_flags(fp, vlc_title if vlc_title else os.path.basename(fp),
+        apply_metadata_and_flags(fp, internal_title if internal_title else os.path.basename(fp),
                                  info["audio_count"], info["sub_count"])
 
         # 2. Calcula hash do arquivo JA modificado
@@ -422,11 +429,11 @@ def manual_rename_one(info: dict) -> None:
 
         # 3. Monta nome final com hash correto
         new_name  = build_filename(**name_args, hash_tag=hash_tag)
-        vlc_final = vlc_title if vlc_title else new_name
+        internal_final = internal_title if internal_title else new_name
 
-        # Se o vlc_title estava vazio, reaplica com o nome definitivo como titulo
-        if not vlc_title:
-            apply_metadata_and_flags(fp, vlc_final, info["audio_count"], info["sub_count"])
+        # Se o titulo interno estava vazio, reaplica com o nome definitivo como titulo
+        if not internal_title:
+            apply_metadata_and_flags(fp, internal_final, info["audio_count"], info["sub_count"])
 
         dest = os.path.join(os.path.dirname(os.path.abspath(fp)), new_name)
         if os.path.exists(dest) and dest != os.path.abspath(fp):
@@ -458,9 +465,17 @@ def main() -> None:
         input("\nPressione Enter para sair...")
         sys.exit(0)
 
+    # Ordena os arquivos pelo número real do episódio (em vez de ordem alfabética)
+    def sort_key(fp: str) -> tuple:
+        ep_tag = extract_episode_tag(os.path.basename(fp))
+        num = extract_ep_number(ep_tag)
+        return (num if num is not None else 9999, fp)
+
+    args = sorted(args, key=sort_key)
+
     print(f"\n  Analisando {len(args)} arquivo(s)...\n")
     files_info: list = []
-    for fp in sorted(args):
+    for fp in args:
         print(f"  ffprobe -> {os.path.basename(fp)}...", end=" ", flush=True)
         try:
             info = analyze_file(fp)

@@ -1,9 +1,12 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal EnableDelayedExpansion
+cd /d "%~dp0"
 
-set PYTHON_PATH=C:\Python313\python.exe
-set FFPROBE_PATH=C:\FFmpeg\bin\ffprobe.exe
-set SEVENZIP_PATH=C:\Program Files\7-Zip\7z.exe
+:: Caminho fixo do Python
+set PYTHON_EXE="C:\Python313\python.exe"
 
-"%PYTHON_PATH%" "%~dp0compactar.py" "%FFPROBE_PATH%" "%SEVENZIP_PATH%"
+:: Caminho fixo do script
+set SCRIPT_PY="compactar.py"
+
+%PYTHON_EXE% %SCRIPT_PY%
 pause
